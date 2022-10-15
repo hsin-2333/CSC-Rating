@@ -306,8 +306,8 @@ if(isset($_GET['id'])){
         $row = $sth->fetch(PDO::FETCH_ASSOC);
         
         //確認欄位有無填寫完成
-        if(isset($_POST['rating']) && isset($_POST['content'] )){
-                if($_POST['rating']=="0" or $_POST['content']=="" or $_POST['content_negative']=="" ){  
+        if(isset($_POST['content_negative']) && isset($_POST['content'] )){
+                if($_POST['content']=="" or $_POST['content_negative']=="" ){  
                     echo "<script>alert('所有欄位皆須填寫')</script>";
                 }
                 else{

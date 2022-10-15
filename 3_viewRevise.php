@@ -101,7 +101,7 @@ if(isset($_GET['id'])){
                                     <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字"><?php echo $row['content']; ?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
-                                <div>
+                                <div class="b">
                                     <button type="button" onclick="stepper.next()">下一步</button>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@ if(isset($_GET['id'])){
                                     <textarea name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft" >30</span><span>/30</span></small>
                                 </div>
-                                <div>
+                                <div class="b">
                                     <button type="button" onclick="stepper.next()">下一步</button>
                                 </div>
                             </div>
@@ -215,7 +215,7 @@ if(isset($_GET['id'])){
                                     <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字" ><?php echo $row['content'];?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
-                                <div>
+                                <div class="b">
                                     <button type="button" onclick="stepper.next()" >提交</button>
                                 </div>
                             </div>
