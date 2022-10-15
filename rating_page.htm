@@ -23,8 +23,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="bootstrap.css" />
     <link rel="stylesheet" href="styles.css" />
-    <!--  timer css -->
-    <link rel="stylesheet" href="./progressor.css" />
+    <!-- timer css
+    <link rel="stylesheet" href="./progressor.css" /> -->
 
     <!--  Stepper分頁-->
     <meta charset="utf-8" />
@@ -122,19 +122,6 @@
       </div>
     </nav>
 
-    <!--timer -->        
-    <div class="card-body" >
-      <div class="justify-content-start">
-        <div class="container-timer ">
-          <div class="timer-wrapper">
-            <div class="timer-bar"></div>
-            <div class="timer-txt">00:00:<span id="sec">00</span></div>
-          </div>
-        </div>
-      </div>  
-    </div> 
-    <!--insert jquery-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs-stepper@1.7.0/dist/js/bs-stepper.min.js"></script>
 
     <!--Pop Window-->
@@ -212,36 +199,6 @@
         var curr = which.value.length;
         document.getElementById("chLeft_P").innerHTML = curr.toString();
       }
-    </script>
-
-    <!-- timer JS-->
-    <script>
-      var fullTime = 60;
-      var warn = 20;
-      var almost = 10;
-
-      var currTime = fullTime;
-
-      var timer = setInterval(function () {
-        --currTime;
-
-        // Clear interval if time is up:
-        if (!currTime) window.clearInterval(timer);
-
-        // Prepend 0 if single-digit number:
-        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
-
-        // Set time to show to user:
-        $("#sec").text(txt);
-
-        // Decrease the bar width:
-        var w = (currTime / fullTime) * 100;
-        $(".timer-bar").css({ width: w + "%" });
-
-        // Manipulate bar according to the value:
-        if (currTime === warn) $(".timer-bar").addClass("timer-warn");
-        if (currTime === almost) $(".timer-bar").addClass("timer-almost");
-      }, 1000);
     </script>
   </body>
 </html>
