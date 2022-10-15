@@ -44,9 +44,9 @@ if(isset($_GET['id'])){
 
                             <div class="p-2">
                                 <h5 class="card-title" style=" font-size:30px;"><strong>Product name:<?php echo $row_B['name']?></strong> </h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
+                                <!--h6 class="card-subtitle mb-2 text-muted">
                                     <fieldset class="rating">
-                                            <!--input type="radio" id="no-rate" class="input-no-rate" name="newRating" value="0" aria-label="No rating."-->
+
 
                                             <input type="radio" id="rate1" name="newRating" value="1"  <?php if ($row['rating']==1) echo "checked"; ?>>
                                             <label for="rate1">1 star</label>
@@ -65,7 +65,7 @@ if(isset($_GET['id'])){
 
                                             <span class="focus-ring"></span>
                                     </fieldset>
-                                </h6>
+                                </h6-->
                             </div>
                             
                         </div>
@@ -149,9 +149,8 @@ if(isset($_GET['id'])){
 
                             <div class="p-2">
                                 <h5 class="card-title" style=" font-size:30px;"><strong>Product name:<?php echo $row_B['name']?></strong> </h5>
-                                <h6 class="card-subtitle mb-2 text-muted">
+                                <!--h6 class="card-subtitle mb-2 text-muted">
                                     <fieldset class="rating">
-                                            <!--input type="radio" id="no-rate" class="input-no-rate" name="newRating" value="0" aria-label="No rating."-->
 
                                             <input type="radio" id="rate1" name="newRating" value="1"  <?php if ($row['rating']==1) echo "checked"; ?>>
                                             <label for="rate1">1 star</label>
@@ -170,7 +169,7 @@ if(isset($_GET['id'])){
 
                                             <span class="focus-ring"></span>
                                     </fieldset>
-                                </h6>
+                                </h6-->
                             </div>
                             
                         </div>
@@ -252,10 +251,10 @@ if(isset($_GET['id'])){
                         {
                             $sth2 = $dbh->prepare(
                                 //'INSERT INTO dz_thread (product_id,nickname, account, rating, content, content_negative, ip) VALUES (?,?, ?, ?,?, ?, ?)'
-                                'UPDATE dz_thread SET newRating = ?, Revise_C = ?, Revise_C_N = ? WHERE product_id = ? AND account = ? '
+                                'UPDATE dz_thread SET Revise_C = ?, Revise_C_N = ? WHERE product_id = ? AND account = ? '
                             );
                             $sth2->execute(array(
-                                $_POST['newRating'], 
+                                //$_POST['newRating'], 
                                 $_POST['Revise_C'],
                                 $_POST['Revise_C_N'],
                                 (int)$_GET['id'],

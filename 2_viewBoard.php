@@ -40,7 +40,7 @@ if(isset($_GET['id'])){
                             </div>
                             <div class="p-2">
                                 <h5 class="card-title" style=" font-size:30px;"><strong>Product name: <?php echo $row_B['name']?></strong> </h5>
-                                <h6 class="card-subtitle mb-2 text-muted">                                    <fieldset class="rating">
+                                <!--h6 class="card-subtitle mb-2 text-muted">                                    <fieldset class="rating">
                                                             <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked="" aria-label="No rating.">
                 
                                                             <input type="radio" id="rate1" name="rating" value="1">
@@ -60,7 +60,7 @@ if(isset($_GET['id'])){
                 
                                                             <span class="focus-ring"></span>
                                                     </fieldset>
-                                </h6>
+                                </h6-->
                             </div>
                                             
                         </div>
@@ -175,7 +175,7 @@ if(isset($_GET['id'])){
                 
                                             <div class="p-2">
                                                 <h5 class="card-title" style=" font-size:30px;"><strong>Product name: <?php echo $row_B['name']?></strong> </h5>
-                                                <h6 class="card-subtitle mb-2 text-muted">
+                                                <!--h6 class="card-subtitle mb-2 text-muted">
                                                     <fieldset class="rating">
                                                             <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked="" aria-label="No rating.">
                 
@@ -196,7 +196,7 @@ if(isset($_GET['id'])){
                 
                                                             <span class="focus-ring"></span>
                                                     </fieldset>
-                                                </h6>
+                                                </h6-->
                                             </div>
                                             
                                         </div>
@@ -314,13 +314,13 @@ if(isset($_GET['id'])){
                     if(isset($_SESSION['account'])){
                         {
                             $sth2 = $dbh->prepare(
-                                'INSERT INTO dz_thread (product_id,nickname, account, rating, content,content_negative, ip) VALUES (?,?, ?, ?,?, ?, ?)'
+                                'INSERT INTO dz_thread (product_id,nickname, account, content,content_negative, ip) VALUES (?, ?, ?, ?, ?, ?)'
                             );
                             $sth2->execute(array(
                                 (int)$_GET['id'],
                                 $_SESSION['nickname'],
                                 $_SESSION['account'],
-                                $_POST['rating'], 
+                                //$_POST['rating'], 
                                 $_POST['content'],
                                 $_POST['content_negative'],
                                 $_SERVER['REMOTE_ADDR'],
