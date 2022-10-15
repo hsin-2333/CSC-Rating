@@ -3,7 +3,9 @@ body {
     padding: 0;
     font-family: monospace;
   }
-  container-timer {
+  .container-timer {
+    position: relative;
+    bottom: 660px;
     max-width: 100px;
     height: 20px;
     background: #f5f5f5;
