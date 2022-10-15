@@ -30,9 +30,8 @@ if(isset($_GET['id'])){
             <!--填寫評論(先正後負)-->
             <div class="card-body" >
                 <div class="container summit ">
-                    <!--form style="container"action="new_index.php" method="post" enctype="multipart/form-data"-->
+                    <!--form style="container"action="new_index.php" method="post" enctype="multipart/form-data"-->          
                     <form style="container" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
-                
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
                             <div class="p-2">
@@ -63,6 +62,13 @@ if(isset($_GET['id'])){
                                 </h6>
                             </div>
                                             
+                        </div>
+                         <!--timer -->        
+                         <div class="container-timer ">
+                        <div class="timer-wrapper">
+                            <div class="timer-bar"></div>
+                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                        </div>
                         </div>
                         <!-- Stepper -->        
                         <div class="bs-stepper">
@@ -200,6 +206,13 @@ if(isset($_GET['id'])){
                                             </div>
                                             
                                         </div>
+                        <!--timer -->        
+                        <div class="container-timer ">
+                        <div class="timer-wrapper">
+                            <div class="timer-bar"></div>
+                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                        </div>
+                        </div>
                         <!-- Stepper -->        
                         <div class="bs-stepper">
                             <div class="bs-stepper-header" role="tablist">
@@ -447,3 +460,78 @@ echo 'session[arr][id] ]='.$_SESSION['arr'][$_GET['id']-1] ;
                 
             }
 </style>
+
+<!-- timer css -->
+<style>
+  .container-timer {
+    position: relative;
+    max-width: 100px;
+    height: 20px;
+    background: #f5f5f5;
+    margin: 5px auto;
+  } 
+  .timer-wrapper {
+    height: 20px;
+    line-height: 20px;
+    background: #000;
+    position: relative;
+    margin-top: 0px;
+  }
+  .timer-txt {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .timer-bar {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.3s;
+    background: #28c684;
+  }
+  .timer-warn {
+    background: #d0863a;
+  }
+  .timer-almost {
+    background: #d03a49;
+  }
+  
+</style>
+
+ <!--insert jquery-->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+ <!-- timer JS-->
+ <script>
+      var fullTime = 60;
+      var warn = 20;
+      var almost = 10;
+
+      var currTime = fullTime;
+
+      var timer = setInterval(function () {
+        --currTime;
+
+        // Clear interval if time is up:
+        if (!currTime) window.clearInterval(timer);
+
+        // Prepend 0 if single-digit number:
+        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+
+        // Set time to show to user:
+        $("#sec").text(txt);
+
+        // Decrease the bar width:
+        var w = (currTime / fullTime) * 100;
+        $(".timer-bar").css({ width: w + "%" });
+
+        // Manipulate bar according to the value:
+        if (currTime === warn) $(".timer-bar").addClass("timer-warn");
+        if (currTime === almost) $(".timer-bar").addClass("timer-almost");
+      }, 1000);
+</script>
