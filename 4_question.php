@@ -55,31 +55,11 @@ if(isset($_GET['id'])){
                             <div class="p-2">
                                 <!--h5 class="card-title" style=" font-size:30px;"><strong>Product name:<?php echo $row2['name']?></strong> </h5-->
                                 <h6 class="card-subtitle mb-2 text-muted">
-                                    <!--fieldset class="rating">
-                                            <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" aria-label="No rating.">
-
-                                            <input type="radio" id="rate1" name="rating" value="1">
-                                            <label for="rate1">1 star</label>
-
-                                            <input type="radio" id="rate2" name="rating" value="2">
-                                            <label for="rate2">2 stars</label>
-
-                                            <input type="radio" id="rate3" name="rating" value="3" >
-                                            <label for="rate3">3 stars</label>
-
-                                            <input type="radio" id="rate4" name="rating" value="4" >
-                                            <label for="rate4">4 stars</label>
-
-                                            <input type="radio" id="rate5" name="rating" value="5" >
-                                            <label for="rate5">5 stars</label>
-
-                                            <span class="focus-ring"></span>
-                                    </fieldset-->
 
                                     <fieldset class="">
                                         <h5 class='card-title'> Questionaire</h5>
 
-                                        <label>1. 您撰寫評論的真實程度</label>
+                                        <label>1. 您上述所言是否來自真實的體驗？</label>
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu1" name="question" value="1">
@@ -104,9 +84,9 @@ if(isset($_GET['id'])){
 
                                             <span class="focus-ring"></span>
                                         </div><br>   
-                                        
+                        
 
-                                        <label>2. 您撰寫評論的真實程度</label>
+                                        <label>2. 您對此物品的喜好程度</label>
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu2.1" name="question2" value="1">
@@ -132,6 +112,60 @@ if(isset($_GET['id'])){
                                             <span class="focus-ring"></span>
                                         </div><br>
 
+
+                                        <label>3. 您撰寫「正面」評論的真實程度</label>
+                                        <div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu3.1" name="question3" value="1">
+                                                <label class='form-check-label' >1</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu3.2" name="question3" value="2">
+                                                <label class='form-check-label' >2</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu3.3" name="question3" value="3">
+                                                <label class='form-check-label' >3</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu3.4" name="question3" value="4">
+                                                <label class='form-check-label'>4</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu3.5" name="question3" value="5">
+                                                <label class='form-check-label' >5</label>
+                                            </div>
+
+                                            <span class="focus-ring"></span>
+                                        </div><br>
+
+
+                                        <label>4. 您撰寫「負面」評論的真實程度</label>
+                                        <div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu4.1" name="question4" value="1">
+                                                <label class='form-check-label' >1</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu4.2" name="question4" value="2">
+                                                <label class='form-check-label' >2</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu4.3" name="question4" value="3">
+                                                <label class='form-check-label' >3</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu4.4" name="question4" value="4">
+                                                <label class='form-check-label'>4</label>
+                                            </div>
+                                            <div class='form-check form-check-inline'>
+                                                <input  class='form-check-input' type="radio" id="qu4.5" name="question4" value="5">
+                                                <label class='form-check-label' >5</label>
+                                            </div>
+
+                                            <span class="focus-ring"></span>
+                                        </div><br>
+
                                     </fieldset>
                                 </h6>    
                             </div>
@@ -150,20 +184,18 @@ if(isset($_GET['id'])){
         <?php
 
         //確認欄位有無填寫完成
-        if(isset($_POST['question']) && isset($_POST['question2']   )){
-                if($_POST['question']=="" or $_POST['question2']=="" ){  
-                    echo "<script>alert('所有欄位皆須填寫')</script>";
-                }
-                else{
-                    if(isset($_SESSION['account'])){
+        if(isset($_POST['question']) && isset($_POST['question2']) && isset($_POST['question3']) && isset($_POST['question4']) ){
+                if(isset($_SESSION['account'])){
                         {   
                             
                             $sth2 = $dbh->prepare(
-                                'UPDATE dz_thread SET q1 = ?, q2 = ? WHERE product_id = ? AND account = ? '
+                                'UPDATE dz_thread SET q1 = ?, q2 = ?, q3 = ?, q4 = ? WHERE product_id = ? AND account = ? '
                             );
                             $sth2->execute(array(
                                 $_POST['question'], 
                                 $_POST['question2'],
+                                $_POST['question3'],
+                                $_POST['question4'],
                                 (int)$_GET['id'],
                                 $_SESSION['account'],
 
@@ -172,14 +204,12 @@ if(isset($_GET['id'])){
                         }
                         echo "<script>alert('完成')</script>";
                         echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
-                    }
-                
-                    else{
-                            echo "<script>alert('登入後才能發表回應')</script>";
-                        }
-                
+                }             
+                else{
+                    echo "<script>alert('登入後才能發表回應')</script>";
+                }
         }
-        }
+
         
         ?>
 
