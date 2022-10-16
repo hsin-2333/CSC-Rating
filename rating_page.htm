@@ -180,6 +180,7 @@
 
     <!--  監聽評論字數輸入-->
     <script>
+      let count = 0;
       function checkLength(which) {
         //Review_Negative
         var maxChars = 100; //輸入上限為100個字
@@ -199,6 +200,27 @@
         var curr = which.value.length;
         document.getElementById("chLeft_P").innerHTML = curr.toString();
       }
+
+
+      function getTimestamp(event){
+        var timestamp = new Date().toISOString();
+        if(event.type === 'focus') {
+          console.log(timestamp, event.srcElement.id, 'focus');
+        }
+        console.log(timestamp, event.srcElement.id)
+
+      }
+
+      function getKeydown(event){
+        var timestamp = new Date().toISOString();
+        var key = event.key;
+        console.log(key, timestamp)
+        if(key === 'Backspace' || key === 'Delete'){
+          count++;
+          console.log(count)
+        }
+      }
+      
     </script>
   </body>
 </html>

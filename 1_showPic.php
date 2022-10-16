@@ -38,7 +38,7 @@ if(isset($_GET['id'])){
                             </div>
                                        
                         </div>
-                        <div class="b"><button type="" onclick="stepper.next()" >開始撰寫評論</button></div>     
+                        <div class="b"><button id="startReview" type="" onclick="moveNextStep(event)" >開始撰寫評論</button></div>     
                                     
                     </form>
                 </div>
@@ -46,8 +46,15 @@ if(isset($_GET['id'])){
 
 <?php 
         
-
-
+        echo '<script type="text/javascript">',
+        'function moveNextStep(event){
+           var timestamp = new Date().toISOString();
+           console.log(timestamp, event.srcElement.id);
+   
+       return stepper.next();
+       };',
+        '</script>'
+   ;
         $sth = $dbh->prepare('SELECT * from dz_thread WHERE product_id = ? ORDER BY id');
         $sth->execute(array((int)$_GET['id']));
         
