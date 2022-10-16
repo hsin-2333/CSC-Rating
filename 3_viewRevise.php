@@ -8,7 +8,15 @@ function getIp(){
     return $_SERVER['REMOTE_ADDR'];
 }
  
+echo '<script type="text/javascript">',
+     'function moveNextStep(event){
+        var timestamp = new Date().toISOString();
+        console.log(timestamp, event.srcElement.id);
 
+    return stepper.next();
+    };',
+     '</script>'
+;
 
 $sthBoard = $dbh->prepare('SELECT * FROM product WHERE id = ?'); //商品編號
 if(isset($_GET['id'])){
@@ -98,29 +106,29 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字"><?php echo $row['content']; ?></textarea>
+                                    <textarea id="reviseFirstPositiveTextarea"name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字"><?php echo $row['content']; ?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()">下一步</button>
+                                    <button id="reviseFirstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                 </div>
                             </div>
                             <div id="step2" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
+                                    <textarea id="reviseSecondNegativeTextarea" name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()" >提交</button>
+                                    <button id="reviseSecondSubmitNegativeReview" type="button" onclick="moveNextStep(event)" >提交</button>
                                 </div>
                             </div>
                             <div id="step3" class="content" role="tabpanel">
                                 <div class="alert alert-success">
-                                感謝您填寫評論。接下來請您填答自評問題
+                                感謝您填寫評論。接下來請您填答自評問題。
                                 </div>
                                 <div class="b">
-                                    <button type="submit" onclick="stepper.next()" >確認</button>
+                                    <button id="reviseFinalSubmit2" type="submit" onclick="moveNextStep(event)" >確認</button>
                                 </div>
                             
                             </div>
@@ -202,21 +210,21 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
+                                    <textarea id="reviseFirstNegativeTextarea" name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft" >30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()">下一步</button>
+                                    <button id="reviseFirstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                 </div>
                             </div>
                             <div id="step2" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字" ><?php echo $row['content'];?></textarea>
+                                    <textarea id="reviseSecondPositiveTextarea" name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字" ><?php echo $row['content'];?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()" >提交</button>
+                                    <button id="reviseSecondSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >提交</button>
                                 </div>
                             </div>
                             <div id="step3" class="content" role="tabpanel">
@@ -224,7 +232,7 @@ if(isset($_GET['id'])){
                                 感謝您填寫評論。接下來請您填答自評問題。
                                 </div>
                                 <div class="b">
-                                    <button type="submit" onclick="stepper.next()" > 確認</button>
+                                    <button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" > 確認</button>
                                 </div>
                             
                             </div>
