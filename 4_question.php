@@ -202,14 +202,28 @@ if(isset($_GET['id'])){
                                 
                             ));
                         }
-                        echo "<script>alert('完成')</script>";
-                        echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
-                }             
+   
+                        switch ($_SESSION['orderN']){
+                            case "7": //如果順序加總到了7(aka經歷完了1次trial & 8次評論) 回到index頁面
+                                echo "<script>alert('已完成所有任務，感謝您的參與')</script>";
+                                echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
+                                break;
+                            case"0":
+                                $_SESSION['orderN']+=1;  
+                                echo "<script>alert('完成練習任務，接下來將開始進行正式任務')</script>";
+                                echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
+                                break;
+                            default:
+                                $_SESSION['orderN']+=1;  
+                                echo "<script>alert('完成')</script>";
+                                echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
+
+                        }
+                    }             
                 else{
                     echo "<script>alert('登入後才能發表回應')</script>";
                 }
         }
-
         
         ?>
 
