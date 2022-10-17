@@ -24,6 +24,12 @@ echo implode(",", $arr); //FIXED: PHP 8.x Error
 array_push($arr, 4); //把[練習用的服飾]指定為array[9]，數值固定為4(順序=ABA)，加入陣列之中
 $_SESSION['arr'] = $arr;
 
+//服裝出現順序
+$cloth_order = unique_rand(1, 8, 8);
+implode(",", $cloth_order);
+array_unshift($cloth_order, 9); //把[練習用的服飾id(9)]放到順序開端
+$_SESSION['cloth_order'] = $cloth_order; 
+$_SESSION['orderN'] = 0; 
 
 if(isset($_SESSION['account']) && $_SESSION['account'] != null){ 
     // 如果登入過，則直接轉到登入後頁面

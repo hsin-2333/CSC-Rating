@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- 主機： localhost:3306
--- 產生時間： 2022 年 10 月 04 日 17:32
--- 伺服器版本： 10.5.16-MariaDB
--- PHP 版本： 7.3.32
+-- 主機： 127.0.0.1
+-- 產生時間： 2022-10-16 18:45:07
+-- 伺服器版本： 10.4.24-MariaDB
+-- PHP 版本： 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -33,8 +32,6 @@ CREATE TABLE `dz_thread` (
   `product_id` int(11) NOT NULL DEFAULT 0,
   `nickname` varchar(32) CHARACTER SET utf8 DEFAULT NULL,
   `account` text COLLATE utf8_unicode_ci DEFAULT NULL,
-  `rating` int(5) DEFAULT NULL,
-  `newRating` int(5) DEFAULT NULL,
   `content` varchar(1024) CHARACTER SET utf8 DEFAULT NULL,
   `content_negative` varchar(1024) CHARACTER SET utf8 DEFAULT NULL,
   `Revise_C` varchar(1024) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -42,22 +39,37 @@ CREATE TABLE `dz_thread` (
   `ip` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp(),
   `q1` int(5) DEFAULT NULL,
-  `q2` int(5) DEFAULT NULL
+  `q2` int(5) DEFAULT NULL,
+  `q3` int(5) DEFAULT NULL,
+  `q4` int(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- 傾印資料表的資料 `dz_thread`
 --
 
-INSERT INTO `dz_thread` (`id`, `product_id`, `nickname`, `account`, `rating`, `newRating`, `content`, `content_negative`, `Revise_C`, `Revise_C_N`, `ip`, `time`, `q1`, `q2`) VALUES
-(284, 1, 'Tina', 'test1', 3, 3, '1-linke', '1', 'gg', 'g22', '120.101.3.151', '2022-10-04 08:32:36', 2, 1),
-(286, 5, 'Tina', 'test1', 4, 5, '6', '5', 'secff', 'sef11', '120.101.3.151', '2022-10-04 08:34:41', NULL, NULL),
-(288, 4, 'Tina', 'test1', 2, 2, 'r', 'r', 'rd', 'rd', '120.101.3.151', '2022-10-04 08:37:45', NULL, NULL),
-(290, 2, 'Tina', 'test1', 4, 4, '8', '8', 'b11', 'b..', '120.101.3.151', '2022-10-04 08:40:30', 2, 2),
-(291, 8, 'Tina', 'test1', 1, 1, 'cccc', 'ccccccc', '12', '1', '120.101.3.151', '2022-10-04 08:41:26', 2, 4),
-(292, 6, 'Tina', 'test1', 2, 3, 'v', 'v', '6nn', '6nn', '120.101.3.151', '2022-10-04 08:42:12', NULL, NULL),
-(295, 3, 'Tina', 'test1', 3, 3, '6', '6', '6nn', '6nn', '120.101.3.151', '2022-10-04 08:44:16', NULL, NULL),
-(313, 7, 'Tina', 'test1', 1, 1, '1', '1', '12', '1', '120.101.3.151', '2022-10-04 17:26:49', 2, 4);
+INSERT INTO `dz_thread` (`id`, `product_id`, `nickname`, `account`, `content`, `content_negative`, `Revise_C`, `Revise_C_N`, `ip`, `time`, `q1`, `q2`, `q3`, `q4`) VALUES
+(1, 1, 'Tina', 'test1', 'cccccccccccccccccc', 'cccccccccccccccc', '１１', '１１', '127.0.0.1', '2022-10-15 06:23:34', 5, 5, 5, 5),
+(324, 9, 'Tina', 'test1', 'x', 'x', '1', '1', '127.0.0.1', '2022-10-15 06:26:49', 1, 1, 1, 1),
+(325, 3, 'Tina', 'test1', 'x', 'x', '１', '１', '127.0.0.1', '2022-10-15 06:26:56', 1, 1, 1, 1),
+(326, 2, 'Tina', 'test1', '1', '1', '１', '１', '127.0.0.1', '2022-10-15 06:31:55', 1, 1, 1, 1),
+(327, 4, 'Tina', 'test1', '1', '1', '１', '１', '127.0.0.1', '2022-10-15 06:31:59', 1, 1, 1, 1),
+(328, 7, 'Tina', 'test1', '1', '1', '１', '１', '127.0.0.1', '2022-10-15 06:53:58', 1, 1, 1, 1),
+(329, 8, 'Tina', 'test1', '1', '1', '１', '１', '127.0.0.1', '2022-10-15 06:54:14', 5, 5, 5, 5),
+(330, 5, 'Tina', 'test1', 'sss', 'ss', 'vvvvvvvv1', 'vvvvvvvvvvv1', '127.0.0.1', '2022-10-15 16:04:53', 1, 1, 1, 1),
+(338, 9, 'Tina', 'test1', '11', '11', '1', '1', '127.0.0.1', '2022-10-15 16:51:43', 1, 1, 1, 1),
+(339, 9, 'Tina', 'test1', '１１１', '１１１', '1', '1', '127.0.0.1', '2022-10-15 16:55:39', 1, 1, 1, 1),
+(340, 3, 'Tina', 'test1', '１', '１', '１', '１', '127.0.0.1', '2022-10-15 16:55:57', 1, 1, 1, 1),
+(341, 1, 'Tina', 'test1', '１１', '１１', '１１', '１１', '127.0.0.1', '2022-10-15 16:56:13', 5, 5, 5, 5),
+(342, 4, 'Tina', 'test1', '１', '１', '１', '１', '127.0.0.1', '2022-10-15 16:56:30', 1, 1, 1, 1),
+(343, 7, 'Tina', 'test1', '１', '１', '１', '１', '127.0.0.1', '2022-10-15 16:56:42', 1, 1, 1, 1),
+(344, 6, 'Tina', 'test1', '１', '１', '１', '１', '127.0.0.1', '2022-10-15 16:56:58', 5, 5, 5, 5),
+(345, 6, 'Tina', 'test1', '１', '１', '１', '１', '127.0.0.1', '2022-10-15 16:57:05', 5, 5, 5, 5),
+(346, 8, 'Tina', 'test1', '１', '１', '１', '１', '127.0.0.1', '2022-10-15 16:57:15', 5, 5, 5, 5),
+(347, 2, 'Tina', 'test1', '１', '１', '１', '１', '127.0.0.1', '2022-10-15 16:57:29', 1, 1, 1, 1),
+(348, 9, 'Tina', 'test1', '11', '11', '1', '1', '127.0.0.1', '2022-10-16 16:40:38', 1, 1, 1, 1),
+(349, 9, 'Tina', 'test1', '1', '1', '1', '1', '127.0.0.1', '2022-10-16 16:41:29', 1, 1, 1, 1),
+(350, 9, 'Tina', 'test1', '1', '1', '1', '1', '127.0.0.1', '2022-10-16 16:42:51', 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -83,7 +95,8 @@ INSERT INTO `product` (`id`, `name`, `status`) VALUES
 (8, '黑色踝襪', 0),
 (6, '褐色皮帶', 0),
 (5, '純黑護膝', 0),
-(4, '質感灰毛帽', 0);
+(4, '質感灰毛帽', 0),
+(9, '【練習用】T恤', 0);
 
 -- --------------------------------------------------------
 
@@ -166,7 +179,7 @@ ALTER TABLE `user`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `dz_thread`
 --
 ALTER TABLE `dz_thread`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=314;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=351;
 
 --
 -- 使用資料表自動遞增(AUTO_INCREMENT) `product`
