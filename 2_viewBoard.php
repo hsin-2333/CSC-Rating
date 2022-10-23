@@ -8,7 +8,18 @@ function getIp(){
     return $_SERVER['REMOTE_ADDR'];
 }
 
+echo '<script type="text/javascript">',
+     'function moveNextStep(event){
+        var timestamp = new Date().toISOString();
+        console.log(timestamp, event.srcElement.id);
 
+    return stepper.next();
+    };',
+     '</script>'
+;
+
+////定時跳轉功能
+echo '<script type="text/javascript">','window.setInterval("phase1_timer()", 1000);','</script>';
 
 //$sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
@@ -31,7 +42,7 @@ if(isset($_GET['id'])){
             <div class="card-body" >
                 <div class="container summit ">
                     <!--form style="container"action="new_index.php" method="post" enctype="multipart/form-data"-->          
-                    <form style="container" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
+                    <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
                             <div class="p-2">
@@ -81,13 +92,18 @@ if(isset($_GET['id'])){
                                 <div class="line"></div>
                                 <div class="step" data-target="#step2">
                                     <button type="button" class="step-trigger" role="tab">
+                                    <!--span class="bs-stepper-circle">2-Loading page:提示訊息</span-->
+                                    </button>
+                                </div>
+                                <!--div class="line"></div-->
+                                <div class="step" data-target="#step3">
+                                    <button type="button" class="step-trigger" role="tab">
                                     <span class="bs-stepper-circle">2</span>
                                     </button>
                                 </div>
-                                <div class="line"></div>
-                                <div class="step" data-target="#step3">
+                                <div class="step" data-target="#step4">
                                     <button type="button" class="step-trigger" role="tab">
-                                    <span class="bs-stepper-circle">3</span>
+                                    <!--span class="bs-stepper-circle">4-Loading page:提示訊息</span-->
                                     </button>
                                 </div>
                             </div>
@@ -95,26 +111,41 @@ if(isset($_GET['id'])){
                                 <div id="step1" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
-                                        <textarea name="content" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字" ></textarea>
+                                        <textarea id="firstPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" placeholder="我覺得......" ></textarea>
                                         <small class="form-text text-muted"><span id="chLeft_P">0</span>/30</small>
                                     </div>
                                     <div class="b">
-                                        <button type="button" onclick="stepper.next()">下一步</button>
+                                        <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                     </div>
                                 </div>
                                 <div id="step2" class="content" role="tabpanel">
-                                    <div class="form-group">
-                                        <label>評論(有什麼不滿意的地方嗎)</label>
-                                        <textarea name="content_negative" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字" ></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
+                                    <div class="alert alert-success text-center">
+                                    感謝您填寫評論
+                                    </div>
+                                    <div>
+                                        <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                     </div>
                                     <div class="b">
-                                        <button type="button" onclick="stepper.next()" >提交</button>
+                                        <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                     </div>
                                 </div>
                                 <div id="step3" class="content" role="tabpanel">
-                                    <div class="alert alert-success">
-                                    感謝您填寫評論。接下來即將進入到下一階段
+                                    <div class="form-group">
+                                        <label>評論(有什麼不滿意的地方嗎)</label>
+                                        <textarea id="secondNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" placeholder="我覺得......" ></textarea>
+                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
+                                    </div>
+                                    <div class="b">
+                                        <button id="submitNegativeReview"type="button" onclick="moveNextStep(event)" >提交</button>
+                                    </div>
+                                </div>
+                                
+                                <div id="step4" class="content" role="tabpanel">
+                                    <div class="alert alert-success text-center">
+                                    感謝您填寫評論
+                                    </div>
+                                    <div>
+                                        <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                     </div>
                                     <div class="b">
 <?php
@@ -124,29 +155,34 @@ if(isset($_GET['id'])){
                                         case "5":
                                         case "8":
 ?>
-                                        <button type="submit" onclick="stepper.next()" >確認</button>
+                                        <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
+                                        <script type="text/javascript"> 
+                                        window.setTimeout("submit_timer()", 16000); //第16秒提交填答
+                                        </script>
                                         
 <?php                                   break;
                                         default:
 ?>
-                                        <!-- Button trigger modal -->
-                                        <button type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter"> 確認</button>
+                                        <!-- Button trigger modal >
+                                        <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
+                                        <!--第16秒出現 Pop up MSG-->
+                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script> 
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                               <div class="modal-header">
                                                 <img src='uploads/mark.png' class="rounded float-left" width="28" height="25" alt="exclamation mark">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">請誠實作答</h5>
+                                                <h5 class="modal-title text-danger" id="exampleModalLongTitle">上述所言是否是來自您實際的體驗</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
                                               </div>
-                                              <div class="modal-body">
-                                                您有一次修改評論內的機會
-                                              </div>
+                                              <div class="modal-body text-muted"><br>
+                                                <small class="text-muted">頁面將會自動跳回已寫的評論 您有一次修改評論內的機會</small>
+                                              </div><br>
                                               <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary" onclick="stepper.next()">繼續</button>
+                                                <button id="secondChanceConfirmation" type="submit" class="btn btn-primary" onclick="moveNextStep(event)">繼續</button>
                                               </div>
                                             </div>
                                           </div>
@@ -170,8 +206,7 @@ if(isset($_GET['id'])){
             <!--填寫評論(先負後正)-->
             <div class="card-body" >
                 <div class="container summit ">
-                    <!--form style="container"action="new_index.php" method="post" enctype="multipart/form-data"-->
-                    <form style="container" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
+                    <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                 
                         <div class="d-flex justify-content-start  mb-3 ">
                                             <!--顯示圖片、商品名稱、評分 -->
@@ -216,50 +251,65 @@ if(isset($_GET['id'])){
                         <!-- Stepper -->        
                         <div class="bs-stepper">
                             <div class="bs-stepper-header" role="tablist">
-                                            
-                                                <div class="step" data-target="#step1">
-                                                    <button type="button" class="step-trigger" role="tab">
-                                                        <span class="bs-stepper-circle">1</span>
-                                                    </button>
-                                                </div>
-                                                <div class="line"></div>
-                                                <div class="step" data-target="#step2">
-                                                    <button type="button" class="step-trigger" role="tab">
-                                                        <span class="bs-stepper-circle">2</span>
-                                                    </button>
-                                                </div>
-                                                <div class="line"></div>
-                                                <div class="step" data-target="#step3">
-                                                    <button type="button" class="step-trigger" role="tab">
-                                                        <span class="bs-stepper-circle">3</span>
-                                                    </button>
-                                                </div>
-                                                
-                                            </div>
+                                <div class="step" data-target="#step1">
+                                    <button type="button" class="step-trigger" role="tab">
+                                    <span class="bs-stepper-circle">1</span>
+                                    </button>
+                                </div>
+                                <div class="line"></div>
+                                <div class="step" data-target="#step2">
+                                    <button type="button" class="step-trigger" role="tab">
+                                    <!--span class="bs-stepper-circle">2-Loading page:提示訊息</span-->
+                                    </button>
+                                </div>
+                                <!--div class="line"></div-->
+                                <div class="step" data-target="#step3">
+                                    <button type="button" class="step-trigger" role="tab">
+                                    <span class="bs-stepper-circle">2</span>
+                                    </button>
+                                </div>
+                                <div class="step" data-target="#step4">
+                                    <button type="button" class="step-trigger" role="tab">
+                                    <!--span class="bs-stepper-circle">4-Loading page:提示訊息</span-->
+                                    </button>
+                                </div>
+                            </div>
                             <div class="bs-stepper-content">
                                 <div id="step1" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
-                                        <textarea name="content_negative" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"></textarea>
+                                        <textarea id="firstNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" placeholder="我覺得......"></textarea>
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                     </div>
                                     <div class="b">
-                                        <button type="button" onclick="stepper.next()">下一步</button>
+                                        <button id="firstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                     </div>
                                 </div>
                                 <div id="step2" class="content" role="tabpanel">
-                                    <div class="form-group">
-                                        <label>評論(喜歡這項商品的哪個部分)</label>
-                                        <textarea name="content" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字"></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft_P" >0</span><span>/30</span></small>
+                                    <div class="alert alert-success text-center">
+                                    感謝您填寫評論
+                                    </div>
+                                    <div>
+                                        <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                     </div>
                                     <div class="b">
-                                        <button type="button" onclick="stepper.next()" >提交</button>
+                                        <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                     </div>
                                 </div>
                                 <div id="step3" class="content" role="tabpanel">
-                                    <div class="alert alert-success">
-                                    感謝您填寫評論。接下來即將進入到下一階段
+                                    <div class="form-group">
+                                        <label>評論(喜歡這項商品的哪個部分)</label>
+                                        <textarea id="secondPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" placeholder="我覺得......"></textarea>
+                                        <small class="form-text text-muted"><span id="chLeft_P" >0</span><span>/30</span></small>
+                                    </div>
+                                    <div class="b">
+                                        <button id="secondSubmitPositiveReview"type="button" onclick="moveNextStep(event)" >提交</button>
+                                    </div>
+                                </div>
+                                <div id="step4" class="content" role="tabpanel">
+                                    <div class="alert alert-success text-center">感謝您填寫評論</div>
+                                    <div>
+                                        <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                     </div>
                                     <div class="b">
 <?php
@@ -269,29 +319,34 @@ if(isset($_GET['id'])){
                                         case "5":
                                         case "8":
 ?>
-                                        <button type="submit" onclick="stepper.next()" >確認</button>
+                                        <!--button type="submit" onclick="moveNextStep(event)" >確認</button-->
+                                        <script type="text/javascript"> 
+                                        window.setTimeout("submit_timer()", 16000); //第16秒提交填答
+                                        </script>
                                         
 <?php                                   break;
                                         default:
 ?>
                                         <!-- Button trigger modal -->
-                                        <button type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter"> 確認</button>
+                                        <!--button id="confirmationSubmit1" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
+                                        <!--第16秒出現 Pop up MSG-->
+                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>                                         
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
                                               <div class="modal-header">
                                                 <img src='uploads/mark.png' class="rounded float-left" width="28" height="25" alt="exclamation mark">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">請誠實作答</h5>
+                                                <h5 class="modal-title text-danger" id="exampleModalLongTitle">上述所言是否來自您實際的體驗</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
                                               </div>
                                               <div class="modal-body">
-                                                您有一次修改評論內的機會
+                                                <small class="text-muted">頁面將會自動跳回已寫的評論 您有一次修改評論內的機會</small>
                                               </div>
                                               <div class="modal-footer">
-                                                <button type="submit" class="btn btn-primary" onclick="stepper.next()">繼續</button>
+                                                <button id="confirmationSubmit1"type="submit" class="btn btn-primary" onclick="moveNextStep(event)">繼續</button>
                                               </div>
                                             </div>
                                           </div>

@@ -20,7 +20,7 @@ function unique_rand($min, $max, $num) {
 //生成1-8其中一個數字
 $arr = unique_rand(1, 8, 8);
 //echo implode($arr, ",");
-echo implode(",", $arr); //FIXED: PHP 8.x Error
+implode(",", $arr); //FIXED: PHP 8.x Error
 array_push($arr, 4); //把[練習用的服飾]指定為array[9]，數值固定為4(順序=ABA)，加入陣列之中
 $_SESSION['arr'] = $arr;
 
