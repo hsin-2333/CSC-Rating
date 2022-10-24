@@ -8,7 +8,17 @@ function getIp(){
     return $_SERVER['REMOTE_ADDR'];
 }
  
+echo '<script type="text/javascript">',
+     'function moveNextStep(event){
+        var timestamp = new Date().toISOString();
+        console.log(timestamp, event.srcElement.id);
 
+    return stepper.next();
+    };',
+     '</script>'
+;
+//定時跳轉功能
+echo '<script type="text/javascript">','window.setInterval("phase2_timer()", 1000);','</script>';
 
 $sthBoard = $dbh->prepare('SELECT * FROM product WHERE id = ?'); //商品編號
 if(isset($_GET['id'])){
@@ -35,7 +45,7 @@ if(isset($_GET['id'])){
                 <div class="card-body" >
                 
                 <div class="container summit ">
-                    <form style="container"   method="post" enctype="multipart/form-data">   
+                    <form style="container" id="ReviewForm"  method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
                             <div class="p-2">
@@ -83,44 +93,63 @@ if(isset($_GET['id'])){
                             <div class="line"></div>
                             <div class="step" data-target="#step2">
                                 <button type="button" class="step-trigger" role="tab">
+                                    <!--span class="bs-stepper-circle">2-Loading page:提示訊息</span-->
+                                </button>
+                            </div>
+                            <!--div class="line"></div-->
+                            <div class="step" data-target="#step3">
+                                <button type="button" class="step-trigger" role="tab">
                                     <span class="bs-stepper-circle">2</span>
                                 </button>
                             </div>
-                            <div class="line"></div>
-                            <div class="step" data-target="#step3">
+                            <div class="step" data-target="#step4">
                                 <button type="button" class="step-trigger" role="tab">
-                                    <span class="bs-stepper-circle">3</span>
+                                    <!--span class="bs-stepper-circle">4-Loading page:提示訊息</span-->
                                 </button>
-                            </div>
-                            
+                            </div>                            
                         </div>
                         <div class="bs-stepper-content">
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字"><?php echo $row['content']; ?></textarea>
+                                    <textarea id="reviseFirstPositiveTextarea"name="Revise_C" class="form-control" onkeyup="checkLength_P(this);"><?php echo $row['content']; ?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()">下一步</button>
+                                    <button id="reviseFirstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                 </div>
                             </div>
                             <div id="step2" class="content" role="tabpanel">
+                                <div class="alert alert-success text-center">
+                                感謝您填寫評論
+                                </div>
+                                <div>
+                                    <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
+                                </div>
+                                <div class="b">
+                                    <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >確認</button>
+                                </div>
+                            
+                            </div>
+                            <div id="step3" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
+                                    <textarea id="reviseSecondNegativeTextarea" name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" ><?php echo $row['content_negative'];?></textarea>
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()" >提交</button>
+                                    <button id="reviseSecondSubmitNegativeReview" type="button" onclick="moveNextStep(event)" >提交</button>
                                 </div>
                             </div>
-                            <div id="step3" class="content" role="tabpanel">
-                                <div class="alert alert-success">
-                                感謝您填寫評論。接下來請您填答自評問題
+                            <div id="step4" class="content" role="tabpanel">
+                                <div class="alert alert-success text-center">
+                                感謝您填寫評論
+                                </div>
+                                <div>
+                                    <small class="form-text text-muted text-center">請稍後 接下來請您填答自評問題</small>
                                 </div>
                                 <div class="b">
-                                    <button type="submit" onclick="stepper.next()" >確認</button>
+                                    <button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" >確認</button>
                                 </div>
                             
                             </div>
@@ -140,7 +169,7 @@ if(isset($_GET['id'])){
                 <div class="card-body" >
                 
                 <div class="container summit ">
-                    <form style="container"   method="post" enctype="multipart/form-data">   
+                    <form style="container" id="ReviewForm"  method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
                             <div class="p-2">
@@ -177,54 +206,71 @@ if(isset($_GET['id'])){
 
                     <!-- Stepper -->
                         <div class="bs-stepper">
-                        <div class="bs-stepper-header" role="tablist">
-                        
-                            <div class="step" data-target="#step1">
-                                <button type="button" class="step-trigger" role="tab">
+                            <div class="bs-stepper-header" role="tablist">
+                                <div class="step" data-target="#step1">
+                                    <button type="button" class="step-trigger" role="tab">
                                     <span class="bs-stepper-circle">1</span>
-                                </button>
-                            </div>
-                            <div class="line"></div>
-                            <div class="step" data-target="#step2">
-                                <button type="button" class="step-trigger" role="tab">
+                                    </button>
+                                </div>
+                                <div class="line"></div>
+                                <div class="step" data-target="#step2">
+                                    <button type="button" class="step-trigger" role="tab">
+                                    <!--span class="bs-stepper-circle">2-Loading page:提示訊息</span-->
+                                    </button>
+                                </div>
+                                <!--div class="line"></div-->
+                                <div class="step" data-target="#step3">
+                                    <button type="button" class="step-trigger" role="tab">
                                     <span class="bs-stepper-circle">2</span>
-                                </button>
+                                    </button>
+                                </div>
+                                <div class="step" data-target="#step4">
+                                    <button type="button" class="step-trigger" role="tab">
+                                    <!--span class="bs-stepper-circle">4-Loading page:提示訊息</span-->
+                                    </button>
+                                </div>
                             </div>
-                            <div class="line"></div>
-                            <div class="step" data-target="#step3">
-                                <button type="button" class="step-trigger" role="tab">
-                                    <span class="bs-stepper-circle">3</span>
-                                </button>
-                            </div>
-                            
-                        </div>
                         <div class="bs-stepper-content">
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" placeholder="請至少輸入30個字"><?php echo $row['content_negative'];?></textarea>
+                                    <textarea id="reviseFirstNegativeTextarea" name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" ><?php echo $row['content_negative'];?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft" >30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()">下一步</button>
+                                    <button id="reviseFirstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button>
                                 </div>
                             </div>
                             <div id="step2" class="content" role="tabpanel">
+                                <div class="alert alert-success text-center">
+                                    感謝您填寫評論
+                                </div>
+                                <div>
+                                    <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
+                                </div>
+                                <div class="b">
+                                    <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                </div>
+                            </div>                            
+                            <div id="step3" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea name="Revise_C" class="form-control" onkeyup="checkLength_P(this);" placeholder="請至少輸入30個字" ><?php echo $row['content'];?></textarea>
+                                    <textarea id="reviseSecondPositiveTextarea" name="Revise_C" class="form-control" onkeyup="checkLength_P(this);"  ><?php echo $row['content'];?></textarea>
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button type="button" onclick="stepper.next()" >提交</button>
+                                    <button id="reviseSecondSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >提交</button>
                                 </div>
                             </div>
-                            <div id="step3" class="content" role="tabpanel">
-                                <div class="alert alert-success">
-                                感謝您填寫評論。接下來請您填答自評問題。
+                            <div id="step4" class="content" role="tabpanel">
+                                <div class="alert alert-success text-center">
+                                感謝您填寫評論
+                                </div>
+                                <div>
+                                    <small class="form-text text-muted text-center">接下來請您填答自評問題</small>
                                 </div>
                                 <div class="b">
-                                    <button type="submit" onclick="stepper.next()" > 確認</button>
+                                    <button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" > 確認</button>
                                 </div>
                             
                             </div>
