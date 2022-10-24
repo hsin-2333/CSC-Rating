@@ -234,15 +234,15 @@
 
       /* 定時進入下一階段  */
       var timesRun = 0;
+      var timestamp = new Date().toISOString();
       function phase1_timer(){   //Phase_1 Reeview 的定時: 3min + 3s + 3min +3s
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             moveNextStep(event);
-            console.log("填寫完第一次評論 跳下一步");
+            console.log("填寫完第一次評論 跳下一步", timestamp);
             break;
           case 8:  //結束第一次提醒
-            //stepper.next();
             moveNextStep(event);
             console.log("結束 phase1 的第一次提醒");
             break;
@@ -283,9 +283,15 @@
       }
       //var interval = setInterval(phase2_timer, 1000); 
 
-      //提交Review
-      function submit_timer(){   
+      //Phase1_提交Review
+      function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
+        console.log("提交Review", timestamp);
+      }
+      
+      function start_timer(){   
+        document.getElementById("ReviewForm").submit();
+        console.log("Start writing review", timestamp);
       }
     </script>
 

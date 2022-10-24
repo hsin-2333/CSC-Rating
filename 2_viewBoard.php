@@ -40,7 +40,7 @@ if(isset($_GET['id'])){
 ?>
             <!--填寫評論(先正後負)-->
             <div class="card-body" >
-                <div class="container summit ">
+                <div class="container submit ">
                     <!--form style="container"action="new_index.php" method="post" enctype="multipart/form-data"-->          
                     <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                         <div class="d-flex justify-content-start  mb-3 ">
@@ -115,7 +115,7 @@ if(isset($_GET['id'])){
                                         <small class="form-text text-muted"><span id="chLeft_P">0</span>/30</small>
                                     </div>
                                     <div class="b">
-                                        <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                        <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                     </div>
                                 </div>
                                 <div id="step2" class="content" role="tabpanel">
@@ -126,7 +126,7 @@ if(isset($_GET['id'])){
                                         <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                     </div>
                                     <div class="b">
-                                        <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                        <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                     </div>
                                 </div>
                                 <div id="step3" class="content" role="tabpanel">
@@ -136,7 +136,7 @@ if(isset($_GET['id'])){
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                     </div>
                                     <div class="b">
-                                        <button id="submitNegativeReview"type="button" onclick="moveNextStep(event)" >提交</button>
+                                        <!--button id="submitNegativeReview"type="button" onclick="moveNextStep(event)" >提交</button-->
                                     </div>
                                 </div>
                                 
@@ -157,7 +157,7 @@ if(isset($_GET['id'])){
 ?>
                                         <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
                                         <script type="text/javascript"> 
-                                        window.setTimeout("submit_timer()", 16000); //第16秒提交填答
+                                        window.setTimeout("submit_timer_phase1", 16000); //第16秒提交填答
                                         </script>
                                         
 <?php                                   break;
@@ -205,7 +205,7 @@ if(isset($_GET['id'])){
 ?>
             <!--填寫評論(先負後正)-->
             <div class="card-body" >
-                <div class="container summit ">
+                <div class="container submit ">
                     <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                 
                         <div class="d-flex justify-content-start  mb-3 ">
@@ -282,7 +282,7 @@ if(isset($_GET['id'])){
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                     </div>
                                     <div class="b">
-                                        <button id="firstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                        <!--button id="firstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                     </div>
                                 </div>
                                 <div id="step2" class="content" role="tabpanel">
@@ -293,7 +293,7 @@ if(isset($_GET['id'])){
                                         <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                     </div>
                                     <div class="b">
-                                        <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                        <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                     </div>
                                 </div>
                                 <div id="step3" class="content" role="tabpanel">
@@ -303,7 +303,7 @@ if(isset($_GET['id'])){
                                         <small class="form-text text-muted"><span id="chLeft_P" >0</span><span>/30</span></small>
                                     </div>
                                     <div class="b">
-                                        <button id="secondSubmitPositiveReview"type="button" onclick="moveNextStep(event)" >提交</button>
+                                        <!--button id="secondSubmitPositiveReview"type="button" onclick="moveNextStep(event)" >提交</button-->
                                     </div>
                                 </div>
                                 <div id="step4" class="content" role="tabpanel">
@@ -321,7 +321,7 @@ if(isset($_GET['id'])){
 ?>
                                         <!--button type="submit" onclick="moveNextStep(event)" >確認</button-->
                                         <script type="text/javascript"> 
-                                        window.setTimeout("submit_timer()", 16000); //第16秒提交填答
+                                        window.setTimeout("submit_timer_phase1()", 16000); //第16秒提交填答
                                         </script>
                                         
 <?php                                   break;
@@ -505,7 +505,7 @@ echo 'session[arr][id] ]='.$_SESSION['arr'][$_GET['id']-1] ;
                 margin-left:auto;
 
             }
-            .summit{
+            .submit{
                 padding : 10px;
                 font-size:20px;
                 /* border:solid grey 1px; */

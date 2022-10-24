@@ -44,7 +44,7 @@ if(isset($_GET['id'])){
                 <!--撰寫評論區(先正後負)-->
                 <div class="card-body" >
                 
-                <div class="container summit ">
+                <div class="container submit ">
                     <form style="container" id="ReviewForm"  method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
@@ -116,7 +116,7 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button id="reviseFirstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                    <!--button id="reviseFirstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                 </div>
                             </div>
                             <div id="step2" class="content" role="tabpanel">
@@ -127,7 +127,7 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                 </div>
                                 <div class="b">
-                                    <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >確認</button>
+                                    <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >確認</button-->
                                 </div>
                             
                             </div>
@@ -138,7 +138,7 @@ if(isset($_GET['id'])){
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button id="reviseSecondSubmitNegativeReview" type="button" onclick="moveNextStep(event)" >提交</button>
+                                    <!--button id="reviseSecondSubmitNegativeReview" type="button" onclick="moveNextStep(event)" >提交</button-->
                                 </div>
                             </div>
                             <div id="step4" class="content" role="tabpanel">
@@ -149,7 +149,7 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted text-center">請稍後 接下來請您填答自評問題</small>
                                 </div>
                                 <div class="b">
-                                    <button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" >確認</button>
+                                    <!--button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" >確認</button-->
                                 </div>
                             
                             </div>
@@ -168,7 +168,7 @@ if(isset($_GET['id'])){
                 <!--撰寫評論區(先負後正)-->
                 <div class="card-body" >
                 
-                <div class="container summit ">
+                <div class="container submit ">
                     <form style="container" id="ReviewForm"  method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
@@ -238,7 +238,7 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted"><span id="chLeft" >30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button id="reviseFirstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                    <!--button id="reviseFirstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                 </div>
                             </div>
                             <div id="step2" class="content" role="tabpanel">
@@ -249,7 +249,7 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                 </div>
                                 <div class="b">
-                                    <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
+                                    <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                 </div>
                             </div>                            
                             <div id="step3" class="content" role="tabpanel">
@@ -259,7 +259,7 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
                                 </div>
                                 <div class="b">
-                                    <button id="reviseSecondSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >提交</button>
+                                    <!--button id="reviseSecondSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >提交</button-->
                                 </div>
                             </div>
                             <div id="step4" class="content" role="tabpanel">
@@ -270,7 +270,7 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted text-center">接下來請您填答自評問題</small>
                                 </div>
                                 <div class="b">
-                                    <button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" > 確認</button>
+                                    <!--button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" > 確認</button-->
                                 </div>
                             
                             </div>
@@ -356,7 +356,7 @@ if(isset($_GET['id'])){
                 margin-left:auto;
 
             }
-            .summit{
+            .submit{
                 padding : 10px;
                 font-size:20px;
                 /* border:solid grey 1px; */

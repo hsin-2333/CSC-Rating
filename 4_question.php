@@ -45,7 +45,7 @@ if(isset($_GET['id'])){
         <div class="container">
             <div class="card-body" >
                 
-                <div class="container summit ">
+                <div class="container submit ">
                     <form style="container"  id="ReviewForm" method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 
@@ -409,7 +409,7 @@ if(isset($_GET['id'])){
             margin-left:auto;
 
             }
-            .summit{
+            .submit{
             padding : 10px;
             font-size:20px;
             /* border:solid grey 1px; */
