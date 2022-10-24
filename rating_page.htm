@@ -11,8 +11,8 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag('config', 'G-2GSLNWQ1DB', {
-      'user_id': '1'
+      gtag("config", "G-2GSLNWQ1DB", {
+        user_id: "1",
       });
     </script>
     <style>
@@ -289,5 +289,39 @@
       }
     </script>
 
+<<<<<<< HEAD
+    <!--insert jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <!-- timer JS-->
+    <script>
+      var fullTime = 60;
+      var warn = 20;
+      var almost = 10;
+
+      var currTime = fullTime;
+
+      var timer = setInterval(function () {
+        --currTime;
+
+        // Clear interval if time is up:
+        if (!currTime) window.clearInterval(timer);
+
+        // Prepend 0 if single-digit number:
+        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+
+        // Set time to show to user:
+        $("#sec").text(txt);
+
+        // Decrease the bar width:
+        var w = (currTime / fullTime) * 100;
+        $(".timer-bar").css({ width: w + "%" });
+
+        // Manipulate bar according to the value:
+        if (currTime === warn) $(".timer-bar").addClass("timer-warn");
+        if (currTime === almost) $(".timer-bar").addClass("timer-almost");
+      }, 1000);
+    </script>
+=======
+>>>>>>> c8bec58852babe0be74f9e94bb1fb0f51b92ba26
   </body>
 </html>

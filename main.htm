@@ -1,35 +1,56 @@
 <html>
-<head>
+  <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GSLNWQ1DB"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-2GSLNWQ1DB"
+    ></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag('config', 'G-2GSLNWQ1DB', {
-    'user_id': '1'
-    });
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-2GSLNWQ1DB", {
+        user_id: "1",
+      });
     </script>
-    <style>textarea{vertical-align:top}</style>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="bootstrap.css">
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M5H5HH8');</script>
-    <!-- End Google Tag Manager -->
-</head>
+    <style>
+      textarea {
+        vertical-align: top;
+      }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="bootstrap.css" />
 
-<body bgcolor="#ccccff" >
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M5H5HH8");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+
+  <body bgcolor="#ccccff">
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5H5HH8"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M5H5HH8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
-    
+
     <!-- Google Tag Manager (noscript)
     * The following event is sent when the page loads. You could
     * wrap the event in a function to call the event when certain
@@ -41,79 +62,113 @@
       'screen_name': 'Home'
     });
     </script> -->
-    
+
     <!-- .navbar-expand-{sm|md|lg|xl}決定在哪個斷點以上就出現漢堡式選單 -->
     <!-- navbar-dark 文字顏色 .bg-dark 背景顏色 -->
-    
-    <nav class="navbar navbar-default fixed-top navbar-expand-lg navbar-light bg-light ">
-        <div class="container "> <!-- diff : .container 包住 nav -->
-    
-            <!-- .navbar-brand 左上LOGO位置 -->
-            <a class="navbar-brand" href="new_index.php">
-                <img src="logo.svg" alt="" width="40" height="40" class="d-inline-block align-text-top">
-                <span class="h3 mx-1">MockRating</span>
-            </a>
-            <!-- .navbar-toggler 漢堡式選單按鈕 -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <!-- .navbar-toggler-icon 漢堡式選單Icon -->
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <!-- .collapse.navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
-            <!-- 選單項目&漢堡式折疊選單 -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <!-- active表示當前頁面 -->
-                    <!--li class="nav-item active">
+
+    <nav
+      class="navbar navbar-default fixed-top navbar-expand-lg navbar-light bg-light"
+    >
+      <div class="container">
+        <!-- diff : .container 包住 nav -->
+
+        <!-- .navbar-brand 左上LOGO位置 -->
+        <a class="navbar-brand" href="new_index.php">
+          <img
+            src="logo.svg"
+            alt=""
+            width="40"
+            height="40"
+            class="d-inline-block align-text-top"
+          />
+          <span class="h3 mx-1">MockRating</span>
+        </a>
+        <!-- .navbar-toggler 漢堡式選單按鈕 -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <!-- .navbar-toggler-icon 漢堡式選單Icon -->
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- .collapse.navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
+        <!-- 選單項目&漢堡式折疊選單 -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- active表示當前頁面 -->
+            <!--li class="nav-item active">
                     <a class="nav-link" href="#">首頁<span class="sr-only">(current)</span></a>
-                    </li-->   
-                </ul>
-            
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-right">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" style="pointer-events: none" ><strong> Hi !</strong></a>
-                    </li>
-                    
-                    <li class="nav-item">
-                    <!--a class="nav-link" href="0_login.php">註冊/登入</a-->
-                    <a class="nav-link" href={:php_guide}>{:check_login}</a>
-    
-                    </li>
-                </ul>
-            </div>
-        </div >
+                    </li-->
+          </ul>
+
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 navbar-right">
+            <li class="nav-item">
+              <a class="nav-link" style="pointer-events: none"
+                ><strong> Hi !</strong></a
+              >
+            </li>
+
+            <li class="nav-item">
+              <!--a class="nav-link" href="0_login.php">註冊/登入</a-->
+              <a class="nav-link" href="{:php_guide}">{:check_login}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
-    
-    <div class="container mt-5 pt-3 bg-light " ></div>
-    <div class="container mt-5 pt-3  " >
-        <div class="card-body row g-3 justify-content-md-center">
-            <div class="p-2"><h2>實驗指導語</h2></div>
+
+    <div class="container mt-5 pt-3 bg-light"></div>
+    <div class="container mt-5 pt-3">
+      <div class="card-body row g-3 justify-content-md-center">
+        <div class="p-2"><h2>實驗指導語</h2></div>
+      </div>
+      <div class="row g-3 justify-content-md-center">
+        <div class="p-2">
+          <h5>
+            這是一項通過“是否有實際體驗”來觀察用戶所寫正面和負面評論的真實性的研究。
+            您將多次體驗佩戴配飾，並根據服裝體驗和形像想象撰寫評論。
+            <br />
+            實驗過程中，飾品的體驗順序是固定的，被試按照指定的佩戴順序進行實驗。
+            為了幫助參與者更深入地了解場景，我們將為您提供一些實際配件。
+            在體驗期間，您可以想像自己收到網購商品，並檢查它們的外觀、質地和味道。
+            最後在書寫欄位寫下你的評論。
+            <br />
+            如果您在研究過程中有任何問題，請舉手等待實驗人員來找您。
+            在實驗過程中，請不要說話、驚呼或試圖與其他人交流。
+            故意違反規則的參與者可能會被要求退出實驗，並且可能不會獲得任何參與獎勵。
+          </h5>
         </div>
-        <div class="row g-3 justify-content-md-center">
-            <div class="p-2"><h5>說明blablablablablablabla</h5></div>
-        </div>
+      </div>
     </div>
-    <main role="main" class="container mt-5 ">
-        
-        <div class="row g-3 justify-content-md-center " >
-            <nav class="col-md-2 d-none d-md-block  bd-sidebar">
-                <div class="sidebar-sticky" >
-                <!--<div class="sidebar-sticky" style="display: {:contact_display};"  >
+    <main role="main" class="container mt-5">
+      <div class="row g-3 justify-content-md-center">
+        <nav class="col-md-2 d-none d-md-block bd-sidebar">
+          <div class="sidebar-sticky">
+            <!--<div class="sidebar-sticky" style="display: {:contact_display};"  >
                 <div class="sidebar-header d-flex align-items-center">
                     <h3>類別</h3>
                 </div>
                 <div style="color:#ff9c45">      
                 {:keywords}
-                </div-->     
-                <div class="card " id="center_button">
-                    <button class="btn btn-outline-primary" onclick="location.href='1_showPic.php?id=9'">開始進行實驗</button>
-                </div>
+                </div-->
+            <div class="card" id="center_button">
+              <button
+                class="btn btn-outline-primary"
+                onclick="location.href='1_showPic.php?id=9'"
+              >
+                開始進行實驗
+              </button>
             </div>
-            </nav>
-            
-            
-            <!--div class=" col-md-7 col-lg-8 " id="content">
+          </div>
+        </nav>
+
+        <!--div class=" col-md-7 col-lg-8 " id="content">
                 <h2 style="display: {:contact_display}; ">
                     全部貼文
                 </h2>
@@ -122,15 +177,9 @@
                 {:messages}
     
             </div -->
-    
-        </div>    
+      </div>
     </main>
-    
-    
-    <script>
-    
-    
-    </script>
-    
-    
-    </body></html>
+
+    <script></script>
+  </body>
+</html>

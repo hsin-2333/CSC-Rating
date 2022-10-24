@@ -328,10 +328,15 @@ if(isset($_GET['id'])){
                                         default:
 ?>
                                         <!-- Button trigger modal -->
+<<<<<<< HEAD
+                                        <button type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter"> 確認</button>
+                                        c
+=======
                                         <!--button id="confirmationSubmit1" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>                                         
                                         <!-- Modal -->
+>>>>>>> c8bec58852babe0be74f9e94bb1fb0f51b92ba26
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
                                             <div class="modal-content">
@@ -350,8 +355,20 @@ if(isset($_GET['id'])){
                                               </div>
                                             </div>
                                           </div>
-
                                         </div>
+
+                                        <!--loading 15sec -->
+                                        <div class="loading" id="loadBar">
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                            <div></div>
+                                        </div>
+                                        <div class="t-txt" id="loadtxt">
+                                            請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                        </div>
+
 <?php 
                                     }
 ?>
@@ -559,34 +576,74 @@ echo 'session[arr][id] ]='.$_SESSION['arr'][$_GET['id']-1] ;
   
 </style>
 
- <!--insert jquery-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
- <!-- timer JS-->
- <script>
-      var fullTime = 60;
-      var warn = 20;
-      var almost = 10;
+<style>
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
 
-      var currTime = fullTime;
+body {
+    /* background-color: #222; */
+    /* min-height: 100vh; */
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-      var timer = setInterval(function () {
-        --currTime;
+  .loading {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0.5rem;
+    row-gap: 1.5rem;
+    margin: 30px;
+    z-index: 5;
+  }
 
-        // Clear interval if time is up:
-        if (!currTime) window.clearInterval(timer);
+  /* .loading:after {
+    content: "Loading...";
+    color: rgb(0, 0, 0);
+    flex: 0 100%;
+    font: 700 1.3rem "Caveat", cursive;
+    text-align: center;
+  } */
 
-        // Prepend 0 if single-digit number:
-        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+  .loading div {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: loading-effect 1s cubic-bezier(0.77, 0.8, 0.58, 1) infinite
+      var(--delay, 0.2s) alternate-reverse;
+  }
 
-        // Set time to show to user:
-        $("#sec").text(txt);
+  .loading div:nth-child(2) {
+    --delay: 0.4s;
+  }
+  .loading div:nth-child(3) {
+    --delay: 0.6s;
+  }
+  .loading div:nth-child(4) {
+    --delay: 0.8s;
+  }
+  .loading div:nth-child(5) {
+    --delay: 1s;
+  }
 
-        // Decrease the bar width:
-        var w = (currTime / fullTime) * 100;
-        $(".timer-bar").css({ width: w + "%" });
+  @keyframes loading-effect {
+    0% {
+      box-shadow: 0 0 4px 1px rgba(199, 199, 199, 0.2);
+      opacity: 0.2;
+      transform: translateY(3px) scale(1.1);
+    }
 
-        // Manipulate bar according to the value:
-        if (currTime === warn) $(".timer-bar").addClass("timer-warn");
-        if (currTime === almost) $(".timer-bar").addClass("timer-almost");
-      }, 1000);
-</script>
+    100% {
+      opacity: 0.8;
+      transform: translateY(-3px);
+    }
+  }
+</style>
