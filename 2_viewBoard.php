@@ -157,7 +157,7 @@ if(isset($_GET['id'])){
 ?>
                                         <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
                                         <script type="text/javascript"> 
-                                        window.setTimeout("submit_timer_phase1", 16000); //第16秒提交填答
+                                        window.setTimeout("submit_timer_phase1()", 16000); //第16秒提交填答
                                         </script>
                                         
 <?php                                   break;

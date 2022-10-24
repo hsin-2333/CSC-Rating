@@ -9,7 +9,7 @@ function getIp(){
 }
  
 echo '<script type="text/javascript">', 
-'window.setTimeout("submit_timer()", 5000); //第5秒提交填答'
+'window.setTimeout("submit_timer_question()", 5000); //第5秒提交填答'
 ,'</script>';
 
 $sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
