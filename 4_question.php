@@ -8,7 +8,9 @@ function getIp(){
     return $_SERVER['REMOTE_ADDR'];
 }
  
-
+echo '<script type="text/javascript">', 
+'window.setTimeout("submit_timer()", 5000); //第5秒提交填答'
+,'</script>';
 
 $sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
@@ -43,8 +45,8 @@ if(isset($_GET['id'])){
         <div class="container">
             <div class="card-body" >
                 
-                <div class="container summit ">
-                    <form style="container"   method="post" enctype="multipart/form-data">   
+                <div class="container submit ">
+                    <form style="container"  id="ReviewForm" method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 
                             <div class="p-2">
@@ -173,7 +175,7 @@ if(isset($_GET['id'])){
                     
                         <div class="b">
                             <button type="submit" onclick="" >送出</button>
-                        </div>
+                       </div>
                     </form>
                 </div>
 
@@ -185,6 +187,10 @@ if(isset($_GET['id'])){
 
         //確認欄位有無填寫完成
         if(isset($_POST['question']) && isset($_POST['question2']) && isset($_POST['question3']) && isset($_POST['question4']) ){
+            if($_POST['question']=="" or $_POST['question2']=="" or $_POST['question3']=="" or $_POST['question4']=="" ){  
+                echo "<script>alert('所有欄位皆須填寫')</script>";
+            }
+            else{    
                 if(isset($_SESSION['account'])){
                         {   
                             
@@ -202,9 +208,10 @@ if(isset($_GET['id'])){
                                 
                             ));
                         }
-   
+
                         switch ($_SESSION['orderN']){
                             case "7": //如果順序加總到了7(aka經歷完了1次trial & 8次評論) 回到index頁面
+                                $_SESSION['orderN']=0;
                                 echo "<script>alert('已完成所有任務，感謝您的參與')</script>";
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
                                 break;
@@ -223,6 +230,7 @@ if(isset($_GET['id'])){
                 else{
                     echo "<script>alert('登入後才能發表回應')</script>";
                 }
+            }    
         }
         
         ?>
@@ -401,7 +409,7 @@ if(isset($_GET['id'])){
             margin-left:auto;
 
             }
-            .summit{
+            .submit{
             padding : 10px;
             font-size:20px;
             /* border:solid grey 1px; */
