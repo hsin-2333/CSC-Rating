@@ -11,8 +11,8 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-      gtag('config', 'G-2GSLNWQ1DB', {
-      'user_id': '1'
+      gtag("config", "G-2GSLNWQ1DB", {
+        user_id: "1",
       });
     </script>
     <style>
@@ -234,15 +234,25 @@
 
       /* 定時進入下一階段  */
       var timesRun = 0;
+<<<<<<< HEAD
       var timestamp = new Date().toISOString();
+=======
+>>>>>>> 268da630210302536af389269523b43efb176c69
       function phase1_timer(){   //Phase_1 Reeview 的定時: 3min + 3s + 3min +3s
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             moveNextStep(event);
+<<<<<<< HEAD
             console.log("填寫完第一次評論 跳下一步", timestamp);
             break;
           case 8:  //結束第一次提醒
+=======
+            console.log("填寫完第一次評論 跳下一步");
+            break;
+          case 8:  //結束第一次提醒
+            //stepper.next();
+>>>>>>> 268da630210302536af389269523b43efb176c69
             moveNextStep(event);
             console.log("結束 phase1 的第一次提醒");
             break;
@@ -283,6 +293,7 @@
       }
       //var interval = setInterval(phase2_timer, 1000); 
 
+<<<<<<< HEAD
       //Phase1_提交Review
       function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
@@ -295,5 +306,47 @@
       }
     </script>
 
+=======
+      //提交Review
+      function submit_timer(){   
+        document.getElementById("ReviewForm").submit();
+      }
+    </script>
+
+<<<<<<< HEAD
+    <!--insert jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <!-- timer JS-->
+    <script>
+      var fullTime = 60;
+      var warn = 20;
+      var almost = 10;
+
+      var currTime = fullTime;
+
+      var timer = setInterval(function () {
+        --currTime;
+
+        // Clear interval if time is up:
+        if (!currTime) window.clearInterval(timer);
+
+        // Prepend 0 if single-digit number:
+        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+
+        // Set time to show to user:
+        $("#sec").text(txt);
+
+        // Decrease the bar width:
+        var w = (currTime / fullTime) * 100;
+        $(".timer-bar").css({ width: w + "%" });
+
+        // Manipulate bar according to the value:
+        if (currTime === warn) $(".timer-bar").addClass("timer-warn");
+        if (currTime === almost) $(".timer-bar").addClass("timer-almost");
+      }, 1000);
+    </script>
+=======
+>>>>>>> c8bec58852babe0be74f9e94bb1fb0f51b92ba26
+>>>>>>> 268da630210302536af389269523b43efb176c69
   </body>
 </html>

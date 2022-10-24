@@ -44,7 +44,11 @@ if(isset($_GET['id'])){
                 <!--撰寫評論區(先正後負)-->
                 <div class="card-body" >
                 
+<<<<<<< HEAD
                 <div class="container submit ">
+=======
+                <div class="container summit ">
+>>>>>>> 268da630210302536af389269523b43efb176c69
                     <form style="container" id="ReviewForm"  method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
@@ -127,7 +131,11 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                 </div>
                                 <div class="b">
+<<<<<<< HEAD
                                     <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >確認</button-->
+=======
+                                    <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >確認</button>
+>>>>>>> 268da630210302536af389269523b43efb176c69
                                 </div>
                             
                             </div>
@@ -149,7 +157,11 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted text-center">請稍後 接下來請您填答自評問題</small>
                                 </div>
                                 <div class="b">
+<<<<<<< HEAD
                                     <!--button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" >確認</button-->
+=======
+                                    <button id="reviseFinalSubmit1" type="submit" onclick="moveNextStep(event)" >確認</button>
+>>>>>>> 268da630210302536af389269523b43efb176c69
                                 </div>
                             
                             </div>
@@ -168,7 +180,11 @@ if(isset($_GET['id'])){
                 <!--撰寫評論區(先負後正)-->
                 <div class="card-body" >
                 
+<<<<<<< HEAD
                 <div class="container submit ">
+=======
+                <div class="container summit ">
+>>>>>>> 268da630210302536af389269523b43efb176c69
                     <form style="container" id="ReviewForm"  method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
@@ -249,7 +265,11 @@ if(isset($_GET['id'])){
                                     <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
                                 </div>
                                 <div class="b">
+<<<<<<< HEAD
                                     <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
+=======
+                                    <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
+>>>>>>> 268da630210302536af389269523b43efb176c69
                                 </div>
                             </div>                            
                             <div id="step3" class="content" role="tabpanel">

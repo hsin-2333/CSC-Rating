@@ -45,7 +45,11 @@ if(isset($_GET['id'])){
         <div class="container">
             <div class="card-body" >
                 
+<<<<<<< HEAD
                 <div class="container submit ">
+=======
+                <div class="container summit ">
+>>>>>>> 268da630210302536af389269523b43efb176c69
                     <form style="container"  id="ReviewForm" method="post" enctype="multipart/form-data">   
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 
