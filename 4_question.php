@@ -9,7 +9,7 @@ function getIp(){
 }
  
 echo '<script type="text/javascript">', 
-'window.setTimeout("submit_timer()", 5000); //第5秒提交填答'
+'window.setTimeout("submit_timer_question()", 8000); //第8秒提交填答'
 ,'</script>';
 
 $sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
@@ -61,7 +61,7 @@ if(isset($_GET['id'])){
                                     <fieldset class="">
                                         <h5 class='card-title'> Questionaire</h5>
 
-                                        <label>1. 您上述所言是否來自真實的體驗？</label>
+                                        <label>1. 你是否實際接觸了這項商品?</label>
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu1" name="question" value="1">
@@ -88,7 +88,7 @@ if(isset($_GET['id'])){
                                         </div><br>   
                         
 
-                                        <label>2. 您對此物品的喜好程度</label>
+                                        <label>2. 您對此商品的喜好程度?</label>
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu2.1" name="question2" value="1">
@@ -115,7 +115,7 @@ if(isset($_GET['id'])){
                                         </div><br>
 
 
-                                        <label>3. 您撰寫「正面」評論的真實程度</label>
+                                        <label>3. 您撰寫「正面」評論的真實程度?</label>
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu3.1" name="question3" value="1">
@@ -142,7 +142,7 @@ if(isset($_GET['id'])){
                                         </div><br>
 
 
-                                        <label>4. 您撰寫「負面」評論的真實程度</label>
+                                        <label>4. 您撰寫「負面」評論的真實程度?</label>
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu4.1" name="question4" value="1">
@@ -174,7 +174,7 @@ if(isset($_GET['id'])){
                         </div>
                     
                         <div class="b">
-                            <button type="submit" onclick="" >送出</button>
+                            <!--button type="submit" onclick="" >送出</button-->
                        </div>
                     </form>
                 </div>

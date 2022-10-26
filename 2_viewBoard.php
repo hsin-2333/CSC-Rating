@@ -112,7 +112,8 @@ if(isset($_GET['id'])){
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
                                         <textarea id="firstPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" placeholder="我覺得......" ></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft_P">0</span>/30</small>
+                                        <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
+                                        <small class="form-text text-muted"><span id="chLeft_P">0</span>/100</small>
                                     </div>
                                     <div class="b">
                                         <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
@@ -133,7 +134,8 @@ if(isset($_GET['id'])){
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
                                         <textarea id="secondNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" placeholder="我覺得......" ></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
+                                        <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
+                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/100</span></small>
                                     </div>
                                     <div class="b">
                                         <!--button id="submitNegativeReview"type="button" onclick="moveNextStep(event)" >提交</button-->
@@ -157,7 +159,7 @@ if(isset($_GET['id'])){
 ?>
                                         <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
                                         <script type="text/javascript"> 
-                                        window.setTimeout("submit_timer_phase1", 16000); //第16秒提交填答
+                                        window.setTimeout("submit_timer_phase1()", 16000); //第16秒提交填答
                                         </script>
                                         
 <?php                                   break;
@@ -279,7 +281,8 @@ if(isset($_GET['id'])){
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
                                         <textarea id="firstNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" placeholder="我覺得......"></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
+                                        <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
+                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/100</span></small>
                                     </div>
                                     <div class="b">
                                         <!--button id="firstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button-->
@@ -300,7 +303,8 @@ if(isset($_GET['id'])){
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
                                         <textarea id="secondPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" placeholder="我覺得......"></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft_P" >0</span><span>/30</span></small>
+                                        <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
+                                        <small class="form-text text-muted "><span id="chLeft_P" >0</span><span>/100</span></small>
                                     </div>
                                     <div class="b">
                                         <!--button id="secondSubmitPositiveReview"type="button" onclick="moveNextStep(event)" >提交</button-->
@@ -453,22 +457,6 @@ else {
     echo '未指定看板';
 }
 
-echo 'arr[0]='.$_SESSION['arr'][0];
-echo '<br>';  
-echo 'arr[1]='.$_SESSION['arr'][1];
-echo 'arr[2]='.$_SESSION['arr'][2];
-echo '<br>';  
-echo 'arr[3]='.$_SESSION['arr'][3];
-echo '<br>';  
-echo 'arr[4]='.$_SESSION['arr'][4];
-echo '<br>';  
-echo 'arr[5]='.$_SESSION['arr'][5];
-echo '<br>';  
-echo 'arr[6]='.$_SESSION['arr'][6];
-echo '<br>';  
-echo 'arr[7]='.$_SESSION['arr'][7];
-echo '<br>';
-echo 'session[arr][id] ]='.$_SESSION['arr'][$_GET['id']-1] ;
 
 ?>
 
@@ -513,6 +501,9 @@ echo 'session[arr][id] ]='.$_SESSION['arr'][$_GET['id']-1] ;
                 justify-content: center;
                 align-items: center;
                 
+            }
+            .align-right{
+                text-align: right;
             }
 </style>
 

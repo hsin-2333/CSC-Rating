@@ -80,7 +80,7 @@
             height="40"
             class="d-inline-block align-text-top"
           />
-          <span class="h3 mx-1">MockRating</span>
+          <span class="h3 mx-1"><!--網站標題--></span>
         </a>
         <!-- .navbar-toggler 漢堡式選單按鈕 -->
         <button
@@ -244,13 +244,13 @@
             break;
           case 8:  //結束第一次提醒
             moveNextStep(event);
-            console.log("結束 phase1 的第一次提醒");
+            console.log("結束 phase1 的第一次提醒", timestamp);
             break;
           case 13: //第二次填寫完評論
             //stepper.next();
             moveNextStep(event);
-            console.log("填寫完第二次評論 跳下一步");
-            clearInterval(interval); // 清除定时器  
+            console.log("填寫完第二次評論 跳下一步", timestamp);
+            //clearInterval(interval); // 清除定时器  
             break;
         }   
       }
@@ -260,24 +260,24 @@
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             moveNextStep(event);
-            console.log("修改完第一次評論 跳下一步");
+            console.log("修改完第一次評論 跳下一步", timestamp);
             break;
           case 8:  //結束第一次提醒
             //stepper.next();
             moveNextStep(event);
-            console.log("結束 phase2 的第一次提醒");
+            console.log("結束 phase2 的第一次提醒", timestamp);
             break;
           case 13: //第二次填寫完評論
             //stepper.next();
             moveNextStep(event);
-            console.log("修改完第二次評論 跳下一步");
+            console.log("修改完第二次評論 跳下一步", timestamp);
             break;
           case 16: //結束第二次提醒 跳到自評問卷
             //stepper.next();
             moveNextStep(event);
             document.getElementById("ReviewForm").submit();
-            console.log("結束第二次提醒 跳到自評問卷");
-            clearInterval(interval); // 清除定时器  
+            console.log("結束第二次提醒 跳到自評問卷", timestamp);
+            //clearInterval(interval); // 清除定时器  
             break;  
         }   
       }
@@ -286,11 +286,18 @@
       //Phase1_提交Review
       function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
-        console.log("提交Review", timestamp);
+        console.log("Phase1_提交Review", timestamp);
       }
       
-      function start_timer(){   
+      //提交Questionnaire
+      function submit_timer_question(){   
         document.getElementById("ReviewForm").submit();
+        console.log("提交Questionnaire", timestamp);
+      }
+
+      //開始撰寫評論
+      function start_timer(){   
+        document.getElementById("StartReview").submit();
         console.log("Start writing review", timestamp);
       }
     </script>
