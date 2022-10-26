@@ -167,8 +167,52 @@ if(isset($_GET['id'])){
 ?>
                                         <!-- Button trigger modal >
                                         <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
+                                        
+                                        <!-- Pop up LOADING-->
+                                        <script type="text/javascript">
+                                            function stepFour(){
+                                                loader.style.display = "block";
+                                            }
+                                            window.setTimeout("stepFour()",1000);
+                                        </script>
+
+                                        <div id="loader" class="overlay">
+                                            <div id=loaderItems>
+                                                <div class="loading" id="loadBar">
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                </div>
+                                                <div class="t-txt" id="loadtxt">
+                                                    請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                                </div> 
+                                            </div>
+                                        </div>
+
+                                        <!--Pop up LOADING-->
+                                        <script type="text/javascript">
+                                            function stepFour(){
+                                                loader.style.display = "block";
+                                            }
+                                            window.setTimeout("stepFour()",1000);
+                                        </script>
+
+                                        <div id="loader" class="overlay">
+                                            <div class="loading" id="loadBar">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                            </div>
+                                            <div class="t-txt" id="loadtxt">
+                                                請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                            </div> 
+                                        </div>
                                         <!--第16秒出現 Pop up MSG-->
-                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script> 
+                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -333,6 +377,27 @@ if(isset($_GET['id'])){
 ?>
                                         <!-- Button trigger modal -->
                                         <!--button id="confirmationSubmit1" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
+                                        <!--Pop up LOADING-->
+                                        <script type="text/javascript">
+                                            function stepFour(){
+                                                loader.style.display = "inline";
+                                            }
+                                            window.setTimeout("stepFour()",1000);
+                                        </script>
+
+                                        <div id="loader" class="overlay">
+                                            <div class="loading" id="loadBar">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                            </div>
+                                            <div class="t-txt" id="loadtxt">
+                                                請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                            </div> 
+                                        </div>
+                                        
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>                                         
                                         <!-- Modal -->
@@ -581,3 +646,80 @@ else {
         if (currTime === almost) $(".timer-bar").addClass("timer-almost");
       }, 1000);
 </script>
+
+<style>
+  .overlay{
+    opacity:0.8;
+    margin: auto;
+    background-color:#ccc;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+  .loading {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0.5rem;
+    row-gap: 1.5rem;
+    margin: 30px;
+
+  }
+
+  #loaderItems {
+    width:100%;
+    height:100%;
+  }
+  
+  div#loadBar{
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 50%;
+  }
+
+  div#loadtxt {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+
+  .loading div {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: loading-effect 1s cubic-bezier(0.77, 0.8, 0.58, 1) infinite
+      var(--delay, 0.2s) alternate-reverse;
+  }
+
+  .loading div:nth-child(2) {
+    --delay: 0.4s;
+  }
+  .loading div:nth-child(3) {
+    --delay: 0.6s;
+  }
+  .loading div:nth-child(4) {
+    --delay: 0.8s;
+  }
+  .loading div:nth-child(5) {
+    --delay: 1s;
+  }
+
+  @keyframes loading-effect {
+    0% {
+      box-shadow: 0 0 4px 1px rgba(199, 199, 199, 0.2);
+      opacity: 0.2;
+      transform: translateY(3px) scale(1.1);
+    }
+
+    100% {
+      opacity: 0.8;
+      transform: translateY(-3px);
+    }
+  }
+</style>
