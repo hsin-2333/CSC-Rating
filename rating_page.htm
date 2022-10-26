@@ -302,5 +302,60 @@
       }
     </script>
 
+    <!--insert jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+    <!-- timer JS-->
+    <script>
+          var fullTime = 60;
+          var warn = 20;
+          var almost = 10;
+
+          var currTime = fullTime;
+
+          var timer = setInterval(function () {
+            --currTime;
+
+            // Clear interval if time is up:
+            if (!currTime) window.clearInterval(timer);
+
+            // Prepend 0 if single-digit number:
+            var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+
+            // Set time to show to user:
+            $("#sec").text(txt);
+
+            // Decrease the bar width:
+            var w = (currTime / fullTime) * 100;
+            $(".timer-bar").css({ width: w + "%" });
+
+            // Manipulate bar according to the value:
+            if (currTime === warn) $(".timer-bar").addClass("timer-warn");
+            if (currTime === almost) $(".timer-bar").addClass("timer-almost");
+          }, 1000);
+    </script>
+
+    <!-- insert loading timer -->
+    <script type="text/javascript">
+      //設定倒數秒數
+      let count_T = 10;
+      //寫一個方法，顯示倒數秒數  數到0後跳轉頁面
+      function countDown() {
+        //將count顯示在div中
+        document.getElementById("div1").innerHTML = count;
+        //沒執行一次，count減1
+        count -= 1;
+        //count=0時，跳轉頁面
+        if (count <= 0) {
+          //   location.href = "https://cscintern.000webhostapp.com/MockRating/new_index.php";
+          document.getElementById("loadBar").style.display = "none";
+          document.getElementById("loadtxt").style.display = "none";
+        }
+        //每秒執行一次,showTime()
+        setTimeout("countDown()", 1000);
+      }
+      //執行countDown方法
+      countDown();
+    </script>
+
   </body>
 </html>

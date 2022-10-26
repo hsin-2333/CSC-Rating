@@ -39,11 +39,25 @@ if(isset($_GET['id'])){
         case "4":    
 ?>
             <!--填寫評論(先正後負)-->
+            <div class="overlay">
+                <div class="loading" id="loadBar">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                </div>
+                <div class="t-txt" id="loadtxt">
+                    請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                </div> 
+            </div>
+            
             <div class="card-body" >
                 <div class="container submit ">
                     <!--form style="container"action="new_index.php" method="post" enctype="multipart/form-data"-->          
                     <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                         <div class="d-flex justify-content-start  mb-3 ">
+                        
                             <!--顯示圖片、商品名稱、評分 -->
                             <div class="p-2">
                             <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
@@ -158,9 +172,13 @@ if(isset($_GET['id'])){
                                         case "8":
 ?>
                                         <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
-                                        <script type="text/javascript"> 
+                                        <!-- <script type="text/javascript"> 
                                         window.setTimeout("submit_timer_phase1()", 16000); //第16秒提交填答
-                                        </script>
+                                        </script> -->
+                                        <!--第16秒出現 Pop up MSG-->
+                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>
+                                        
+                                        
                                         
 <?php                                   break;
                                         default:
@@ -169,6 +187,16 @@ if(isset($_GET['id'])){
                                         <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script> 
+                                        <div class="loading" id="loadBar">
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                                    <div></div>
+                                        </div>
+                                        <div class="t-txt" id="loadtxt">
+                                            請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                        </div>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -180,12 +208,16 @@ if(isset($_GET['id'])){
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
                                               </div>
+
                                               <div class="modal-body text-muted"><br>
                                                 <small class="text-muted">頁面將會自動跳回已寫的評論 您有一次修改評論內的機會</small>
+
                                               </div><br>
                                               <div class="modal-footer">
                                                 <button id="secondChanceConfirmation" type="submit" class="btn btn-primary" onclick="moveNextStep(event)">繼續</button>
                                               </div>
+
+                                              
                                             </div>
                                           </div>
 
@@ -205,7 +237,7 @@ if(isset($_GET['id'])){
 <?php       break;
         default:
 ?>
-            <!--填寫評論(先負後正)-->
+            
             <div class="card-body" >
                 <div class="container submit ">
                     <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
@@ -550,34 +582,86 @@ else {
   
 </style>
 
- <!--insert jquery-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
- <!-- timer JS-->
- <script>
-      var fullTime = 60;
-      var warn = 20;
-      var almost = 10;
+<style>
+  /* *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
 
-      var currTime = fullTime;
+  body {
 
-      var timer = setInterval(function () {
-        --currTime;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
+  .overlay{
+    opacity:0.8;
+    background-color:#ccc;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+  .loading {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0.5rem;
+    row-gap: 1.5rem;
+    margin: 30px;
+    /* z-index: 5 !important;
+    height:100%;
+    width:100%;
+    background-color: #000;
+    margin-top: 100px; */
+  }
+  
+  /* .loading:after {
+    content: "Loading...";
+    color: rgb(0, 0, 0);
+    flex: 0 100%;
+    font: 700 1.3rem "Caveat", cursive;
+    text-align: center;
+  } */
 
-        // Clear interval if time is up:
-        if (!currTime) window.clearInterval(timer);
+  .loading div {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: loading-effect 1s cubic-bezier(0.77, 0.8, 0.58, 1) infinite
+      var(--delay, 0.2s) alternate-reverse;
+  }
 
-        // Prepend 0 if single-digit number:
-        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+  .loading div:nth-child(2) {
+    --delay: 0.4s;
+  }
+  .loading div:nth-child(3) {
+    --delay: 0.6s;
+  }
+  .loading div:nth-child(4) {
+    --delay: 0.8s;
+  }
+  .loading div:nth-child(5) {
+    --delay: 1s;
+  }
 
-        // Set time to show to user:
-        $("#sec").text(txt);
+  @keyframes loading-effect {
+    0% {
+      box-shadow: 0 0 4px 1px rgba(199, 199, 199, 0.2);
+      opacity: 0.2;
+      transform: translateY(3px) scale(1.1);
+    }
 
-        // Decrease the bar width:
-        var w = (currTime / fullTime) * 100;
-        $(".timer-bar").css({ width: w + "%" });
-
-        // Manipulate bar according to the value:
-        if (currTime === warn) $(".timer-bar").addClass("timer-warn");
-        if (currTime === almost) $(".timer-bar").addClass("timer-almost");
-      }, 1000);
-</script>
+    100% {
+      opacity: 0.8;
+      transform: translateY(-3px);
+    }
+  }
+</style>
