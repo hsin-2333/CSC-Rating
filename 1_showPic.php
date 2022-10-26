@@ -24,9 +24,9 @@ if(isset($_GET['id'])){
 ?>
             <!--填寫評論(先正後負)-->
             <div class="card-body" >
-                <div class="container summit ">
+                <div class="container submit ">
                     <!--form style="container"action="new_index.php" method="post" enctype="multipart/form-data"-->
-                    <form style="container" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
+                    <form style="container" id="StartReview" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                 
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
@@ -38,7 +38,7 @@ if(isset($_GET['id'])){
                             </div>
                                        
                         </div>
-                        <div class="b"><button id="startReview" type="" onclick="start_timer()" >開始撰寫評論</button></div>     
+                        <div class="b"><button id="startReview" class="btn btn-outline-primary" onclick="start_timer()" >開始撰寫評論</button></div>     
                                     
                     </form>
                 </div>
@@ -51,7 +51,7 @@ if(isset($_GET['id'])){
         
         $row = $sth->fetch(PDO::FETCH_ASSOC);
         
-        //確認欄位有無填寫完成
+        /*確認欄位有無填寫完成
         if(isset($_POST['rating']) && isset($_POST['content'] )){
                 if($_POST['rating']=="0" or $_POST['content']=="" or $_POST['content_negative']=="" ){  
                     echo "<script>alert('所有欄位皆須填寫')</script>";
@@ -85,7 +85,7 @@ if(isset($_GET['id'])){
         }
                 
         }
-
+        */
 
         $frameTpl = new template('rating_page.htm');
         $frameTpl->set('php', basename($_SERVER['PHP_SELF']));
@@ -168,7 +168,7 @@ else {
                 margin-left:auto;
 
             }
-            .summit{
+            .submit{
                 padding : 10px;
                 font-size:20px;
                 /* border:solid grey 1px; */

@@ -112,8 +112,9 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea id="reviseFirstPositiveTextarea"name="Revise_C" class="form-control" onkeyup="checkLength_P(this);"><?php echo $row['content']; ?></textarea>
-                                    <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
+                                    <textarea id="reviseFirstPositiveTextarea"name="Revise_C" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this) ;" onfocus="getTimestamp(event)"><?php echo $row['content']; ?></textarea>
+                                    <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>                                    
+                                    <small class="form-text text-muted"><span id="chLeft_P"></span><span>/100</span></small>
                                 </div>
                                 <div class="b">
                                     <!--button id="reviseFirstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
@@ -134,8 +135,9 @@ if(isset($_GET['id'])){
                             <div id="step3" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea id="reviseSecondNegativeTextarea" name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" ><?php echo $row['content_negative'];?></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
+                                    <textarea id="reviseSecondNegativeTextarea" name="Revise_C_N" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" ><?php echo $row['content_negative'];?></textarea>
+                                    <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
+                                    <small class="form-text text-muted"><span id="chLeft" ></span><span>/100</span></small>
                                 </div>
                                 <div class="b">
                                     <!--button id="reviseSecondSubmitNegativeReview" type="button" onclick="moveNextStep(event)" >提交</button-->
@@ -234,8 +236,9 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea id="reviseFirstNegativeTextarea" name="Revise_C_N" class="form-control" onkeyup="checkLength(this);" ><?php echo $row['content_negative'];?></textarea>
-                                    <small class="form-text text-muted"><span id="chLeft" >30</span><span>/30</span></small>
+                                    <textarea id="reviseFirstNegativeTextarea" name="Revise_C_N" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" ><?php echo $row['content_negative'];?></textarea>
+                                    <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
+                                    <small class="form-text text-muted"><span id="chLeft" ></span><span>/100</span></small>
                                 </div>
                                 <div class="b">
                                     <!--button id="reviseFirstSubmitNegativeReview" type="button" onclick="moveNextStep(event)">下一步</button-->
@@ -255,8 +258,9 @@ if(isset($_GET['id'])){
                             <div id="step3" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea id="reviseSecondPositiveTextarea" name="Revise_C" class="form-control" onkeyup="checkLength_P(this);"  ><?php echo $row['content'];?></textarea>
-                                    <small class="form-text text-muted"><span id="chLeft_P">30</span><span>/30</span></small>
+                                    <textarea id="reviseSecondPositiveTextarea" name="Revise_C" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" ><?php echo $row['content'];?></textarea>
+                                    <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
+                                    <small class="form-text text-muted "><span id="chLeft_P"></span><span>/100</span></small>
                                 </div>
                                 <div class="b">
                                     <!--button id="reviseSecondSubmitPositiveReview" type="button" onclick="moveNextStep(event)" >提交</button-->
@@ -364,6 +368,9 @@ if(isset($_GET['id'])){
                 justify-content: center;
                 align-items: center;
                 
+            }
+            .align-right{
+                text-align: right;
             }
         </style>
 

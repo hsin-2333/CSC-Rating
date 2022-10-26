@@ -80,7 +80,7 @@
             height="40"
             class="d-inline-block align-text-top"
           />
-          <span class="h3 mx-1">MockRating</span>
+          <span class="h3 mx-1"><!--網站標題--></span>
         </a>
         <!-- .navbar-toggler 漢堡式選單按鈕 -->
         <button
@@ -250,7 +250,7 @@
             //stepper.next();
             moveNextStep(event);
             console.log("填寫完第二次評論 跳下一步", timestamp);
-            clearInterval(interval); // 清除定时器  
+            //clearInterval(interval); // 清除定时器  
             break;
         }   
       }
@@ -277,7 +277,7 @@
             moveNextStep(event);
             document.getElementById("ReviewForm").submit();
             console.log("結束第二次提醒 跳到自評問卷", timestamp);
-            clearInterval(interval); // 清除定时器  
+            //clearInterval(interval); // 清除定时器  
             break;  
         }   
       }
@@ -297,7 +297,7 @@
 
       //開始撰寫評論
       function start_timer(){   
-        document.getElementById("ReviewForm").submit();
+        document.getElementById("StartReview").submit();
         console.log("Start writing review", timestamp);
       }
     </script>
