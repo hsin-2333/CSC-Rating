@@ -112,7 +112,7 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea id="reviseFirstPositiveTextarea"name="Revise_C" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this) ;" onfocus="getTimestamp(event)"><?php echo $row['content']; ?></textarea>
+                                    <textarea id="reviseFirstPositiveTextarea" name="Revise_C" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this) ;" onfocus="getElementIdTimestamp(event)"><?php echo $row['content']; ?></textarea>
                                     <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>                                    
                                     <small class="form-text text-muted"><span id="chLeft_P"></span><span>/100</span></small>
                                 </div>
@@ -135,7 +135,7 @@ if(isset($_GET['id'])){
                             <div id="step3" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea id="reviseSecondNegativeTextarea" name="Revise_C_N" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" ><?php echo $row['content_negative'];?></textarea>
+                                    <textarea id="reviseSecondNegativeTextarea" name="Revise_C_N" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getElementIdTimestamp(event)" ><?php echo $row['content_negative'];?></textarea>
                                     <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
                                     <small class="form-text text-muted"><span id="chLeft" ></span><span>/100</span></small>
                                 </div>
@@ -236,7 +236,7 @@ if(isset($_GET['id'])){
                             <div id="step1" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(有什麼不滿意的地方嗎)</label>
-                                    <textarea id="reviseFirstNegativeTextarea" name="Revise_C_N" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" ><?php echo $row['content_negative'];?></textarea>
+                                    <textarea id="reviseFirstNegativeTextarea" name="Revise_C_N" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getElementIdTimestamp(event)" ><?php echo $row['content_negative'];?></textarea>
                                     <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
                                     <small class="form-text text-muted"><span id="chLeft" ></span><span>/100</span></small>
                                 </div>
@@ -258,7 +258,7 @@ if(isset($_GET['id'])){
                             <div id="step3" class="content" role="tabpanel">
                                 <div class="form-group">
                                     <label>評論(喜歡這項商品的哪個部分)</label>
-                                    <textarea id="reviseSecondPositiveTextarea" name="Revise_C" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" ><?php echo $row['content'];?></textarea>
+                                    <textarea id="reviseSecondPositiveTextarea" name="Revise_C" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getElementIdTimestamp(event)" ><?php echo $row['content'];?></textarea>
                                     <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
                                     <small class="form-text text-muted "><span id="chLeft_P"></span><span>/100</span></small>
                                 </div>
