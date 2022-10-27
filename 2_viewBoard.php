@@ -111,7 +111,7 @@ if(isset($_GET['id'])){
                                 <div id="step1" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
-                                        <textarea id="firstPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" placeholder="我覺得......" ></textarea>
+                                        <textarea id="firstPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getElementIdTimestamp(event)" placeholder="我覺得......" ></textarea>
                                         <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
                                         <small class="form-text text-muted"><span id="chLeft_P">0</span>/100</small>
                                     </div>
@@ -133,7 +133,7 @@ if(isset($_GET['id'])){
                                 <div id="step3" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
-                                        <textarea id="secondNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" placeholder="我覺得......" ></textarea>
+                                        <textarea id="secondNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getElementIdTimestamp(event)" placeholder="我覺得......" ></textarea>
                                         <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/100</span></small>
                                     </div>
@@ -166,7 +166,7 @@ if(isset($_GET['id'])){
                                         default:
 ?>
                                         <!-- Button trigger modal >
-                                        <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
+                                        <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script> 
                                         <!-- Modal -->
@@ -280,7 +280,7 @@ if(isset($_GET['id'])){
                                 <div id="step1" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
-                                        <textarea id="firstNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" placeholder="我覺得......"></textarea>
+                                        <textarea id="firstNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getElementIdTimestamp(event)" placeholder="我覺得......"></textarea>
                                         <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/100</span></small>
                                     </div>
@@ -302,7 +302,7 @@ if(isset($_GET['id'])){
                                 <div id="step3" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
-                                        <textarea id="secondPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" placeholder="我覺得......"></textarea>
+                                        <textarea id="secondPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getElementIdTimestamp(event)" placeholder="我覺得......"></textarea>
                                         <div style="float:right;"><small class="form-text text-muted">建議至少30個字</small></div>
                                         <small class="form-text text-muted "><span id="chLeft_P" >0</span><span>/100</span></small>
                                     </div>
@@ -332,7 +332,7 @@ if(isset($_GET['id'])){
                                         default:
 ?>
                                         <!-- Button trigger modal -->
-                                        <!--button id="confirmationSubmit1" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getTimestamp(event)"> 確認</button-->
+                                        <!--button id="confirmationSubmit1" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>                                         
                                         <!-- Modal -->

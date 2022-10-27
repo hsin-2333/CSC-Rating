@@ -205,51 +205,65 @@
         document.getElementById("chLeft_P").innerHTML = curr.toString();
       }
 
+      function getTimestamp(){
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        const sec = date.getSeconds();
+        const millisec = date.getMilliseconds();
 
-      function getTimestamp(event){
-        var timestamp = new Date().toISOString();
+        const dates = [year, month, day].join("/");
+        const seconds = [hour, min, sec, millisec].join(":");
+        const timestamp = [dates, seconds].join(" ");
+        return timestamp;
+      }
+
+      function getElementIdTimestamp(event){
+        var timestamp = getTimestamp();
         if(event.type === 'focus') {
-          console.log(timestamp, event.srcElement.id, 'focus');
+          console.log('-', 'Textarea is now focused -', event.srcElement.id, '-', timestamp);
         } else {
-          console.log(timestamp, event.srcElement.id);
+          console.log('-', event.srcElement.id, timestamp);
         }
       }
 
       function getKeydown(event){
-        var timestamp = new Date().toISOString();
+        var timestamp = getTimestamp();
         var key = event.key;
-        console.log(key, timestamp);
+        console.log('- 按下按鍵 -', key, '-', timestamp);
         if(key === 'Backspace' || key === 'Delete'){
           count++;
-          console.log('# of backspace/delete:', count);
+          console.log('- # of backspace/delete:', count);
         }
       }
-      
   
       function moveNextStep(event){
-        var timestamp = new Date().toISOString();
-        //console.log(timestamp, event.srcElement.id);
+        var timestamp = getTimestamp();
+        console.log('-', timestamp, '-', event.srcElement.id);
         return stepper.next();
       };
 
       /* 定時進入下一階段  */
       var timesRun = 0;
-      var timestamp = new Date().toISOString();
+      var timestamp = getTimestamp();
       function phase1_timer(){   //Phase_1 Reeview 的定時: 3min + 3s + 3min +3s
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             moveNextStep(event);
-            console.log("填寫完第一次評論 跳下一步", timestamp);
+            console.log("- 填寫完第一次評論 - 跳下一步 -", timestamp);
             break;
           case 8:  //結束第一次提醒
             moveNextStep(event);
-            console.log("結束 phase1 的第一次提醒", timestamp);
+            console.log("- 結束 phase1 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
             //stepper.next();
             moveNextStep(event);
-            console.log("填寫完第二次評論 跳下一步", timestamp);
+            console.log("- 填寫完第二次評論 - 跳下一步 -", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;
         }   
@@ -260,23 +274,23 @@
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             moveNextStep(event);
-            console.log("修改完第一次評論 跳下一步", timestamp);
+            console.log("- 修改完第一次評論 - 跳下一步 -", timestamp);
             break;
           case 8:  //結束第一次提醒
             //stepper.next();
             moveNextStep(event);
-            console.log("結束 phase2 的第一次提醒", timestamp);
+            console.log("- 結束 phase2 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
             //stepper.next();
             moveNextStep(event);
-            console.log("修改完第二次評論 跳下一步", timestamp);
+            console.log("- 修改完第二次評論 - 跳下一步 -", timestamp);
             break;
           case 16: //結束第二次提醒 跳到自評問卷
             //stepper.next();
             moveNextStep(event);
             document.getElementById("ReviewForm").submit();
-            console.log("結束第二次提醒 跳到自評問卷", timestamp);
+            console.log("- 結束第二次提醒 - 跳到自評問卷 -", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;  
         }   
@@ -286,19 +300,19 @@
       //Phase1_提交Review
       function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
-        console.log("Phase1_提交Review", timestamp);
+        console.log("- Phase1 - 提交Review -", timestamp);
       }
       
       //提交Questionnaire
       function submit_timer_question(){   
         document.getElementById("ReviewForm").submit();
-        console.log("提交Questionnaire", timestamp);
+        console.log("- 提交 - Questionnaire -", timestamp);
       }
 
       //開始撰寫評論
       function start_timer(){   
         document.getElementById("StartReview").submit();
-        console.log("Start writing review", timestamp);
+        console.log("- - Start writing review - -", timestamp);
       }
     </script>
 
