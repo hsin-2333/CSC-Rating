@@ -286,7 +286,7 @@
       //Phase1_提交Review
       function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
-        console.log("Phase1_提交Review", timestamp);
+        console.log("Phase1_結束", timestamp);
       }
       
       //提交Questionnaire
@@ -300,6 +300,22 @@
         document.getElementById("StartReview").submit();
         console.log("Start writing review", timestamp);
       }
+
+
+      //點擊Pop up MSG的繼續(button)後，出現loading page，(15-reaction)秒後自動跳到 Phase_2
+      function stepFour_PopUp(){
+        myModal.hide(); //關閉Modal 
+        loader.style.display = "block"; //顯示loader
+        console.log("點擊了 Pop up MSG 的 繼續(button)",timestamp);
+        window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
+      };
+      
+      //Phase_1的提醒結束後，出現loading page
+      function stepFour(){
+        loader.style.display = "block";
+        console.log("出現Loading page(沒有Pop up的狀況)",timestamp);
+        window.setTimeout("submit_timer_phase1()", 5000); //15秒後submit，進入Phase_2
+      };
     </script>
 
   </body>
