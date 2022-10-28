@@ -78,7 +78,7 @@ if(isset($_GET['id'])){
                          <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">00</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -124,8 +124,6 @@ if(isset($_GET['id'])){
                                     </div>
                                     <div>
                                         <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
-<<<<<<< HEAD
-=======
                                     </div>
                                     <div class="b">
                                         <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
@@ -136,13 +134,11 @@ if(isset($_GET['id'])){
                                         <label>評論(有什麼不滿意的地方嗎)</label>
                                         <textarea id="secondNegativeTextarea" name="content_negative" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength(this);" onfocus="getTimestamp(event)" placeholder="我覺得......" ></textarea>
                                         <small class="form-text text-muted"><span id="chLeft" >0</span><span>/30</span></small>
->>>>>>> 268da630210302536af389269523b43efb176c69
                                     </div>
                                     <div class="b">
                                         <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                     </div>
                                 </div>
-<<<<<<< HEAD
                                 <div id="step3" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(有什麼不滿意的地方嗎)</label>
@@ -153,8 +149,6 @@ if(isset($_GET['id'])){
                                         <!--button id="submitNegativeReview"type="button" onclick="moveNextStep(event)" >提交</button-->
                                     </div>
                                 </div>
-=======
->>>>>>> 268da630210302536af389269523b43efb176c69
                                 
                                 <div id="step4" class="content" role="tabpanel">
                                     <div class="alert alert-success text-center">
@@ -173,11 +167,7 @@ if(isset($_GET['id'])){
 ?>
                                         <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
                                         <script type="text/javascript"> 
-<<<<<<< HEAD
                                         window.setTimeout("submit_timer_phase1", 16000); //第16秒提交填答
-=======
-                                        window.setTimeout("submit_timer()", 16000); //第16秒提交填答
->>>>>>> 268da630210302536af389269523b43efb176c69
                                         </script>
                                         
 <?php                                   break;
@@ -225,11 +215,7 @@ if(isset($_GET['id'])){
 ?>
             <!--填寫評論(先負後正)-->
             <div class="card-body" >
-<<<<<<< HEAD
                 <div class="container submit ">
-=======
-                <div class="container summit ">
->>>>>>> 268da630210302536af389269523b43efb176c69
                     <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                 
                         <div class="d-flex justify-content-start  mb-3 ">
@@ -269,7 +255,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">00</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -315,25 +301,11 @@ if(isset($_GET['id'])){
                                     </div>
                                     <div>
                                         <small class="form-text text-muted text-center">請稍後 接下來即將進入到下一階段</small>
-<<<<<<< HEAD
-=======
-                                    </div>
-                                    <div class="b">
-                                        <button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button>
-                                    </div>
-                                </div>
-                                <div id="step3" class="content" role="tabpanel">
-                                    <div class="form-group">
-                                        <label>評論(喜歡這項商品的哪個部分)</label>
-                                        <textarea id="secondPositiveTextarea" name="content" class="form-control" onkeydown="getKeydown(event)" onkeyup="checkLength_P(this);" onfocus="getTimestamp(event)" placeholder="我覺得......"></textarea>
-                                        <small class="form-text text-muted"><span id="chLeft_P" >0</span><span>/30</span></small>
->>>>>>> 268da630210302536af389269523b43efb176c69
                                     </div>
                                     <div class="b">
                                         <!--button id="firstSubmitPositiveReview" type="button" onclick="moveNextStep(event)">下一步</button-->
                                     </div>
                                 </div>
-<<<<<<< HEAD
                                 <div id="step3" class="content" role="tabpanel">
                                     <div class="form-group">
                                         <label>評論(喜歡這項商品的哪個部分)</label>
@@ -344,8 +316,6 @@ if(isset($_GET['id'])){
                                         <!--button id="secondSubmitPositiveReview"type="button" onclick="moveNextStep(event)" >提交</button-->
                                     </div>
                                 </div>
-=======
->>>>>>> 268da630210302536af389269523b43efb176c69
                                 <div id="step4" class="content" role="tabpanel">
                                     <div class="alert alert-success text-center">感謝您填寫評論</div>
                                     <div>
@@ -361,11 +331,7 @@ if(isset($_GET['id'])){
 ?>
                                         <!--button type="submit" onclick="moveNextStep(event)" >確認</button-->
                                         <script type="text/javascript"> 
-<<<<<<< HEAD
                                         window.setTimeout("submit_timer_phase1()", 16000); //第16秒提交填答
-=======
-                                        window.setTimeout("submit_timer()", 16000); //第16秒提交填答
->>>>>>> 268da630210302536af389269523b43efb176c69
                                         </script>
                                         
 <?php                                   break;
