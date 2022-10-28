@@ -217,7 +217,7 @@
 
         const dates = [year, month, day].join("/");
         const seconds = [hour, min, sec, millisec].join(":");
-        const timestamp = [dates, seconds].join(" ");
+        const timestamp = [dates, seconds].join(" - ");
         return timestamp;
       }
 
@@ -254,15 +254,15 @@
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             stepper.next();
-            console.log("- 填寫完第一次評論 - 跳下一步 -", timestamp);
+            console.log("- Phase1 - 填寫完第一次評論 跳下一步 -", timestamp);
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- 結束 phase1 - 第一次提醒 -", timestamp);
+            console.log("- Phase1結束 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
             stepper.next();
-            console.log("- 填寫完第二次評論 - 跳下一步 -", timestamp);
+            console.log("- Phase2 - 填寫完第二次評論 跳下一步 -", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;
         }   
@@ -273,20 +273,20 @@
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             stepper.next();
-            console.log("- 修改完第一次評論 - 跳下一步 -", timestamp);
+            console.log("- Phase2 - 修改完第一次評論 跳下一步 -", timestamp);
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- 結束 phase2 - 第一次提醒 -", timestamp);
+            console.log("- Phase2結束 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
             stepper.next();
-            console.log("- 修改完第二次評論 - 跳下一步 -", timestamp);
+            console.log("- Phase2 - 修改完第二次評論 跳下一步 -", timestamp);
             break;
           case 16: //結束第二次提醒 跳到自評問卷
             stepper.next();
             document.getElementById("ReviewForm").submit();
-            console.log("- 結束第二次提醒 - 跳到自評問卷 -", timestamp);
+            console.log("- Phase2 - 結束第二次提醒 跳到自評問卷 -", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;  
         }   
@@ -302,13 +302,13 @@
       //提交Questionnaire
       function submit_timer_question(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- 提交 - Questionnaire -", timestamp);
+        console.log("- End Trial - 提交Questionnaire -", timestamp);
       }
 
       //開始撰寫評論
       function start_timer(){   
         document.getElementById("StartReview").submit();
-        console.log("- - Start writing review - -", timestamp);
+        console.log("- - Start Trial - -", timestamp);
       }
 
 
@@ -316,14 +316,14 @@
       function stepFour_PopUp(){
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
-        console.log("點擊了 Pop up MSG 的 繼續(button)",timestamp);
+        console.log("- 點擊 Popup的繼續(button) - ",timestamp);
         window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
       };
       
       //Phase_1的提醒結束後，出現loading page
       function stepFour(){
         loader.style.display = "block";
-        console.log("出現Loading page(沒有Pop up的狀況)",timestamp);
+        console.log("- 出現Loading page - 沒有Popup的狀況 - " ,timestamp);
         window.setTimeout("submit_timer_phase1()", 5000); //15秒後submit，進入Phase_2
       };
     </script>
