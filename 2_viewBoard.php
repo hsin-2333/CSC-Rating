@@ -78,7 +78,7 @@ if(isset($_GET['id'])){
                          <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:<span id="min">00</span>:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -278,7 +278,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:<span id="min">00</span>:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -616,7 +616,7 @@ else {
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
  <!-- timer JS-->
  <script>
-      var fullTime = 60;
+      var fullTime = 180;
       var warn = 20;
       var almost = 10;
 
