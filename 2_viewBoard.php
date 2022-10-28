@@ -78,7 +78,7 @@ if(isset($_GET['id'])){
                          <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">00</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -278,7 +278,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">00</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -628,11 +628,19 @@ else {
         // Clear interval if time is up:
         if (!currTime) window.clearInterval(timer);
 
+        //separate min and sec
+        var T_sec = Math.floor(currTime % 60);
+        var T_min = Math.floor(currTime / 60);
+
         // Prepend 0 if single-digit number:
-        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+        //var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+        var txt_s = T_sec.toString().length === 1 ? "0" + T_sec : T_sec;
+        var txt_m = T_min.toString().length === 1 ? "0" + T_min : T_min;
 
         // Set time to show to user:
-        $("#sec").text(txt);
+        //$("#sec").text(txt);
+        $("#sec").text(txt_s);
+        $("#min").text(txt_m);
 
         // Decrease the bar width:
         var w = (currTime / fullTime) * 100;
