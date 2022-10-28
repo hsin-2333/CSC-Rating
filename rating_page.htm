@@ -253,16 +253,15 @@
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
-            moveNextStep(event);
+            stepper.next();
             console.log("- 填寫完第一次評論 - 跳下一步 -", timestamp);
             break;
           case 8:  //結束第一次提醒
-            moveNextStep(event);
+            stepper.next();
             console.log("- 結束 phase1 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
-            //stepper.next();
-            moveNextStep(event);
+            stepper.next();
             console.log("- 填寫完第二次評論 - 跳下一步 -", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;
@@ -273,22 +272,19 @@
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
-            moveNextStep(event);
+            stepper.next();
             console.log("- 修改完第一次評論 - 跳下一步 -", timestamp);
             break;
           case 8:  //結束第一次提醒
-            //stepper.next();
-            moveNextStep(event);
+            stepper.next();
             console.log("- 結束 phase2 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
-            //stepper.next();
-            moveNextStep(event);
+            stepper.next();
             console.log("- 修改完第二次評論 - 跳下一步 -", timestamp);
             break;
           case 16: //結束第二次提醒 跳到自評問卷
-            //stepper.next();
-            moveNextStep(event);
+            stepper.next();
             document.getElementById("ReviewForm").submit();
             console.log("- 結束第二次提醒 - 跳到自評問卷 -", timestamp);
             //clearInterval(interval); // 清除定时器  
