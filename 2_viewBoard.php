@@ -78,7 +78,7 @@ if(isset($_GET['id'])){
                          <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -157,18 +157,35 @@ if(isset($_GET['id'])){
                                         case "5":
                                         case "8":
 ?>
-                                        <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
-                                        <script type="text/javascript"> 
-                                        window.setTimeout("submit_timer_phase1()", 16000); //第16秒提交填答
+                                        <!-- Pop up LOADING-->
+                                        <script type="text/javascript">
+                                            window.setTimeout("stepFour()",16000); //結束提醒3秒後，出現Loading 畫面
                                         </script>
-                                        
+
+                                        <div id="loader" class="overlay" style="display:none">
+                                            <div id=loaderItems>
+                                                <div class="loading" id="loadBar">
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                </div>
+                                                <div class="t-txt" id="loadtxt">
+                                                    請稍等<span id="div1">15</span>秒，即將進入下一頁...
+                                                </div> 
+                                            </div>
+                                        </div>
+
+
+
 <?php                                   break;
-                                        default:
+                                        default:                                        
 ?>
                                         <!-- Button trigger modal >
                                         <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
-                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script> 
+                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -184,11 +201,25 @@ if(isset($_GET['id'])){
                                                 <small class="text-muted">頁面將會自動跳回已寫的評論 您有一次修改評論內的機會</small>
                                               </div><br>
                                               <div class="modal-footer">
-                                                <button id="secondChanceConfirmation" type="submit" class="btn btn-primary" onclick="moveNextStep(event)">繼續</button>
+                                                <button id="secondChanceConfirmation" type="button" class="btn btn-primary" onclick="stepFour_PopUp()">繼續</button>
                                               </div>
                                             </div>
                                           </div>
 
+                                        </div>
+                                        
+                                        <!--Pop up LOADING-->
+                                        <div id="loader" class="overlay" style="display:none">
+                                            <div class="loading" id="loadBar">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                            </div>
+                                            <div class="t-txt" id="loadtxt">
+                                                請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                            </div> 
                                         </div>
 <?php 
                                     }
@@ -247,7 +278,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:00:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -323,16 +354,33 @@ if(isset($_GET['id'])){
                                         case "5":
                                         case "8":
 ?>
-                                        <!--button type="submit" onclick="moveNextStep(event)" >確認</button-->
-                                        <script type="text/javascript"> 
-                                        window.setTimeout("submit_timer_phase1()", 16000); //第16秒提交填答
+                                        <!-- Pop up LOADING-->
+                                        <script type="text/javascript">
+                                            window.setTimeout("stepFour()",16000); //結束提醒3秒後，秀出Loading 畫面
                                         </script>
+
+                                        <div id="loader" class="overlay" style="display:none">
+                                            <div id=loaderItems>
+                                                <div class="loading" id="loadBar">
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                            <div></div>
+                                                </div>
+                                                <div class="t-txt" id="loadtxt">
+                                                    請稍等<span id="div1">15</span>秒，即將進入下一頁...
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <!--button id="xxxx" type="submit" onclick="moveNextStep(event)" >確認</button-->
                                         
 <?php                                   break;
                                         default:
 ?>
                                         <!-- Button trigger modal -->
                                         <!--button id="confirmationSubmit1" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
+                                        
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>                                         
                                         <!-- Modal -->
@@ -350,11 +398,25 @@ if(isset($_GET['id'])){
                                                 <small class="text-muted">頁面將會自動跳回已寫的評論 您有一次修改評論內的機會</small>
                                               </div>
                                               <div class="modal-footer">
-                                                <button id="confirmationSubmit1"type="submit" class="btn btn-primary" onclick="moveNextStep(event)">繼續</button>
+                                                <button id="confirmationSubmit1"type="button" class="btn btn-primary" onclick="stepFour_PopUp()">繼續</button>
                                               </div>
                                             </div>
                                           </div>
 
+                                        </div>
+
+                                        <!--Pop up LOADING-->
+                                        <div id="loader" class="overlay" style="display:none">
+                                            <div class="loading" id="loadBar">
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                                        <div></div>
+                                            </div>
+                                            <div class="t-txt" id="loadtxt">
+                                                請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                            </div> 
                                         </div>
 <?php 
                                     }
@@ -554,7 +616,7 @@ else {
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
  <!-- timer JS-->
  <script>
-      var fullTime = 60;
+      var fullTime = 180;
       var warn = 20;
       var almost = 10;
 
@@ -566,11 +628,19 @@ else {
         // Clear interval if time is up:
         if (!currTime) window.clearInterval(timer);
 
+        //separate min and sec
+        var T_sec = Math.floor(currTime % 60);
+        var T_min = Math.floor(currTime / 60);
+
         // Prepend 0 if single-digit number:
-        var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+        //var txt = currTime.toString().length === 1 ? "0" + currTime : currTime;
+        var txt_s = T_sec.toString().length === 1 ? "0" + T_sec : T_sec;
+        var txt_m = T_min.toString().length === 1 ? "0" + T_min : T_min;
 
         // Set time to show to user:
-        $("#sec").text(txt);
+        //$("#sec").text(txt);
+        $("#sec").text(txt_s);
+        $("#min").text(txt_m);
 
         // Decrease the bar width:
         var w = (currTime / fullTime) * 100;
@@ -581,3 +651,80 @@ else {
         if (currTime === almost) $(".timer-bar").addClass("timer-almost");
       }, 1000);
 </script>
+
+<style>
+  .overlay{
+    opacity:1.0;
+    margin: auto;
+    background-color:#ccc;
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0px;
+    left:0px;
+    z-index:1000;
+}
+  .loading {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 0.5rem;
+    row-gap: 1.5rem;
+    margin: 30px;
+
+  }
+
+  #loaderItems {
+    width:100%;
+    height:100%;
+  }
+  
+  div#loadBar{
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 50%;
+  }
+
+  div#loadtxt {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+
+  .loading div {
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: loading-effect 1s cubic-bezier(0.77, 0.8, 0.58, 1) infinite
+      var(--delay, 0.2s) alternate-reverse;
+  }
+
+  .loading div:nth-child(2) {
+    --delay: 0.4s;
+  }
+  .loading div:nth-child(3) {
+    --delay: 0.6s;
+  }
+  .loading div:nth-child(4) {
+    --delay: 0.8s;
+  }
+  .loading div:nth-child(5) {
+    --delay: 1s;
+  }
+
+  @keyframes loading-effect {
+    0% {
+      box-shadow: 0 0 4px 1px rgba(199, 199, 199, 0.2);
+      opacity: 0.2;
+      transform: translateY(3px) scale(1.1);
+    }
+
+    100% {
+      opacity: 1.0;
+      transform: translateY(-3px);
+    }
+  }
+</style>
