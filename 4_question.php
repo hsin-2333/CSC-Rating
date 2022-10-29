@@ -210,7 +210,7 @@ if(isset($_GET['id'])){
                         }
 
                         switch ($_SESSION['orderN']){
-                            case "7": //如果順序加總到了7(aka經歷完了1次trial & 8次評論) 回到index頁面
+                            case "8": //如果順序加總到了7(aka經歷完了1次trial & 8次評論) 回到index頁面
                                 $_SESSION['orderN']=0;
                                 echo "<script>alert('已完成所有任務，感謝您的參與')</script>";
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
