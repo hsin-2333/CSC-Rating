@@ -258,11 +258,11 @@
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- Phase1結束 - 第一次提醒 -", timestamp);
+            console.log("- Phase1 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
             stepper.next();
-            console.log("- Phase2 - 填寫完第二次評論 跳下一步 -", timestamp);
+            console.log("- Phase1 - 填寫完第二次評論 跳下一步 -", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;
         }   
@@ -293,10 +293,10 @@
       }
       //var interval = setInterval(phase2_timer, 1000); 
 
-      //Phase1_提交Review
+      //Loading畫面 結束
       function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- Phase1 - 提交Review -", timestamp);
+        console.log("- Loading page - 結束Loading畫面 跳到Phase2 -", timestamp);
       }
       
       //提交Questionnaire
@@ -316,14 +316,14 @@
       function stepFour_PopUp(){
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
-        console.log("- 點擊 Popup的繼續(button) - ",timestamp);
-        window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
+        console.log("- 按下 Popup 的繼續(button) - ",timestamp);
+        //window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
       };
       
       //Phase_1的提醒結束後，出現loading page
       function stepFour(){
         loader.style.display = "block";
-        console.log("- 出現Loading page - 沒有Popup的狀況 - " ,timestamp);
+        console.log("- Phase1_結束第二次提醒 跳到Loading page - 沒有Popup的狀況 - " ,timestamp);
         window.setTimeout("submit_timer_phase1()", 5000); //15秒後submit，進入Phase_2
       };
     </script>

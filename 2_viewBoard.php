@@ -185,7 +185,10 @@ if(isset($_GET['id'])){
                                         <!-- Button trigger modal >
                                         <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
-                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>
+                                        <script type="text/javascript">
+                                            window.setTimeout("myModal.show()",16000);
+                                            window.setTimeout("submit_timer_phase1()",21000); //(6m6s+15)秒後submit，進入Phase_2
+                                        </script>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
@@ -382,7 +385,10 @@ if(isset($_GET['id'])){
                                         <!--button id="confirmationSubmit1" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
                                         
                                         <!--第16秒出現 Pop up MSG-->
-                                        <script type="text/javascript">window.setTimeout("myModal.show()",16000);</script>                                         
+                                        <script type="text/javascript">
+                                            window.setTimeout("myModal.show()",16000);
+                                            window.setTimeout("submit_timer_phase1()",21000); //(6m6s+15)秒後submit，進入Phase_2
+                                        </script>                                         
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                           <div class="modal-dialog modal-dialog-centered" role="document">
