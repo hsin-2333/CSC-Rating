@@ -75,7 +75,7 @@ if(isset($_GET['id'])){
                                             
                         </div>
                          <!--timer -->        
-                         <div class="container-timer ">
+                        <div class="container-timer ">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
                             <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
@@ -245,14 +245,13 @@ if(isset($_GET['id'])){
                     <form style="container" id="ReviewForm" action="2_viewBoard.php?id=<?php echo (int)$_GET['id'];?>" method="post" enctype="multipart/form-data">                        
                 
                         <div class="d-flex justify-content-start  mb-3 ">
-                                            <!--顯示圖片、商品名稱、評分 -->
-                                            <div class="p-2">
-                                                <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
-                                            </div>
-                
-                                            <div class="p-2">
-                                                <h5 class="card-title" style=" font-size:30px;"><strong>Product name: <?php echo $row_B['name']?></strong> </h5>
-                                                <!--h6 class="card-subtitle mb-2 text-muted">
+                            <!--顯示圖片、商品名稱、評分 -->
+                            <div class="p-2">
+                                <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
+                            </div>
+                            <div class="p-2">
+                                <h5 class="card-title" style=" font-size:30px;"><strong>Product name: <?php echo $row_B['name']?></strong> </h5>
+                                        <!--h6 class="card-subtitle mb-2 text-muted">
                                                     <fieldset class="rating">
                                                             <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked="" aria-label="No rating.">
                 
@@ -273,10 +272,10 @@ if(isset($_GET['id'])){
                 
                                                             <span class="focus-ring"></span>
                                                     </fieldset>
-                                                </h6-->
-                                            </div>
+                                        </h6-->
+                            </div>
                                             
-                                        </div>
+                        </div>
                         <!--timer -->        
                         <div class="container-timer ">
                         <div class="timer-wrapper">
@@ -618,9 +617,9 @@ else {
   
 </style>
 
- <!--insert jquery-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
- <!-- timer JS-->
+ <!--insert jquery>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script-->
+ <!-- timer JS>
  <script>
       var fullTime = 180;
       var warn = 20;
@@ -656,7 +655,7 @@ else {
         if (currTime === warn) $(".timer-bar").addClass("timer-warn");
         if (currTime === almost) $(".timer-bar").addClass("timer-almost");
       }, 1000);
-</script>
+</script-->
 
 <style>
   .overlay{

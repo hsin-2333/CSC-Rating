@@ -80,7 +80,13 @@ if(isset($_GET['id'])){
                             
                         </div>
                             
-
+                         <!--timer -->        
+                        <div class="container-timer ">
+                        <div class="timer-wrapper">
+                            <div class="timer-bar"></div>
+                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
+                        </div>
+                        </div>                   
                     <!-- Stepper -->
                         <div class="bs-stepper">
                         <div class="bs-stepper-header" role="tablist">
@@ -205,7 +211,13 @@ if(isset($_GET['id'])){
                             
                         </div>
                             
-
+                        <!--timer -->        
+                        <div class="container-timer ">
+                        <div class="timer-wrapper">
+                            <div class="timer-bar"></div>
+                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
+                        </div>
+                        </div>
                     <!-- Stepper -->
                         <div class="bs-stepper">
                             <div class="bs-stepper-header" role="tablist">
@@ -372,6 +384,47 @@ if(isset($_GET['id'])){
             .align-right{
                 text-align: right;
             }
+
+            /*-- timer css --*/
+            .container-timer {
+                position: relative;
+                max-width: 100px;
+                height: 20px;
+                background: #f5f5f5;
+                margin: 5px auto;
+            } 
+            .timer-wrapper {
+                height: 20px;
+                line-height: 20px;
+                background: #000;
+                position: relative;
+                margin-top: 0px;
+            }
+            .timer-txt {
+                width: 100%;
+                margin: 0;
+                color: #fff;
+                text-align: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .timer-bar {
+                width: 100%;
+                height: 20px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: all 0.3s;
+                background: #28c684;
+            }
+            .timer-warn {
+                background: #d0863a;
+            }
+            .timer-almost {
+                background: #d03a49;
+            }
+            
         </style>
 
         </body>
