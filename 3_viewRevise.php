@@ -47,6 +47,12 @@ echo '<script type="text/javascript">',
 //定時跳轉功能
 echo '<script type="text/javascript">','window.setInterval("phase2_timer()", 1000);','</script>';
 
+//Condition順序
+?>  <script type="text/javascript">
+       var unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
+    </script>
+<?php
+
 $sthBoard = $dbh->prepare('SELECT * FROM product WHERE id = ?'); //商品編號
 if(isset($_GET['id'])){
     $sth = $dbh->prepare('SELECT id FROM dz_thread WHERE id = ? ');
@@ -64,9 +70,9 @@ if(isset($_GET['id'])){
 
             switch ($_SESSION['arr'][$_GET['id']-1]) {
             case "1":
-            case "4":
-            case "5":
-            case "7":    
+            case "2":
+            case "3":
+            case "4":    
 ?>
                 <!--撰寫評論區(先正後負)-->
                 <div class="card-body" >

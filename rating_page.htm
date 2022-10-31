@@ -166,11 +166,45 @@
         document.getElementById("chLeft_P").innerHTML = curr.toString();
       }
 
-      function getSequence(event){
+      /*function getSequence(event){
         if(event.srcElement.id.search('firstPositive') != -1 || event.srcElement.id.search('secondNegative') != -1){
           return 'Sequence A';
         }
         return 'Sequence B';
+      }*/
+      
+      //正負評論順序
+      function getSequence(event){
+        switch (unique_rand){
+          case "1":
+          case "2":
+          case "3":
+          case "4":   
+            return 'Sequence A'; //先正面評論 再負面
+            break;
+          default:
+            //return unique_rand;
+            return 'Sequence B'; //先負面評論 再正面
+        }    
+      }
+      //Condition順序
+      function getCondition(event){
+        switch (unique_rand){
+          case "1":
+          case "7":
+            return 'C1'; //Have experience & with confirmation dialog 
+            break;
+          case "2":
+          case "6":
+            return 'C2'; //Have experience & without confirmation dialog 
+            break;
+          case "4":
+          case "5":   
+            return 'C3'; //Do not have experience & with confirmation dialog
+            break;
+          default:
+            return 'C4'; //No exp & without dialog
+        }    
       }
 
       function getPhase(event){
@@ -188,7 +222,7 @@
       }
       
       var timestamp = get_timestamp();
-
+      var condition = getCondition(event);
       function getElementIdTimestamp(event){
         var phase = getPhase(event);
         var sequence = getSequence(event);
@@ -269,11 +303,11 @@
       //Loading畫面 結束
       function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- Phase1 - End of Loading -", timestamp);
+        console.log("- Phase1 - End of Loading -", timestamp,'-',condition);
       }
 
       function getPopupDisplayTimestamp(){
-        console.log("- Phase1 - Popup display -", timestamp, '- - C1 | C3');
+        console.log("- Phase1 - Popup display -", timestamp,'-', condition);
       }
 
       function get_timestamp(){
@@ -306,7 +340,7 @@
 
       //點擊Pop up MSG的繼續(button)後，出現loading page，(15-reaction)秒後自動跳到 Phase_2
       function stepFour_PopUp(){
-        console.log("- Phase 1 - Click Popup Continue Button - ", timestamp, '- - C1 | C3');
+        console.log("- Phase 1 - Click Popup Continue Button - ", timestamp,'-', condition);
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
         //window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
@@ -315,7 +349,7 @@
       //Phase_1的提醒結束後，出現loading page
       function stepFour(){
         loader.style.display = "block";
-        console.log("- Phase1 - Enter Loading Page - " ,timestamp, '- - C2 | C4');
+        console.log("- Phase1 - Enter Loading Page - " ,timestamp,'-', condition);
         window.setTimeout("submit_timer_phase1()", 5000); //15秒後submit，進入Phase_2
       };
     </script>

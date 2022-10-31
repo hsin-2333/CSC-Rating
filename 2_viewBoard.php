@@ -18,6 +18,12 @@ echo '<script type="text/javascript">',
 ////定時跳轉功能
 echo '<script type="text/javascript">','window.setInterval("phase1_timer()", 1000);','</script>';
 
+//Condition順序
+?>  <script type="text/javascript">
+       var unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
+    </script>
+<?php
+
 //$sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
     $sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
@@ -149,9 +155,9 @@ if(isset($_GET['id'])){
                                     <div class="b">
 <?php
                                     switch ($_SESSION['arr'][$_GET['id']-1]) {
+                                        case "2":
                                         case "3":
-                                        case "4":
-                                        case "5":
+                                        case "6":
                                         case "8":
 ?>
                                         <!-- Pop up LOADING-->
@@ -349,9 +355,9 @@ if(isset($_GET['id'])){
                                     <div class="b">
 <?php
                                     switch ($_SESSION['arr'][$_GET['id']-1]) {
+                                        case "2":
                                         case "3":
-                                        case "4":
-                                        case "5":
+                                        case "6":
                                         case "8":
 ?>
                                         <!-- Pop up LOADING-->

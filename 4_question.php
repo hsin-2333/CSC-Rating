@@ -16,6 +16,12 @@ echo '<script type="text/javascript">',
 'console.log("- - Enter Questionnaire Page", "- - ", get_timestamp());'
 , '</script>';
 
+//Condition順序
+?>  <script type="text/javascript">
+       var unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
+    </script>
+<?php
+
 $sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
     $sth = $dbh->prepare('SELECT id, name FROM product WHERE id = ? ');
