@@ -12,6 +12,10 @@ echo '<script type="text/javascript">',
 'window.setTimeout("submit_timer_question()", 8000); //第8秒提交填答'
 ,'</script>';
 
+echo '<script type="text/javascript">',
+'console.log("- - Enter Questionnaire Page", "- - ", get_timestamp());'
+, '</script>';
+
 $sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
     $sth = $dbh->prepare('SELECT id, name FROM product WHERE id = ? ');
@@ -208,27 +212,49 @@ if(isset($_GET['id'])){
                                 
                             ));
                         }
-
+                        
                         switch ($_SESSION['orderN']){
                             case "8": //如果順序加總到了7(aka經歷完了1次trial & 8次評論) 回到index頁面
                                 $_SESSION['orderN']=0;
-                                echo "<script>alert('已完成所有任務，感謝您的參與')</script>";
+                                echo '<script type="text/javascript">
+                                        const date = new Date();
+                                        const year = date.getFullYear();
+                                        const month = date.getMonth() + 1;
+                                        const day = date.getDate();
+                                        const hour = date.getHours();
+                                        const min = date.getMinutes();
+                                        const sec = date.getSeconds();
+                                        const millisec = date.getMilliseconds();
+                                        const dates = [year, month, day].join("/");
+                                        const seconds = [hour, min, sec, millisec].join(":");
+                                        const timestamp = [dates, seconds].join(" - ");
+                                        console.log(" - All Complete Alert Display - -", timestamp);
+                                        alert("已完成所有任務，感謝您的參與");
+                                        console.log(" - ===Experiment End=== - -", timestamp);
+                                    </script>';
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
                                 break;
                             case"0":
-                                $_SESSION['orderN']+=1;  
-                                echo "<script>alert('完成練習任務，接下來將開始進行正式任務')</script>";
+                                $_SESSION['orderN']+=1;
+                                echo "<script>
+                                    console.log('- End of Practice trial - -', timestamp);
+                                    alert('完成練習任務，接下來將開始進行正式任務');
+                                </script>";
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
                                 break;
                             default:
                                 $_SESSION['orderN']+=1;  
-                                echo "<script>alert('完成')</script>";
+                                echo "<script>
+                                        console.log('- Display Alert - -', timestamp);
+                                        alert('完成')
+                                    </script>";
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
 
                         }
                     }             
                 else{
-                    echo "<script>alert('登入後才能發表回應')</script>";
+                    echo "<script>
+                    alert('登入後才能發表回應')</script>";
                 }
             }    
         }

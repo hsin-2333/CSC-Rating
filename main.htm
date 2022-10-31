@@ -77,11 +77,34 @@
                 {:keywords}
                 </div-->     
                 <div class="card " id="center_button">
-                    <button class="btn btn-outline-primary" onclick="location.href='1_showPic.php?id=9'">開始進行實驗</button>
+                  <!-- <button class="btn btn-outline-primary" onclick="location.href='1_showPic.php?id=9'">開始進行實驗</button> -->
+                    <button class="btn btn-outline-primary" onclick="startExperiment()">開始進行實驗</button>
                 </div>
             </div>
             </nav>
-            
+
+          <script>
+            function get_timestamp(){
+              const date = new Date();
+              const year = date.getFullYear();
+              const month = date.getMonth() + 1;
+              const day = date.getDate();
+              const hour = date.getHours();
+              const min = date.getMinutes();
+              const sec = date.getSeconds();
+              const millisec = date.getMilliseconds();
+              const dates = [year, month, day].join("/");
+              const seconds = [hour, min, sec, millisec].join(":");
+              const timestamp = [dates, seconds].join(" - ");
+              return timestamp;
+            }
+
+            function startExperiment(){
+              location.href='1_showPic.php?id=9';
+              var timestamp = get_timestamp();
+              console.log('- - Begin Experiment', '- - ', timestamp);
+            };
+          </script>  
             
             <!--div class=" col-md-7 col-lg-8 " id="content">
                 <h2 style="display: {:contact_display}; ">

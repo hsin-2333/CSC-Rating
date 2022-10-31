@@ -133,6 +133,8 @@
 
       //Pop up Window
       $("#myModal").on("shown.bs.modal", function () {
+        var timestamp = get_timestamp();
+        console.log('- Display Popup - ', timestamp)
         $("#myInput").trigger("focus");
       });
 
@@ -164,64 +166,75 @@
         document.getElementById("chLeft_P").innerHTML = curr.toString();
       }
 
-      function getTimestamp(){
-        const date = new Date();
-        const year = date.getFullYear();
-        const month = date.getMonth() + 1;
-        const day = date.getDate();
-        const hour = date.getHours();
-        const min = date.getMinutes();
-        const sec = date.getSeconds();
-        const millisec = date.getMilliseconds();
-
-        const dates = [year, month, day].join("/");
-        const seconds = [hour, min, sec, millisec].join(":");
-        const timestamp = [dates, seconds].join(" - ");
-        return timestamp;
+      function getSequence(event){
+        if(event.srcElement.id.search('firstPositive') != -1 || event.srcElement.id.search('secondNegative') != -1){
+          return 'Sequence A';
+        }
+        return 'Sequence B';
       }
 
+      function getPhase(event){
+        if(event.srcElement.id.search('revise') != -1){
+          return'Phase2';
+        }
+        return 'Phase1';
+      }
+
+      function getTypeTextarea(event){
+        if(event.srcElement.id.search('Positive') != -1){
+          return 'Negative';
+        }
+        return 'Positive';
+      }
+      
+      var timestamp = get_timestamp();
+
       function getElementIdTimestamp(event){
-        var timestamp = getTimestamp();
+        var phase = getPhase(event);
+        var sequence = getSequence(event);
         if(event.type === 'focus') {
-          console.log('-', 'Textarea is now focused -', event.srcElement.id, '-', timestamp);
+          console.log('-', phase, '- Focus Textarea -', timestamp, '-', sequence);
         } else {
-          console.log('-', event.srcElement.id, timestamp);
+          console.log('-', phase,'-', event.srcElement.id, '-', timestamp);
         }
       }
 
       function getKeydown(event){
-        var timestamp = getTimestamp();
+        var phase = getPhase(event);
+        var sequence = getSequence(event);
         var key = event.key;
-        console.log('- 按下按鍵 -', key, '-', timestamp);
         if(key === 'Backspace' || key === 'Delete'){
           count++;
-          console.log('- # of backspace/delete:', count);
+          console.log('-', phase, ' -Enter Key:', key, '-',timestamp, '-', sequence, '- - # of backspace/delete:', count);
+        } else {
+          console.log('-', phase, '- Enter Key:', key, '-',timestamp, '-', sequence);
         }
       }
   
       function moveNextStep(event){
-        var timestamp = getTimestamp();
+        var timestamp = get_timestamp();
         console.log('-', timestamp, '-', event.srcElement.id);
         return stepper.next();
       };
 
       /* 定時進入下一階段  */
       var timesRun = 0;
-      var timestamp = getTimestamp();
-      function phase1_timer(){   //Phase_1 Reeview 的定時: 3min + 3s + 3min +3s
+      var timestamp = get_timestamp();
+      function phase1_timer(){   //Phase_1 Review 的定時: 3min + 3s + 3min +3s
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             stepper.next();
-            console.log("- Phase1 - 填寫完第一次評論 跳下一步 -", timestamp);
+            console.log("- Phase1 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp);
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- Phase1 - 第一次提醒 -", timestamp);
+            console.log("- Phase1 - Enter Review Page -", timestamp);
+            // console.log("- Phase1 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
             stepper.next();
-            console.log("- Phase1 - 填寫完第二次評論 跳下一步 -", timestamp);
+            console.log("- Phase1 - Enter 「感謝您填寫評論」 Page (Second review)-", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;
         }   
@@ -231,21 +244,22 @@
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
+            console.log("- Phase2 - Start Revise Page - ", timestamp);
             stepper.next();
-            console.log("- Phase2 - 修改完第一次評論 跳下一步 -", timestamp);
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp);
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- Phase2結束 - 第一次提醒 -", timestamp);
+            console.log("- Phase2 - Enter Review Page -", timestamp);
             break;
           case 13: //第二次填寫完評論
             stepper.next();
-            console.log("- Phase2 - 修改完第二次評論 跳下一步 -", timestamp);
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (Second review)-", timestamp);
             break;
           case 16: //結束第二次提醒 跳到自評問卷
             stepper.next();
             document.getElementById("ReviewForm").submit();
-            console.log("- Phase2 - 結束第二次提醒 跳到自評問卷 -", timestamp);
+            console.log("- Phase2 - End of Phase2 -", timestamp);
             //clearInterval(interval); // 清除定时器  
             break;  
         }   
@@ -255,34 +269,53 @@
       //Loading畫面 結束
       function submit_timer_phase1(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- Loading page - 結束Loading畫面 跳到Phase2 -", timestamp);
+        console.log("- Phase1 - End of Loading -", timestamp);
       }
-      
+
+      function getPopupDisplayTimestamp(){
+        console.log("- Phase1 - Popup display -", timestamp, '- - C1 | C3');
+      }
+
+      function get_timestamp(){
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        const sec = date.getSeconds();
+        const millisec = date.getMilliseconds();
+        const dates = [year, month, day].join("/");
+        const seconds = [hour, min, sec, millisec].join(":");
+        const timestamp = [dates, seconds].join(" - ");
+        return timestamp;
+      }
+
       //提交Questionnaire
       function submit_timer_question(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- End Trial - 提交Questionnaire -", timestamp);
+        console.log("- End Trial - Submit Questionnaire -", timestamp);
       }
 
       //開始撰寫評論
       function start_timer(){   
         document.getElementById("StartReview").submit();
-        console.log("- - Start Trial - -", timestamp);
+        console.log("- Phase1 - Start Trial - ", timestamp);
       }
 
 
       //點擊Pop up MSG的繼續(button)後，出現loading page，(15-reaction)秒後自動跳到 Phase_2
       function stepFour_PopUp(){
+        console.log("- Phase 1 - Click Popup Continue Button - ", timestamp, '- - C1 | C3');
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
-        console.log("- 按下 Popup 的繼續(button) - ",timestamp);
         //window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
       };
       
       //Phase_1的提醒結束後，出現loading page
       function stepFour(){
         loader.style.display = "block";
-        console.log("- Phase1_結束第二次提醒 跳到Loading page - 沒有Popup的狀況 - " ,timestamp);
+        console.log("- Phase1 - Enter Loading Page - " ,timestamp, '- - C2 | C4');
         window.setTimeout("submit_timer_phase1()", 5000); //15秒後submit，進入Phase_2
       };
     </script>

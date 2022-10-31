@@ -9,6 +9,28 @@ function getIp(){
 }
 
 
+echo '<script type="text/javascript">
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours();
+    const min = date.getMinutes();
+    const sec = date.getSeconds();
+    const millisec = date.getMilliseconds();
+    const dates = [year, month, day].join("/");
+    const seconds = [hour, min, sec, millisec].join(":");
+    const timestamp = [dates, seconds].join(" - ");
+    console.log("- - Enter Product Page", "- ", timestamp);
+</script>';
+
+echo '<script type="text/javascript">',
+     'function start_timer(){   
+        document.getElementById("StartReview").submit();
+        console.log("- Phase1 - ===Start Trial=== - ", timestamp);
+      };',
+     '</script>'
+;
 
 //$sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
