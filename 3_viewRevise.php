@@ -81,13 +81,13 @@ if(isset($_GET['id'])){
                         </div>
                             
                          <!--timer -->        
-                        <div class="container-timer ">
+                        <div class="container-timer " id = "contain">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
                             <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
                         </div>
                         </div>                   
-                    <!-- Stepper -->
+                        <!-- Stepper -->
                         <div class="bs-stepper">
                         <div class="bs-stepper-header" role="tablist">
                         
@@ -212,13 +212,13 @@ if(isset($_GET['id'])){
                         </div>
                             
                         <!--timer -->        
-                        <div class="container-timer ">
+                        <div class="container-timer " id = "contain">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
                             <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
-                    <!-- Stepper -->
+                        <!-- Stepper -->
                         <div class="bs-stepper">
                             <div class="bs-stepper-header" role="tablist">
                                 <div class="step" data-target="#step1">
@@ -415,7 +415,7 @@ if(isset($_GET['id'])){
                 position: absolute;
                 top: 0;
                 left: 0;
-                transition: all 0.3s;
+                transition: all 0.0s;
                 background: #28c684;
             }
             .timer-warn {
