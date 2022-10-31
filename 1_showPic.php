@@ -7,30 +7,6 @@ include('template_class.php');
 function getIp(){
     return $_SERVER['REMOTE_ADDR'];
 }
-
-
-echo '<script type="text/javascript">
-    const date = new Date();
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const hour = date.getHours();
-    const min = date.getMinutes();
-    const sec = date.getSeconds();
-    const millisec = date.getMilliseconds();
-    const dates = [year, month, day].join("/");
-    const seconds = [hour, min, sec, millisec].join(":");
-    const timestamp1 = [dates, seconds].join(" - ");
-    console.log("- - Enter Product Page", "- ", timestamp1);
-</script>';
-
-echo '<script type="text/javascript">',
-     'function start_timer(){   
-        document.getElementById("StartReview").submit();
-        console.log("- Phase1 - ===Start Trial=== - ", timestamp);
-      };',
-     '</script>'
-;
 //Condition順序
 ?>  <script type="text/javascript">
        var unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
@@ -47,8 +23,26 @@ if(isset($_GET['id'])){
     if($sthBoard->rowCount() == 1){
         $row_B = $sthBoard->fetch(PDO::FETCH_ASSOC);
         //row['id'] 等於 (int)$_GET['id'] ->商品id
-        
-?>
+        $productName = $row_B['name'];
+   ;
+
+?>  <script type="text/javascript">
+       var productName = "<?php echo $row_B['name']; ?>";
+       const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const hour = date.getHours();
+        const min = date.getMinutes();
+        const sec = date.getSeconds();
+        const millisec = date.getMilliseconds();
+        const dates = [year, month, day].join("/");
+        const seconds = [hour, min, sec, millisec].join(":");
+        const timestamp1 = [dates, seconds].join(" - ");
+        console.log("- - Enter Product Page", "- ", timestamp1, "-", productName);
+    </script>
+
+
             <!--填寫評論(先正後負)-->
             <div class="card-body" >
                 <div class="container submit ">
