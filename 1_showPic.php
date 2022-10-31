@@ -20,8 +20,8 @@ echo '<script type="text/javascript">
     const millisec = date.getMilliseconds();
     const dates = [year, month, day].join("/");
     const seconds = [hour, min, sec, millisec].join(":");
-    const timestamp = [dates, seconds].join(" - ");
-    console.log("- - Enter Product Page", "- ", timestamp);
+    const timestamp1 = [dates, seconds].join(" - ");
+    console.log("- - Enter Product Page", "- ", timestamp1);
 </script>';
 
 echo '<script type="text/javascript">',
