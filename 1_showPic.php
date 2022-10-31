@@ -7,11 +7,15 @@ include('template_class.php');
 function getIp(){
     return $_SERVER['REMOTE_ADDR'];
 }
+<<<<<<< HEAD
 //Condition順序
 ?>  <script type="text/javascript">
        var unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
     </script>
 <?php
+=======
+
+>>>>>>> 1e9c987d705828fe2e2cb439b5371dfe39aaff10
 
 //$sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
