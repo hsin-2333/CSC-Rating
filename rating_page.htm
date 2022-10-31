@@ -227,9 +227,9 @@
         var phase = getPhase(event);
         var sequence = getSequence(event);
         if(event.type === 'focus') {
-          console.log('-', phase, '- Focus Textarea -', timestamp, '-', sequence);
+          console.log('-', phase, '- Focus Textarea -', timestamp, '-', sequence,'-', condition);
         } else {
-          console.log('-', phase,'-', event.srcElement.id, '-', timestamp);
+          console.log('-', phase,'-', event.srcElement.id, '-', timestamp,'-', condition);
         }
       }
 
@@ -241,7 +241,7 @@
           count++;
           console.log('-', phase, ' -Enter Key:', key, '-',timestamp, '-', sequence, '- - # of backspace/delete:', count);
         } else {
-          console.log('-', phase, '- Enter Key:', key, '-',timestamp, '-', sequence);
+          console.log('-', phase, '- Enter Key:', key, '-',timestamp, '-', sequence,'-', condition);
         }
       }
   
@@ -259,11 +259,11 @@
         switch(timesRun){  
           case 5:  //第一次填寫完評論
             stepper.next();
-            console.log("- Phase1 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp);
+            console.log("- Phase1 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp,'-', condition);
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- Phase1 - Enter Review Page -", timestamp);
+            console.log("- Phase1 - Enter Review Page -", timestamp,'-', condition);
             // console.log("- Phase1 - 第一次提醒 -", timestamp);
             break;
           case 13: //第二次填寫完評論
@@ -278,22 +278,22 @@
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
-            console.log("- Phase2 - Start Revise Page - ", timestamp);
+            console.log("- Phase2 - Start Revise Page - ", timestamp,'-', condition);
             stepper.next();
-            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp);
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp,'-', condition);
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- Phase2 - Enter Review Page -", timestamp);
+            console.log("- Phase2 - Enter Review Page -", timestamp,'-', condition);
             break;
           case 13: //第二次填寫完評論
             stepper.next();
-            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (Second review)-", timestamp);
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (Second review)-", timestamp,'-', condition);
             break;
           case 16: //結束第二次提醒 跳到自評問卷
             stepper.next();
             document.getElementById("ReviewForm").submit();
-            console.log("- Phase2 - End of Phase2 -", timestamp);
+            console.log("- Phase2 - End of Phase2 -", timestamp,'-', condition);
             //clearInterval(interval); // 清除定时器  
             break;  
         }   
@@ -328,7 +328,7 @@
       //提交Questionnaire
       function submit_timer_question(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- End Trial - Submit Questionnaire -", timestamp);
+        console.log("- End Trial - Submit Questionnaire -", timestamp,'-', condition);
       }
 
       //開始撰寫評論
