@@ -19,7 +19,7 @@ echo '<script type="text/javascript">',
 ;
 
 ////定時跳轉功能
-echo '<script type="text/javascript">','window.setInterval("phase1_timer()", 1000);','</script>';
+//echo '<script type="text/javascript">','window.setInterval("phase1_timer()", 1000);','</script>';
 
 //$sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
@@ -159,7 +159,10 @@ if(isset($_GET['id'])){
 ?>
                                         <!-- Pop up LOADING-->
                                         <script type="text/javascript">
-                                            window.setTimeout("stepFour()",16000); //結束提醒3秒後，出現Loading 畫面
+                                            //window.setTimeout("stepFour()",28000); //結束提醒3秒後，出現Loading 畫面
+                                            window.setInterval(() => {
+                                                 stepFour();
+                                            },28000); //結束提醒3秒後，出現Loading 畫面
                                         </script>
 
                                         <div id="loader" class="overlay" style="display:none">
@@ -186,8 +189,8 @@ if(isset($_GET['id'])){
                                         <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">
-                                            window.setTimeout("myModal.show()",16000);
-                                            window.setTimeout("submit_timer_phase1()",21000); //(6m6s+15)秒後submit，進入Phase_2
+                                            window.setTimeout("myModal.show()",28000);
+                                            window.setTimeout("submit_timer_phase1()",44000); //28+15+1(6m6s+15)秒後submit，進入Phase_2
                                         </script>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -358,7 +361,11 @@ if(isset($_GET['id'])){
 ?>
                                         <!-- Pop up LOADING-->
                                         <script type="text/javascript">
-                                            window.setTimeout("stepFour()",16000); //結束提醒3秒後，秀出Loading 畫面
+                                            //window.setTimeout("stepFour()",28000); //結束提醒3秒後，秀出Loading 畫面
+                                            window.setInterval(() => {
+                                                stepFour();
+                                            },28000); //結束提醒3秒後，出現Loading 畫面
+                                        </script>
                                         </script>
 
                                         <div id="loader" class="overlay" style="display:none">
@@ -385,8 +392,8 @@ if(isset($_GET['id'])){
                                         
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">
-                                            window.setTimeout("myModal.show()",16000);
-                                            window.setTimeout("submit_timer_phase1()",21000); //(6m6s+15)秒後submit，進入Phase_2
+                                            window.setTimeout("myModal.show()",28000);
+                                            window.setTimeout("submit_timer_phase1()",44000); //(6m6s+15)秒後submit，進入Phase_2
                                         </script>                                         
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

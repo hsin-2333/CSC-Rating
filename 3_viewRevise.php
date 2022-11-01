@@ -18,7 +18,7 @@ echo '<script type="text/javascript">',
      '</script>'
 ;
 //定時跳轉功能
-echo '<script type="text/javascript">','window.setInterval("phase2_timer()", 1000);','</script>';
+//echo '<script type="text/javascript">','window.setInterval("phase2_timer()", 1000);','</script>';
 
 $sthBoard = $dbh->prepare('SELECT * FROM product WHERE id = ?'); //商品編號
 if(isset($_GET['id'])){

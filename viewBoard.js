@@ -1,20 +1,94 @@
+var stepperElem = document.querySelector(".bs-stepper");
+var stepper = new Stepper(stepperElem);
+var done = false;
+var currStep = 1;
+history.pushState(currStep, "");
+//切換到步驟前觸發，呼叫e.preventDefault()可阻止切換
+stepperElem.addEventListener("show.bs-stepper", function (e) {
+  if (done) {
+    //若程序完成，不再切換
+    e.preventDefault();
+    return;
+  }
+});
+//切換到步驟後觸發，e.detail.indexStep為目前步驟序號(從0開始)
+stepperElem.addEventListener("shown.bs-stepper", function (e) {
+  var idx = e.detail.indexStep + 1;
+  currStep = idx;
+  //pushState()記下歷程以支援瀏覽器回上頁功能
+  history.pushState(idx, "");
+});
+//瀏覽器上一頁下一頁觸發
+window.onpopstate = function (e) {
+  if (e.state && e.state != currStep) stepper.to(e.state);
+};
+//模擬送出表單，註記已完成，不再允許切換步驟
+function simulateSubmit() {
+  stepper.next();
+  done = true;
+}
+
+//Timestamp
+function getTimestamp(){
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const hour = date.getHours();
+    const min = date.getMinutes();
+    const sec = date.getSeconds();
+    const millisec = date.getMilliseconds();
+
+    const dates = [year, month, day].join("/");
+    const seconds = [hour, min, sec, millisec].join(":");
+    const timestamp = [dates, seconds].join(" - ");
+    return timestamp;
+}
 
 // 3min Timer
-var fullTime = 180;
-var warn = 20;
-var almost = 10;
+var fullTime = 10; //3分鐘
+var warn = 5; //20
+var almost = 1; //10
 
 var currTime = fullTime;
+var timer_positive =0;
+var timestamp = getTimestamp();
 
 var timer = setInterval(function () {
     --currTime;
-
+    console.log("timer_positive=",timer_positive );
     // Clear interval if time is up:
     if (currTime < 0) {
-        currTime = fullTime + 2;
+        ++ timer_positive;
+        switch(timer_positive){
+            case 1:
+                console.log("- Phase1 - 填寫完第一次評論 跳下一步 -",timestamp);
+                break;
+            case 2:
+                console.log("- Phase1 - 填寫完第二次評論 跳下一步 -",timestamp);
+                break;    
+        }
+        stepper.next();    
+        currTime = fullTime + 3;
         //window.clearInterval(timer);
     }
-    if (currTime <= fullTime) document.getElementById("contain").style.visibility = "visible";
+    if (currTime == fullTime){
+
+        switch(timer_positive){
+            case 1:
+                console.log("- Phase1 - 結束第一次提醒 -",timestamp);
+                break;
+            case 2:
+                console.log("- Phase1 - 結束第二次提醒 -",timestamp);
+                window.clearInterval(timer);
+                break;    
+        }
+        stepper.next();
+    }
+    if (currTime <= fullTime){  
+        document.getElementById("contain").style.visibility = "visible";
+        
+    }
     else if (currTime > fullTime || currTime < 0) document.getElementById("contain").style.visibility = "hidden";
 
     //separate min and sec
