@@ -47,8 +47,8 @@ else if(isset($_POST['account']) && isset($_POST['password'])){
         // 如果資料庫中沒有這個帳號
         if($row['account'] != $acc ){
             if($_POST['account']!="" && $_POST['password']!="" && $_POST['nickname']!= ""){
-            $sth2 =  $dbh->prepare('INSERT INTO user ( account, pwd,nickname, is_admin,boardID) VALUES (?, ?, ?, ?, ?)');
-            $sth2->execute(array($acc, md5($pwd), $_POST['nickname'], 0, 0));
+            $sth2 =  $dbh->prepare('INSERT INTO user ( account, pwd,nickname, is_admin) VALUES (?, ?, ?, ?)');
+            $sth2->execute(array($acc, md5($pwd), $_POST['nickname'], 0));
 
             $sth3 =  $dbh->prepare('INSERT INTO profileimg (status, account) VALUES (?, ?)');
             $sth3->execute(array(1, $acc));
