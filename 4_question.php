@@ -8,17 +8,20 @@ function getIp(){
     return $_SERVER['REMOTE_ADDR'];
 }
  
-echo '<script type="text/javascript">', 
-'window.setTimeout("submit_timer_question()", 8000); //第8秒提交填答'
-,'</script>';
+// echo '<script type="text/javascript">', 
+// 'window.setTimeout("submit_timer_question()", 5000); //第8秒提交填答'
+// ,'</script>';
 
-echo '<script type="text/javascript">',
-'console.log("- - Enter Questionnaire Page", "- - ", get_timestamp());'
-, '</script>';
+// echo '<script type="text/javascript">',
+// 'console.log("- - Enter Questionnaire Page", "- - ", get_timestamp());'
+// , '</script>';
 
 //Condition順序
 ?>  <script type="text/javascript">
-       var unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
+        window.setTimeout("submit_timer_question()", 5000); //第8秒提交填答
+    </script>
+    <script>
+        const unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
     </script>
 <?php
 
