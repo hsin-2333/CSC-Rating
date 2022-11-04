@@ -1,46 +1,11 @@
 <html>
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2GSLNWQ1DB"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag('config', 'G-2GSLNWQ1DB', {
-    'user_id': '1'
-    });
-    </script>
     <style>textarea{vertical-align:top}</style>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap.css">
-    
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M5H5HH8');</script>
-    <!-- End Google Tag Manager -->
 </head>
 
 <body bgcolor="#ccccff" >
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5H5HH8"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-    
-    <!-- Google Tag Manager (noscript)
-    * The following event is sent when the page loads. You could
-    * wrap the event in a function to call the event when certain
-    * events (e.g., a click event) happen on your site.
-    */-->
-    <!-- <script>
-    gtag('event', 'screen_view', {
-      'app_name': 'myAppName',
-      'screen_name': 'Home'
-    });
-    </script> -->
     
     <!-- .navbar-expand-{sm|md|lg|xl}決定在哪個斷點以上就出現漢堡式選單 -->
     <!-- navbar-dark 文字顏色 .bg-dark 背景顏色 -->
@@ -91,8 +56,8 @@
             <div class="p-2"><h2>實驗指導語</h2></div>
         </div>
         <div class="row g-3 justify-content-md-center">
-            <div class="p-2">
-              <h5 style="font-weight: normal; font-size: 1rem; text-align:center; margin-left: 100px; margin-right: 100px; line-height: 30px">
+            <div class="p-2 px-5text-align:center">
+              <h5 style="font-weight: normal; font-size: 1rem; margin-left: 100px; margin-right: 100px; line-height: 30px">
                 本次研究希望通過“是否有實際體驗”來觀察用戶所寫之評論的內容。<br />
                 實驗過程中，您將根據方才的服裝體驗和外觀想象來撰寫評論。如果您在研究過程中有任何問題，請舉手等待實驗人員來找您。實驗進行時請不要說話、驚呼或試圖與其他人交流。故意違反規則的參與者可能會被要求退出實驗，並且可能不會獲得任何參與獎勵。
               </h5>
@@ -112,11 +77,34 @@
                 {:keywords}
                 </div-->     
                 <div class="card " id="center_button">
-                    <button class="btn btn-outline-primary" onclick="location.href='1_showPic.php?id=9'">開始進行實驗</button>
+                  <!-- <button class="btn btn-outline-primary" onclick="location.href='1_showPic.php?id=9'">開始進行實驗</button> -->
+                    <button class="btn btn-outline-primary" onclick="startExperiment()">開始進行實驗</button>
                 </div>
             </div>
             </nav>
-            
+
+          <script>
+            function get_timestamp(){
+              const date = new Date();
+              const year = date.getFullYear();
+              const month = date.getMonth() + 1;
+              const day = date.getDate();
+              const hour = date.getHours();
+              const min = date.getMinutes();
+              const sec = date.getSeconds();
+              const millisec = date.getMilliseconds();
+              const dates = [year, month, day].join("/");
+              const seconds = [hour, min, sec, millisec].join(":");
+              const timestamp = [dates, seconds].join(" - ");
+              return timestamp;
+            }
+
+            function startExperiment(){
+              location.href='1_showPic.php?id=9';
+              var timestamp = get_timestamp();
+              console.log('- - Begin Experiment', '- - ', timestamp);
+            };
+          </script>  
             
             <!--div class=" col-md-7 col-lg-8 " id="content">
                 <h2 style="display: {:contact_display}; ">

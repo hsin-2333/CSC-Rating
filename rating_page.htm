@@ -1,20 +1,5 @@
 <html>
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-2GSLNWQ1DB"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag('config', 'G-2GSLNWQ1DB', {
-      'user_id': '1'
-      });
-    </script>
     <style>
       textarea {
         vertical-align: top;
@@ -36,35 +21,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bs-stepper@1.7.0/dist/css/bs-stepper.min.css"
     />
-
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-M5H5HH8");
-    </script>
-    <!-- End Google Tag Manager -->
   </head>
 
   <body bgcolor="#ccccff">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript
-      ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-M5H5HH8"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-
     <nav
       class="navbar navbar-default fixed-top navbar-expand-lg navbar-light bg-light"
     >
@@ -144,6 +103,8 @@
       <script>
       //Pop up Window
       $("#myModal").on("shown.bs.modal", function () {
+        var timestamp = get_timestamp();
+        console.log('- Display Popup - ', timestamp)
         $("#myInput").trigger("focus");
       });
 
@@ -175,7 +136,130 @@
         document.getElementById("chLeft_P").innerHTML = curr.toString();
       }
 
-      function getTimestamp(){
+      /*function getSequence(event){
+        if(event.srcElement.id.search('firstPositive') != -1 || event.srcElement.id.search('secondNegative') != -1){
+          return 'Sequence A';
+        }
+        return 'Sequence B';
+      }*/
+      
+      //正負評論順序
+      function getSequence(event){
+        switch (unique_rand){
+          case "1":
+          case "2":
+          case "3":
+          case "4":   
+            return 'Sequence A'; //先正面評論 再負面
+            break;
+          default:
+            //return unique_rand;
+            return 'Sequence B'; //先負面評論 再正面
+        }    
+      }
+      //Condition順序
+      function getCondition(event){
+        switch (unique_rand){
+          case "1":
+          case "7":
+            return 'C1'; //Have experience & with confirmation dialog 
+            break;
+          case "2":
+          case "6":
+            return 'C2'; //Have experience & without confirmation dialog 
+            break;
+          case "4":
+          case "5":   
+            return 'C3'; //Do not have experience & with confirmation dialog
+            break;
+          default:
+            return 'C4'; //No exp & without dialog
+        }    
+      }
+
+      function getPhase(event){
+        if(event.srcElement.id.search('revise') != -1){
+          return'Phase2';
+        }
+        return 'Phase1';
+      }
+
+      function getTypeTextarea(event){
+        if(event.srcElement.id.search('Positive') != -1){
+          return 'Negative';
+        }
+        return 'Positive';
+      }
+      
+      var timestamp = get_timestamp();
+      var condition = getCondition(event);
+      function getElementIdTimestamp(event){
+        var phase = getPhase(event);
+        var sequence = getSequence(event);
+        if(event.type === 'focus') {
+          console.log('-', phase, '- Focus Textarea -', timestamp, '-', sequence,'-', condition);
+        } else {
+          console.log('-', phase,'-', event.srcElement.id, '-', timestamp,'-', condition);
+        }
+      }
+
+      function getKeydown(event){
+        var phase = getPhase(event);
+        var sequence = getSequence(event);
+        var key = event.key;
+        if(key === 'Backspace' || key === 'Delete'){
+          count++;
+          console.log('-', phase, ' -Enter Key:', key, '-',timestamp, '-', sequence, '- - # of backspace/delete:', count);
+        } else {
+          console.log('-', phase, '- Enter Key:', key, '-',timestamp, '-', sequence,'-', condition);
+        }
+      }
+  
+      function moveNextStep(event){
+        var timestamp = get_timestamp();
+        console.log('-', timestamp, '-', event.srcElement.id);
+        return stepper.next();
+      };
+
+
+      function phase2_timer(){   //Phase_2 Reeview 的定時: 2min + 3s + 2min +3s
+        timesRun += 1;
+        switch(timesRun){  
+          case 5:  //第一次填寫完評論
+            console.log("- Phase2 - Start Revise Page - ", timestamp,'-', condition);
+            stepper.next();
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp,'-', condition);
+            break;
+          case 8:  //結束第一次提醒
+            stepper.next();
+            console.log("- Phase2 - Enter Review Page -", timestamp,'-', condition);
+            break;
+          case 13: //第二次填寫完評論
+            stepper.next();
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (Second review)-", timestamp,'-', condition);
+            break;
+          case 16: //結束第二次提醒 跳到自評問卷
+            stepper.next();
+            document.getElementById("ReviewForm").submit();
+            console.log("- Phase2 - End of Phase2 -", timestamp,'-', condition);
+            //clearInterval(interval); // 清除定时器  
+            break;  
+        }   
+      }
+      //var interval = setInterval(phase2_timer, 1000); 
+
+      //Loading畫面 結束
+      function submit_timer_phase1(){   
+        var timestamp = getTimestamp();
+        document.getElementById("ReviewForm").submit();
+        console.log("- Phase1 - End of Loading -", timestamp,'-',condition);
+      }
+
+      function getPopupDisplayTimestamp(){
+        console.log("- Phase1 - Popup display -", timestamp,'-', condition);
+      }
+
+      function get_timestamp(){
         const date = new Date();
         const year = date.getFullYear();
         const month = date.getMonth() + 1;
@@ -184,75 +268,40 @@
         const min = date.getMinutes();
         const sec = date.getSeconds();
         const millisec = date.getMilliseconds();
-
         const dates = [year, month, day].join("/");
-        const seconds = [hour, min, sec, millisec].join(":");
+        const seconds = [hour,min, sec, millisec].join(":");
         const timestamp = [dates, seconds].join(" - ");
         return timestamp;
       }
 
-      function getElementIdTimestamp(event){
-        var timestamp = getTimestamp();
-        if(event.type === 'focus') {
-          console.log('-', 'Textarea is now focused -', event.srcElement.id, '-', timestamp);
-        } else {
-          console.log('-', event.srcElement.id, timestamp);
-        }
-      }
-
-      function getKeydown(event){
-        var timestamp = getTimestamp();
-        var key = event.key;
-        console.log('- 按下按鍵 -', key, '-', timestamp);
-        if(key === 'Backspace' || key === 'Delete'){
-          count++;
-          console.log('- # of backspace/delete:', count);
-        }
-      }
-  
-      function moveNextStep(event){
-        var timestamp = getTimestamp();
-        console.log('-', timestamp, '-', event.srcElement.id);
-        return stepper.next();
-      };
-
-
-
-      //Loading畫面 結束
-      function submit_timer_phase1(){   
-        var timestamp = getTimestamp();
-        document.getElementById("ReviewForm").submit();
-        console.log("- Loading page - 結束Loading畫面 跳到Phase2 -",timestamp);
-      }
-      
       //提交Questionnaire
       function submit_timer_question(){   
         var timestamp = getTimestamp();
         document.getElementById("ReviewForm").submit();
-        console.log("- End Trial - 提交Questionnaire -",timestamp);
+        console.log("- End Trial - Submit Questionnaire -", timestamp,'-', condition);
       }
 
       //開始撰寫評論
       function start_timer(){  
         var timestamp = getTimestamp(); 
         document.getElementById("StartReview").submit();
-        console.log("- - Start Trial - -", timestamp);
+        console.log("- Phase1 - ===Start Trial=== - ", timestamp);
       }
 
 
       //點擊Pop up MSG的繼續(button)後，出現loading page，(15-reaction)秒後自動跳到 Phase_2
       function stepFour_PopUp(){
         var timestamp = getTimestamp(); 
+        console.log("- Phase 1 - Click Popup Continue Button - ", timestamp,'-', condition);
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
-        console.log("- 按下 Popup 的繼續(button) - ",timestamp);
         //window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
       };
       
       //Phase_1的提醒結束後，出現loading page
       function stepFour(){
         loader.style.display = "block";
-        //console.log("- Phase1_結束第二次提醒 跳到Loading page - 沒有Popup的狀況 - " );
+        //console.log("- Phase1 - Enter Loading Page - " ,'-', condition);
         window.setTimeout("submit_timer_phase1()", 5000); //15秒後submit，進入Phase_2
       };
     </script>

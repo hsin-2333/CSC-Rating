@@ -21,7 +21,7 @@ function unique_rand($min, $max, $num) {
 $arr = unique_rand(1, 8, 8);
 //echo implode($arr, ",");
 implode(",", $arr); //FIXED: PHP 8.x Error
-array_push($arr, 4); //把[練習用的服飾]指定為array[9]，數值固定為4(順序=ABA)，加入陣列之中
+array_push($arr, 3); //把[練習用的服飾]指定為array[9]，數值固定為3(順序=ABB)-先正評/無體驗/無Popup，加入陣列之中
 $_SESSION['arr'] = $arr;
 
 //服裝出現順序
