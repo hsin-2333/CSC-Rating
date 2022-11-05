@@ -56,16 +56,15 @@ var timestamp = getTimestamp();
 
 var timer = setInterval(function () {
     --currTime;
-    console.log("timer_positive=",timer_positive );
     // Clear interval if time is up:
     if (currTime < 0) {
         ++ timer_positive;
         switch(timer_positive){
             case 1:
-                console.log("- Phase1 - 填寫完第一次評論 跳下一步 -",timestamp);
+                console.log("- Phase1 - Enter 「Thanks for completion」 Page (First Review)-", timestamp,'-', condition);
                 break;
             case 2:
-                console.log("- Phase1 - 填寫完第二次評論 跳下一步 -",timestamp);
+              console.log("- Phase1 - Enter 「Thanks for completion」 Page (Second Review)-", timestamp,'-', condition);
                 break;    
         }
         stepper.next();    
@@ -76,10 +75,10 @@ var timer = setInterval(function () {
 
         switch(timer_positive){
             case 1:
-                console.log("- Phase1 - 結束第一次提醒 -",timestamp);
+                console.log("- Phase1 - Enter Review Page (Second Review) -", timestamp, "-", condition);
                 break;
             case 2:
-                console.log("- Phase1 - 結束第二次提醒 -",timestamp);
+              // console.log("- Phase1 - Enter Loading Page -",timestamp, "-", condition);
                 window.clearInterval(timer);
                 break;    
         }

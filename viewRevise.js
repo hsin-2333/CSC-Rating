@@ -56,16 +56,16 @@ var timestamp = getTimestamp();
 
 var timer = setInterval(function () {
     --currTime;
-    console.log("timer_positive=",timer_positive );
+    // console.log("timer_positive=",timer_positive );
     // Clear interval if time is up:
     if (currTime < 0) {
         ++ timer_positive;
         switch(timer_positive){
             case 1:
-                console.log("- Phase2 - 填寫完第一次評論 跳下一步 -",timestamp);
+              console.log('- Phase2 - Enter 「Thanks for completion」 Page (First Revise)-', timestamp);
                 break;
             case 2:
-                console.log("- Phase2 - 填寫完第二次評論 跳下一步 -",timestamp);
+              console.log('- Phase2 - Enter 「Thanks for completion」 Page (Second Revise)-', timestamp);
                 break;    
         }
         stepper.next();    
@@ -76,10 +76,10 @@ var timer = setInterval(function () {
 
         switch(timer_positive){
             case 1:
-                console.log("- Phase2 - 結束第一次提醒 -",timestamp);
+              console.log('- Phase2 - Enter Revise Page (Second Revise)- ', timestamp,'-');
                 break;
             case 2:
-                console.log("- Phase2 - 結束第二次提醒 -",timestamp);
+              console.log('- Phase2 - Enter Questionnaire Page -', timestamp,'-');
                 document.getElementById("ReviewForm").submit(); //跳到自評表單
                 window.clearInterval(timer);
                 break;    
