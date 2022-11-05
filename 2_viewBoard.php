@@ -81,7 +81,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer " id = "contain">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">01</span>:<span id="sec">30</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -162,10 +162,10 @@ if(isset($_GET['id'])){
 ?>
                                         <!-- Pop up LOADING-->
                                         <script type="text/javascript">
-                                            //window.setTimeout("stepFour()",28000); //結束提醒3秒後，出現Loading 畫面
+                                            //window.setTimeout("stepFour()", 28000); //結束提醒3秒後，出現Loading 畫面
                                             window.setInterval(() => {
                                                  stepFour();
-                                            },28000); //結束提醒3秒後，出現Loading 畫面
+                                            },18800); //結束提醒後，出現Loading 畫面
                                         </script>
 
                                         <div id="loader" class="overlay" style="display:none">
@@ -192,9 +192,11 @@ if(isset($_GET['id'])){
                                         <button id= "confirmationSubmit2" type="button" class="button button-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="getElementIdTimestamp(event)"> 確認</button-->
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">
-                                            window.setTimeout("myModal.show()",28000);
-                                            window.setTimeout("getPopupDisplayTimestamp()", 16000);
-                                            window.setTimeout("submit_timer_phase1()",44000); //28+15+1(6m6s+15)秒後submit，進入Phase_2
+                                            var popupShowTime = 188000;
+                                            var firstPhaseDuration = 204000;
+                                            window.setTimeout("myModal.show()", popupShowTime);
+                                            window.setTimeout("getPopupDisplayTimestamp()", popupShowTime);
+                                            window.setTimeout("submit_timer_phase1()", firstPhaseDuration); // need to revise ->28+15+1(6m6s+15)秒後submit，進入Phase_2
                                         </script>
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -287,7 +289,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer " id = "contain">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">01</span>:<span id="sec">30</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->        
@@ -396,9 +398,11 @@ if(isset($_GET['id'])){
                                         
                                         <!--第16秒出現 Pop up MSG-->
                                         <script type="text/javascript">
-                                            window.setTimeout("myModal.show()",28000);
-                                            window.setTimeout("getPopupDisplayTimestamp()", 16000);
-                                            window.setTimeout("submit_timer_phase1()",44000); //(6m6s+15)秒後submit，進入Phase_2
+                                            var popupShowTime = 188000;
+                                            var firstPhaseDuration = 204000;
+                                            window.setTimeout("myModal.show()", popupShowTime);
+                                            window.setTimeout("getPopupDisplayTimestamp()", popupShowTime);
+                                            window.setTimeout("submit_timer_phase1()", firstPhaseDuration); // need to revise --> (6m6s+15)秒後submit，進入Phase_2
                                         </script>                                         
                                         <!-- Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

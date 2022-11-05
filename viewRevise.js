@@ -46,7 +46,7 @@ function getTimestamp(){
 }
 
 // 2min  Timer
-var fullTime = 8; //120
+var fullTime = 60; // 1分鐘 
 var warn = 2; //20
 var almost = 1; //10
 

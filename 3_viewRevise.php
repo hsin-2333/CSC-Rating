@@ -117,7 +117,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer " id = "contain">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">01</span>:<span id="sec">00</span></div>
                         </div>
                         </div>                   
                         <!-- Stepper -->
@@ -248,7 +248,7 @@ if(isset($_GET['id'])){
                         <div class="container-timer " id = "contain">
                         <div class="timer-wrapper">
                             <div class="timer-bar"></div>
-                            <div class="timer-txt">00:<span id="min">03</span>:<span id="sec">00</span></div>
+                            <div class="timer-txt">00:<span id="min">01</span>:<span id="sec">00</span></div>
                         </div>
                         </div>
                         <!-- Stepper -->

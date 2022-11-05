@@ -18,7 +18,7 @@ function getIp(){
 
 //Condition順序
 ?>  <script type="text/javascript">
-        window.setTimeout("submit_timer_question()", 5000); //第8秒提交填答
+    window.setTimeout("submit_timer_question()", 10000); //第10秒提交填答
     </script>
     <script>
         const unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";

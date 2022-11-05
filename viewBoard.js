@@ -46,9 +46,9 @@ function getTimestamp(){
 }
 
 // 3min Timer
-var fullTime = 10; //3分鐘
-var warn = 5; //20
-var almost = 1; //10
+var fullTime = 90; // 1.5分鐘
+var warn = 5; // 20
+var almost = 1; // 10
 
 var currTime = fullTime;
 var timer_positive =0;
