@@ -66,7 +66,7 @@ else if(isset($_POST['account']) && isset($_POST['password'])){
             $_SESSION['account'] = $row['account'];
             $_SESSION['nickname'] = $row['nickname'];
             $_SESSION['is_admin'] = $row['is_admin'];
-            $_SESSION['boardID'] = $row['boardID'];
+            //$_SESSION['boardID'] = $row['boardID'];
             echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
         }
         else if($row['account'] == $acc && $nn != null){
