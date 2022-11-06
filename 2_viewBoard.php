@@ -165,7 +165,7 @@ if(isset($_GET['id'])){
                                             //window.setTimeout("stepFour()", 28000); //結束提醒3秒後，出現Loading 畫面
                                             window.setInterval(() => {
                                                  stepFour();
-                                            },18800); //結束提醒後，出現Loading 畫面
+                                            },188000); //結束提醒後，出現Loading 畫面
                                         </script>
 
                                         <div id="loader" class="overlay" style="display:none">
@@ -370,7 +370,7 @@ if(isset($_GET['id'])){
                                             //window.setTimeout("stepFour()",28000); //結束提醒3秒後，秀出Loading 畫面
                                             window.setInterval(() => {
                                                 stepFour();
-                                            },28000); //結束提醒3秒後，出現Loading 畫面
+                                            },188000); //結束提醒3秒後，出現Loading 畫面
                                         </script>
                                         </script>
 
