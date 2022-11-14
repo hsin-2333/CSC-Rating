@@ -209,7 +209,7 @@
         var key = event.key;
         if(key === 'Backspace' || key === 'Delete'){
           count++;
-          console.log('-', phase, ' -Enter Key:', key, '-',timestamp, '-', sequence, '- - # of backspace/delete:', count);
+          console.log('-', phase, ' -Enter Key:', key, '-',timestamp, '-', sequence, '-', condition, ' # of backspace/delete:', count);
         } else {
           console.log('-', phase, '- Enter Key:', key, '-',timestamp, '-', sequence,'-', condition);
         }
@@ -226,22 +226,22 @@
         timesRun += 1;
         switch(timesRun){  
           case 5:  //第一次填寫完評論
-            console.log("- Phase2 - Start Revise Page - ", timestamp,'-', condition);
+            console.log("- Phase2 - Start Revise Page - ", timestamp,'-', sequence,'-', condition);
             stepper.next();
-            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp,'-', condition);
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (First review)-", timestamp,'-', sequence,'-', condition);
             break;
           case 8:  //結束第一次提醒
             stepper.next();
-            console.log("- Phase2 - Enter Review Page -", timestamp,'-', condition);
+            console.log("- Phase2 - Enter Review Page -", timestamp,'-', sequence,'-', condition);
             break;
           case 13: //第二次填寫完評論
             stepper.next();
-            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (Second review)-", timestamp,'-', condition);
+            console.log("- Phase2 - Enter 「感謝您填寫評論」 Page (Second review)-", timestamp,'-', sequence,'-', condition);
             break;
           case 16: //結束第二次提醒 跳到自評問卷
             stepper.next();
             document.getElementById("ReviewForm").submit();
-            console.log("- Phase2 - End of Phase2 -", timestamp,'-', condition);
+            console.log("- Phase2 - End of Phase2 -", timestamp,'-', sequence,'-', condition);
             //clearInterval(interval); // 清除定时器  
             break;  
         }   
@@ -251,13 +251,13 @@
       //Loading畫面 結束
       function submit_timer_phase1(){   
         var timestamp = get_timestamp();
-        console.log("- Phase1 - End of Loading -", timestamp,"-", condition);
+        console.log("- Phase1 - End of Loading -", timestamp,"-", sequence,'-', condition);
         document.getElementById("ReviewForm").submit();
-        console.log("- Phase2 - Enter Revise Page (First Revise)- ", timestamp,"-", condition);
+        console.log("- Phase2 - Enter Revise Page (First Revise)- ", timestamp,"-", sequence,'-',condition);
       }
 
       function getPopupDisplayTimestamp(){
-        console.log("- Phase1 - Popup display -", timestamp,"-", condition);
+        console.log("- Phase1 - Popup display -", timestamp,"-", sequence,'-', condition);
       }
 
       function get_timestamp(){
@@ -278,19 +278,19 @@
       //提交Questionnaire
       function submit_timer_question(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- End Trial - Submit Questionnaire -", timestamp,"-", condition);
+        console.log("- End Trial - Submit Questionnaire -", timestamp,"-", sequence,'-', condition);
       }
 
       //開始撰寫評論
       function start_timer(){  
         document.getElementById("StartReview").submit();
-        console.log("- Phase1 - ===Start Trial=== Enter Review Page - ", timestamp, "-", condition);
+        console.log("- Phase1 - ===Start Trial=== Enter Review Page - ", timestamp, "-", sequence,'-', condition);
       }
 
 
       //點擊Pop up MSG的繼續(button)後，出現loading page，(15-reaction)秒後自動跳到 Phase_2
       function stepFour_PopUp(){ 
-        console.log("- Phase 1 - Click Popup Continue Button - ", timestamp,'-', condition);
+        console.log("- Phase 1 - Click Popup Continue Button - ", timestamp,'-', sequence,'-', condition);
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
         //window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
@@ -299,7 +299,7 @@
       //Phase_1的提醒結束後，出現loading page
       function stepFour(){
         loader.style.display = "block";
-        console.log("- Phase1 - Enter Loading Page - " , timestamp, '-', condition);
+        console.log("- Phase1 - Enter Loading Page - " , timestamp, '-', sequence,'-',condition);
         window.setTimeout("submit_timer_phase1()", 15000); //15秒後submit，進入Phase_2
       };
     </script>
