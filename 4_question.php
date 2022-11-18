@@ -72,7 +72,7 @@ if(isset($_GET['id'])){
                                 <h6 class="card-subtitle mb-2 text-muted">
 
                                     <fieldset class="">
-                                        <h5 class='card-title'> Questionaire</h5>
+                                        <h5 class='card-title'> Questionnaire</h5>
 
                                         <label>1. 你是否實際接觸了這項商品?</label>
                                         <div>
