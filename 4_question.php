@@ -78,25 +78,12 @@ if(isset($_GET['id'])){
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu1" name="question" value="1">
-                                                <label class='form-check-label' >1</label>
+                                                <label class='form-check-label' >是</label>
                                             </div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu2" name="question" value="2">
-                                                <label class='form-check-label'>2</label>
+                                                <label class='form-check-label'>否</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu3" name="question" value="3">
-                                                <label class='form-check-label' >3</label>
-                                            </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu4" name="question" value="4">
-                                                <label class='form-check-label' >4</label>
-                                            </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu5" name="question" value="5">
-                                                <label class='form-check-label'>5</label>
-                                            </div>
-
                                             <span class="focus-ring"></span>
                                         </div><br>   
                         
@@ -105,7 +92,7 @@ if(isset($_GET['id'])){
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu2.1" name="question2" value="1">
-                                                <label class='form-check-label' >1</label>
+                                                <label class='form-check-label' >1 (非常不喜歡)</label>
                                             </div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu2.2" name="question2" value="2">
@@ -121,7 +108,7 @@ if(isset($_GET['id'])){
                                             </div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu2.5" name="question2" value="5">
-                                                <label class='form-check-label' >5</label>
+                                                <label class='form-check-label' >5 (非常喜歡)</label>
                                             </div>
 
                                             <span class="focus-ring"></span>
@@ -132,7 +119,7 @@ if(isset($_GET['id'])){
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu3.1" name="question3" value="1">
-                                                <label class='form-check-label' >1</label>
+                                                <label class='form-check-label' >1 (完全假的)</label>
                                             </div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu3.2" name="question3" value="2">
@@ -148,7 +135,7 @@ if(isset($_GET['id'])){
                                             </div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu3.5" name="question3" value="5">
-                                                <label class='form-check-label' >5</label>
+                                                <label class='form-check-label' >5 (完全心底話)</label>
                                             </div>
 
                                             <span class="focus-ring"></span>
@@ -159,7 +146,7 @@ if(isset($_GET['id'])){
                                         <div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu4.1" name="question4" value="1">
-                                                <label class='form-check-label' >1</label>
+                                                <label class='form-check-label' >1 (完全假的)</label>
                                             </div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu4.2" name="question4" value="2">
@@ -175,7 +162,7 @@ if(isset($_GET['id'])){
                                             </div>
                                             <div class='form-check form-check-inline'>
                                                 <input  class='form-check-input' type="radio" id="qu4.5" name="question4" value="5">
-                                                <label class='form-check-label' >5</label>
+                                                <label class='form-check-label' >5 (完全心底話)</label>
                                             </div>
 
                                             <span class="focus-ring"></span>
