@@ -52,7 +52,7 @@ if(isset($_GET['id'])){
                             <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
                             </div>
                             <div class="p-2">
-                                <h5 class="card-title" style=" font-size:30px;"><strong><?php echo $row_B['name']?></strong></h5>
+                                <h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
                                 <!--h6 class="card-subtitle mb-2 text-muted">                                    <fieldset class="rating">
                                                             <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked="" aria-label="No rating.">
                 
@@ -204,16 +204,16 @@ if(isset($_GET['id'])){
                                             <div class="modal-content">
                                               <div class="modal-header">
                                                 <img src='uploads/mark.png' class="rounded float-left" width="28" height="25" alt="exclamation mark">
-                                                <h5 class="modal-title text-danger" id="exampleModalLongTitle">上述所言是否是來自您實際的體驗</h5>
+                                                <h5 class="modal-title text-danger" id="exampleModalLongTitle">在提交評論之前......</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
                                               </div>
                                               <div class="modal-body text-muted"><br>
-                                                <small class="text-muted">頁面將會自動跳回已寫的評論 您有一次修改評論內的機會</small>
+                                                <small class="text-muted">系統會提供您一次審閱和修改的機會，請確認上述所言來自於您實際的體驗</small>
                                               </div><br>
                                               <div class="modal-footer">
-                                                <button id="secondChanceConfirmation" type="button" class="btn btn-primary" onclick="stepFour_PopUp()">繼續</button>
+                                                <button id="secondChanceConfirmation" type="button" class="btn btn-primary" onclick="stepFour_PopUp()">好</button>
                                               </div>
                                             </div>
                                           </div>
@@ -259,7 +259,7 @@ if(isset($_GET['id'])){
                                 <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
                             </div>
                             <div class="p-2">
-                                <h5 class="card-title" style=" font-size:30px;"><strong><?php echo $row_B['name']?></strong></h5>
+                                <h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
                                         <!--h6 class="card-subtitle mb-2 text-muted">
                                                     <fieldset class="rating">
                                                             <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked="" aria-label="No rating.">
@@ -410,16 +410,16 @@ if(isset($_GET['id'])){
                                             <div class="modal-content">
                                               <div class="modal-header">
                                                 <img src='uploads/mark.png' class="rounded float-left" width="28" height="25" alt="exclamation mark">
-                                                <h5 class="modal-title text-danger" id="exampleModalLongTitle">上述所言是否來自您實際的體驗</h5>
+                                                <h5 class="modal-title text-danger" id="exampleModalLongTitle">在提交評論之前......</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                   <span aria-hidden="true">&times;</span>
                                                 </button>
                                               </div>
                                               <div class="modal-body">
-                                                <small class="text-muted">頁面將會自動跳回已寫的評論 您有一次修改評論內的機會</small>
+                                                <small class="text-muted">系統會提供您一次審閱和修改的機會，請確認上述所言來自於您實際的體驗</small>
                                               </div>
                                               <div class="modal-footer">
-                                                <button id="confirmationSubmit1"type="button" class="btn btn-primary" onclick="stepFour_PopUp()">繼續</button>
+                                                <button id="confirmationSubmit1"type="button" class="btn btn-primary" onclick="stepFour_PopUp()">好</button>
                                               </div>
                                             </div>
                                           </div>

@@ -86,7 +86,7 @@ if(isset($_GET['id'])){
                             </div>
 
                             <div class="p-2">
-                                <h5 class="card-title" style=" font-size:30px;"><strong><?php echo $row_B['name']?></strong></h5>
+                                <h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
                                 <!--h6 class="card-subtitle mb-2 text-muted">
                                     <fieldset class="rating">
 
@@ -218,7 +218,7 @@ if(isset($_GET['id'])){
                             </div>
 
                             <div class="p-2">
-                                <h5 class="card-title" style=" font-size:30px;"><strong><?php echo $row_B['name']?></strong></h5>
+                                <h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
                                 <!--h6 class="card-subtitle mb-2 text-muted">
                                     <fieldset class="rating">
 
