@@ -69,20 +69,20 @@ if(isset($_GET['id'])){
                             
                             <div class="p-2">
                                 <!--h5 class="card-title" style=" font-size:30px;"><strong>Product name:<?php echo $row2['name']?></strong> </h5-->
-                                <h6 class="card-subtitle mb-2 text-muted">
+                                <h6 class="card-subtitle mb-2 ">
 
                                     <fieldset class="">
-                                        <h5 class='card-title'> Questionnaire</h5>
+                                        <h5 class='card-title'> Questionnaire </h5><br>
 
                                         <label>1. 你是否實際接觸了這項商品?</label>
                                         <div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu1" name="question" value="1">
-                                                <label class='form-check-label' >是</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu1" name="question" value="1">
+                                                <label class='custom-control-label' for="qu1">是</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu2" name="question" value="2">
-                                                <label class='form-check-label'>否</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu2" name="question" value="0">
+                                                <label class='custom-control-label' for="qu2">否</label>
                                             </div>
                                             <span class="focus-ring"></span>
                                         </div><br>   
@@ -90,25 +90,25 @@ if(isset($_GET['id'])){
 
                                         <label>2. 您對此商品的喜好程度?</label>
                                         <div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu2.1" name="question2" value="1">
-                                                <label class='form-check-label' >1 (非常不喜歡)</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu2.1" name="question2" value="1">
+                                                <label class='custom-control-label' for="qu2.1">1 <span class="text-muted"> (非常不喜歡)</span></label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu2.2" name="question2" value="2">
-                                                <label class='form-check-label' >2</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu2.2" name="question2" value="2">
+                                                <label class='custom-control-label' for="qu2.2">2</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu2.3" name="question2" value="3">
-                                                <label class='form-check-label' >3</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu2.3" name="question2" value="3">
+                                                <label class='custom-control-label' for="qu2.3">3</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu2.4" name="question2" value="4">
-                                                <label class='form-check-label'>4</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu2.4" name="question2" value="4">
+                                                <label class='custom-control-label'for="qu2.4">4</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu2.5" name="question2" value="5">
-                                                <label class='form-check-label' >5 (非常喜歡)</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu2.5" name="question2" value="5">
+                                                <label class='custom-control-label' for="qu2.5">5<span class="text-muted"> (非常喜歡)</span></label>
                                             </div>
 
                                             <span class="focus-ring"></span>
@@ -117,25 +117,25 @@ if(isset($_GET['id'])){
 
                                         <label>3. 您撰寫「正面」評論的真實程度?</label>
                                         <div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu3.1" name="question3" value="1">
-                                                <label class='form-check-label' >1 (完全假的)</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu3.1" name="question3" value="1">
+                                                <label class='custom-control-label' for="qu3.1">1<span class="text-muted"> (完全假的)</span></label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu3.2" name="question3" value="2">
-                                                <label class='form-check-label' >2</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu3.2" name="question3" value="2">
+                                                <label class='custom-control-label' for="qu3.2" >2</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu3.3" name="question3" value="3">
-                                                <label class='form-check-label' >3</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu3.3" name="question3" value="3">
+                                                <label class='custom-control-label' for="qu3.3">3</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu3.4" name="question3" value="4">
-                                                <label class='form-check-label'>4</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu3.4" name="question3" value="4">
+                                                <label class='custom-control-label' for="qu3.4">4</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu3.5" name="question3" value="5">
-                                                <label class='form-check-label' >5 (完全心底話)</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu3.5" name="question3" value="5">
+                                                <label class='custom-control-label' for="qu3.5">5<span class="text-muted"> (完全心底話)</span></label>
                                             </div>
 
                                             <span class="focus-ring"></span>
@@ -144,25 +144,25 @@ if(isset($_GET['id'])){
 
                                         <label>4. 您撰寫「負面」評論的真實程度?</label>
                                         <div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu4.1" name="question4" value="1">
-                                                <label class='form-check-label' >1 (完全假的)</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu4.1" name="question4" value="1">
+                                                <label class='custom-control-label' for="qu4.1">1<span class="text-muted"> (完全假的)</span></label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu4.2" name="question4" value="2">
-                                                <label class='form-check-label' >2</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu4.2" name="question4" value="2">
+                                                <label class='custom-control-label' for="qu4.2">2</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu4.3" name="question4" value="3">
-                                                <label class='form-check-label' >3</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu4.3" name="question4" value="3">
+                                                <label class='custom-control-label' for="qu4.3">3</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu4.4" name="question4" value="4">
-                                                <label class='form-check-label'>4</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu4.4" name="question4" value="4">
+                                                <label class='custom-control-label' for="qu4.4">4</label>
                                             </div>
-                                            <div class='form-check form-check-inline'>
-                                                <input  class='form-check-input' type="radio" id="qu4.5" name="question4" value="5">
-                                                <label class='form-check-label' >5 (完全心底話)</label>
+                                            <div class='custom-control custom-radio custom-control-inline'>
+                                                <input  class='custom-control-input' type="radio" id="qu4.5" name="question4" value="5">
+                                                <label class='custom-control-label' for="qu4.5">5<span class="text-muted"> (完全心底話)</span></label>
                                             </div>
 
                                             <span class="focus-ring"></span>
