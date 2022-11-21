@@ -193,6 +193,8 @@
       
       var timestamp = get_timestamp();
       var condition = getCondition(event);
+      var sequence = getSequence(event);
+
       function getElementIdTimestamp(event){
         var phase = getPhase(event);
         var sequence = getSequence(event);
@@ -221,7 +223,7 @@
         return stepper.next();
       };
 
-
+      /*
       function phase2_timer(){   //Phase_2 Reeview 的定時: 2min + 3s + 2min +3s
         timesRun += 1;
         switch(timesRun){  
@@ -245,7 +247,7 @@
             //clearInterval(interval); // 清除定时器  
             break;  
         }   
-      }
+      }*/
       //var interval = setInterval(phase2_timer, 1000); 
 
       //Loading畫面 結束

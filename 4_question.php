@@ -72,7 +72,7 @@ if(isset($_GET['id'])){
                                 <h6 class="card-subtitle mb-2 ">
 
                                     <fieldset class="">
-                                        <h5 class='card-title'> Questionnaire </h5><br>
+                                        <h5 class='card-title'> Questionnaire <small class=" text-muted">(問卷填答時間為1分鐘)</small></h5><br>
 
                                         <label>1. 你是否實際接觸了這項商品?</label>
                                         <div>
@@ -210,7 +210,7 @@ if(isset($_GET['id'])){
                         }
                         
                         switch ($_SESSION['orderN']){
-                            case "8": //如果順序加總到了7(aka經歷完了1次trial & 8次評論) 回到index頁面
+                            case "8": //如果順序從0加總到了8(aka經歷完了1次trial & 8次評論) 回到index頁面
                                 $_SESSION['orderN']=0;
                                 echo '<script type="text/javascript">
                                         const date = new Date();
@@ -223,27 +223,49 @@ if(isset($_GET['id'])){
                                         const millisec = date.getMilliseconds();
                                         const dates = [year, month, day].join("/");
                                         const seconds = [hour, min, sec, millisec].join(":");
-                                        const timestamp = [dates, seconds].join(" - ");
-                                        console.log(" - All Complete Alert Display - -", timestamp);
+                                        const timestamp3 = [dates, seconds].join(" - ");
+                                        console.log(" - All Complete Alert Display - -", timestamp3);
                                         alert("已完成所有任務，感謝您的參與");
-                                        console.log(" - ===Experiment End=== - -", timestamp);
+                                        console.log(" - ===Experiment End=== - -", timestamp3);
                                     </script>';
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=new_index.php>';
                                 break;
                             case"0":
                                 $_SESSION['orderN']+=1;
-                                echo "<script>
-                                    console.log('- End of Practice trial - -', timestamp);
-                                    alert('完成練習任務，接下來將開始進行正式任務');
-                                </script>";
+                                echo '<script type="text/javascript">
+                                    const date = new Date();
+                                    const year = date.getFullYear();
+                                    const month = date.getMonth() + 1;
+                                    const day = date.getDate();
+                                    const hour = date.getHours();
+                                    const min = date.getMinutes();
+                                    const sec = date.getSeconds();
+                                    const millisec = date.getMilliseconds();
+                                    const dates = [year, month, day].join("/");
+                                    const seconds = [hour, min, sec, millisec].join(":");
+                                    const timestamp1 = [dates, seconds].join(" - ");    
+                                    console.log("- End of Practice trial - -", timestamp1);
+                                    alert("完成練習任務，接下來將開始進行正式任務");
+                                </script>';
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
                                 break;
                             default:
                                 $_SESSION['orderN']+=1;  
-                                echo "<script>
-                                        console.log('- Display Alert - -', timestamp);
-                                        alert('完成')
-                                    </script>";
+                                echo '<script type="text/javascript">
+                                    const date = new Date();
+                                    const year = date.getFullYear();
+                                    const month = date.getMonth() + 1;
+                                    const day = date.getDate();
+                                    const hour = date.getHours();
+                                    const min = date.getMinutes();
+                                    const sec = date.getSeconds();
+                                    const millisec = date.getMilliseconds();
+                                    const dates = [year, month, day].join("/");
+                                    const seconds = [hour, min, sec, millisec].join(":");
+                                    const timestamp2 = [dates, seconds].join(" - ");
+                                    console.log("- Display Alert - -", timestamp2);
+                                    alert("完成");
+                                    </script>';
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
 
                         }
