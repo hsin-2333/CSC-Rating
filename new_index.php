@@ -55,9 +55,25 @@ $frameTpl->set('keywords', join("\n", $keywords));
 */
 
 echo $frameTpl->render();
-
-
-
+echo '<br><br><br><br><br><br><br><br><br><br><br><br><br>';  
+echo '順序1(商品編號'.$_SESSION['cloth_order'][1].'的condition='.$_SESSION['arr'][0];
+echo '<br>';  
+echo '順序2(商品編號'.$_SESSION['cloth_order'][2].'的condition='.$_SESSION['arr'][1];
+echo '<br>';  
+echo '順序3(商品編號'.$_SESSION['cloth_order'][3].'的condition='.$_SESSION['arr'][2];
+echo '<br>';  
+echo '順序4(商品編號'.$_SESSION['cloth_order'][4].'的condition='.$_SESSION['arr'][3];
+echo '<br>';  
+echo '順序5(商品編號'.$_SESSION['cloth_order'][5].'的condition='.$_SESSION['arr'][4];
+echo '<br>';  
+echo '順序6(商品編號'.$_SESSION['cloth_order'][6].'的condition='.$_SESSION['arr'][5];
+echo '<br>';  
+echo '順序7(商品編號'.$_SESSION['cloth_order'][7].'的condition='.$_SESSION['arr'][6];
+echo '<br>';  
+echo '順序8(商品編號'.$_SESSION['cloth_order'][8].'的condition='.$_SESSION['arr'][7];
+echo '<br>';
+echo '順序0-練習用的T恤(商品編號'.$_SESSION['cloth_order'][0].'的condition='.$_SESSION['arr'][8];
+echo '<br>';
 ?>
 
 

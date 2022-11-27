@@ -18,7 +18,7 @@ function getIp(){
 
 //Condition順序
 ?>  <script type="text/javascript">
-    window.setTimeout("submit_timer_question()", 10000); //第10秒提交填答
+    window.setTimeout("submit_timer_question()", 30000); //第30秒提交填答
     </script>
     <script>
         const unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
@@ -72,7 +72,7 @@ if(isset($_GET['id'])){
                                 <h6 class="card-subtitle mb-2 ">
 
                                     <fieldset class="">
-                                        <h5 class='card-title'> Questionnaire <small class=" text-muted">(問卷填答時間為1分鐘)</small></h5><br>
+                                        <h5 class='card-title'> Questionnaire <small class=" text-muted">(問卷填答時間為30秒)</small></h5><br>
 
                                         <label>1. 你是否實際接觸了這項商品?</label>
                                         <div>
