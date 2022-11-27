@@ -233,7 +233,7 @@ if(isset($_GET['id'])){
                             case"0":
                                 $_SESSION['orderN']+=1;
                                 echo "<script>
-                                    console.log('- End of Practice trial - -', timestamp);
+                                    console.log('- === End of Practice Trial === - -', timestamp);
                                     alert('完成練習任務，接下來將開始進行正式任務');
                                 </script>";
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
@@ -241,7 +241,7 @@ if(isset($_GET['id'])){
                             default:
                                 $_SESSION['orderN']+=1;  
                                 echo "<script>
-                                        console.log('- Display Alert - -', timestamp);
+                                        console.log('- - Display Alert - -', timestamp);
                                         alert('完成')
                                     </script>";
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
