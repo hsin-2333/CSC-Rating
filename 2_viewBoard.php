@@ -436,7 +436,7 @@ if(isset($_GET['id'])){
                                                         <div></div>
                                             </div>
                                             <div class="t-txt" id="loadtxt">
-                                                請稍等<span id="div1">00</span>秒，即將進入下一頁...
+                                                請稍等<span id="div1">15</span>秒，即將進入下一頁...
                                             </div> 
                                         </div>
 <?php 
