@@ -211,7 +211,7 @@
         var key = event.key;
         if(key === 'Backspace' || key === 'Delete'){
           count++;
-          console.log('-', phase, ' -Enter Key:', key, '-',timestamp, '-', sequence, '-', condition, ' # of backspace/delete:', count);
+          console.log('-', phase, ' -Enter Key:', key, '-',timestamp, '-', sequence, '-', condition, ' - # of backspace/delete:', count);
         } else {
           console.log('-', phase, '- Enter Key:', key, '-',timestamp, '-', sequence,'-', condition);
         }
@@ -280,19 +280,20 @@
       //提交Questionnaire
       function submit_timer_question(){   
         document.getElementById("ReviewForm").submit();
-        console.log("- End Trial - Submit Questionnaire -", timestamp,"-", sequence,'-', condition);
+        console.log("- ===End Trial=== - Submit Questionnaire -", timestamp,"-", sequence,'-', condition);
       }
 
       //開始撰寫評論
       function start_timer(){  
         document.getElementById("StartReview").submit();
-        console.log("- Phase1 - ===Start Trial=== Enter Review Page - ", timestamp, "-", sequence,'-', condition);
+        console.log("- ===Start Trial=== - Enter Review Page - ", timestamp, "-", sequence,'-', condition);
       }
 
 
       //點擊Pop up MSG的繼續(button)後，出現loading page，(15-reaction)秒後自動跳到 Phase_2
       function stepFour_PopUp(){ 
         console.log("- Phase 1 - Click Popup Continue Button - ", timestamp,'-', sequence,'-', condition);
+        console.log("- Phase1 - Enter Loading Page - " , timestamp, '-', sequence,'-',condition);
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
         //window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
