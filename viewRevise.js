@@ -46,7 +46,7 @@ function getTimestamp(){
 }
 
 // 2min  Timer
-var fullTime = 60; // 1分鐘 
+var fullTime = 30; // 30s -> can robot detect lying 
 var warn = 2; //20
 var almost = 1; //10
 

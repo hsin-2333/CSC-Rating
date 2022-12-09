@@ -177,7 +177,7 @@ if(isset($_GET['id'])){
                                                             <div></div>
                                                             <div></div>
                                                 </div>
-                                                <div class="t-txt" id="loadtxt">
+                                                <div class="t-txt text-center " id="loadtxt">
                                                     請稍等<span id="div1">15</span>秒，即將進入下一頁...
                                                 </div> 
                                             </div>
@@ -229,7 +229,7 @@ if(isset($_GET['id'])){
                                                         <div></div>
                                                         <div></div>
                                             </div>
-                                            <div class="t-txt" id="loadtxt">
+                                            <div class="t-txt text-center" id="loadtxt">
                                                 請稍等<span id="div1">15</span>秒，即將進入下一頁...
                                             </div> 
                                         </div>
