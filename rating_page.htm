@@ -191,7 +191,6 @@
         return 'Positive';
       }
       
-      var timestamp = get_timestamp();
       var condition = getCondition(event);
       var sequence = getSequence(event);
 
@@ -206,6 +205,7 @@
       }
 
       function getKeydown(event){
+        var timestamp = get_timestamp();
         var phase = getPhase(event);
         var sequence = getSequence(event);
         var key = event.key;
@@ -285,6 +285,7 @@
 
       //開始撰寫評論
       function start_timer(){  
+        var timestamp = get_timestamp();
         document.getElementById("StartReview").submit();
         console.log("- ===Start Trial=== - Enter Review Page - ", timestamp, "-", sequence,'-', condition);
       }
