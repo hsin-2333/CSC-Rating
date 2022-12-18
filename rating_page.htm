@@ -279,6 +279,7 @@
 
       //提交Questionnaire
       function submit_timer_question(){   
+        var timestamp = get_timestamp();
         document.getElementById("ReviewForm").submit();
         console.log("- ===End Trial=== - Submit Questionnaire -", timestamp,"-", sequence,'-', condition);
       }
