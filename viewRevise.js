@@ -52,8 +52,8 @@ var almost = 1; //10
 
 var currTime = fullTime;
 var timer_positive =0;
-var timestamp = getTimestamp();
-var unixTime = Date.now();
+// var timestamp = getTimestamp();
+// var unixTime = Date.now();
 
 var timer = setInterval(function () {
     --currTime;
@@ -63,10 +63,14 @@ var timer = setInterval(function () {
         ++ timer_positive;
         switch(timer_positive){
             case 1:
-              console.log('- Phase2 - Enter 「Thanks for completion」 Page (First Revise)-', unixTime, '-', timestamp);
+              var timestamp = getTimestamp();
+              var unixTime = Date.now();
+              console.log('- Phase2 - Enter 「Thanks for completion」 Page (First Revise)-', unixTime, '-', timestamp,'-', sequence, '-', condition);
                 break;
             case 2:
-              console.log('- Phase2 - Enter 「Thanks for completion」 Page (Second Revise)-', unixTime, '-',timestamp);
+              var timestamp = getTimestamp();
+              var unixTime = Date.now(); 
+              console.log('- Phase2 - Enter 「Thanks for completion」 Page (Second Revise)-', unixTime, '-',timestamp,'-', sequence, '-', condition);
                 break;    
         }
         stepper.next();    
@@ -77,9 +81,13 @@ var timer = setInterval(function () {
 
         switch(timer_positive){
             case 1:
+              var timestamp = getTimestamp();
+              var unixTime = Date.now();
               console.log('- Phase2 - Enter Revise Page (Second Revise)- ', unixTime, '-', timestamp,'-');
                 break;
             case 2:
+              var timestamp = getTimestamp();
+              var unixTime = Date.now();
               console.log('- Phase2 - Enter Questionnaire Page -', unixTime, '-', timestamp,'-');
                 document.getElementById("ReviewForm").submit(); //跳到自評表單
                 window.clearInterval(timer);

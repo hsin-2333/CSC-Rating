@@ -265,7 +265,7 @@ if(isset($_GET['id'])){
                                     const seconds = [hour, min, sec, millisec].join(":");
                                     const timestamp2 = [dates, seconds].join(" - ");
                                     const unixTime = Date.now();
-                                    console.log("- - Display Alert - -", unixTime, "-", timestamp2);
+                                    console.log("- - Display Alert - ", unixTime, "-", timestamp2);
                                     alert("完成");
                                     </script>';
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
