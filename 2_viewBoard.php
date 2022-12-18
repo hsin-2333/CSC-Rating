@@ -23,6 +23,41 @@ echo '<script type="text/javascript">',
        var unique_rand = "<?php echo $_SESSION['arr'][$_GET['id']-1]; ?>";
     </script>
 <?php
+$unique_rand = $_SESSION['arr'][$_GET['id']-1];;
+switch ($_SESSION['arr'][$_GET['id']-1]) {
+    case "1":
+        $_SESSION['getSequence'] ='A';
+        $_SESSION['getCondition'] ='C1';
+        break;
+    case "2":
+        $_SESSION['getSequence'] ='A';
+        $_SESSION['getCondition'] ='C2';
+        break;
+    case "3":
+        $_SESSION['getSequence'] ='A';
+        $_SESSION['getCondition'] ='C4';
+        break;
+    case "4":
+        $_SESSION['getSequence'] ='A';
+        $_SESSION['getCondition'] ='C3';
+        break;    
+    case "5":
+        $_SESSION['getSequence'] ='B';
+        $_SESSION['getCondition'] ='C3';
+        break;
+    case "6":
+        $_SESSION['getSequence'] ='B';
+        $_SESSION['getCondition'] ='C2';
+        break;    
+    case "7":
+        $_SESSION['getSequence'] ='B';
+        $_SESSION['getCondition'] ='C1';
+        break;  
+    case "8":
+        $_SESSION['getSequence'] ='B';
+        $_SESSION['getCondition'] ='C4';
+        break;          
+}
 
 //$sthBoard = $dbh->prepare('SELECT id, name FROM product WHERE id = ?');
 if(isset($_GET['id'])){
@@ -210,7 +245,7 @@ if(isset($_GET['id'])){
                                                 </button>
                                               </div>
                                               <div class="modal-body text-muted"><br>
-                                                <small class="text-muted">系統會提供您一次審閱和修改的機會，請確認上述所言來自於您實際的體驗</small>
+                                                <small class="text-muted">系統會提供您一次審閱和修改的機會，請確認上述所寫的評論可以通過系統真實性檢查。<br>若系統檢查發現評價內容真實性不高就會請您再寫一次。</small>
                                               </div><br>
                                               <div class="modal-footer">
                                                 <button id="secondChanceConfirmation" type="button" class="btn btn-primary" onclick="stepFour_PopUp()">好</button>
@@ -416,7 +451,7 @@ if(isset($_GET['id'])){
                                                 </button>
                                               </div>
                                               <div class="modal-body">
-                                                <small class="text-muted">系統會提供您一次審閱和修改的機會，請確認上述所言來自於您實際的體驗</small>
+                                                <small class="text-muted">系統會提供您一次審閱和修改的機會，請確認上述所寫的評論可以通過系統真實性檢查。<br>若系統檢查發現評價內容真實性不高就會請您再寫一次。</small>
                                               </div>
                                               <div class="modal-footer">
                                                 <button id="confirmationSubmit1"type="button" class="btn btn-primary" onclick="stepFour_PopUp()">好</button>
@@ -469,7 +504,7 @@ if(isset($_GET['id'])){
                     if(isset($_SESSION['account'])){
                         {
                             $sth2 = $dbh->prepare(
-                                'INSERT INTO dz_thread (product_id,nickname, account, content,content_negative, ip) VALUES (?, ?, ?, ?, ?, ?)'
+                                'INSERT INTO dz_thread (product_id,nickname, account, content,content_negative, ip, getSequence, getCondition) VALUES (?, ?, ?, ?, ?, ?,?,?)'
                             );
                             $sth2->execute(array(
                                 (int)$_GET['id'],
@@ -479,6 +514,8 @@ if(isset($_GET['id'])){
                                 $_POST['content'],
                                 $_POST['content_negative'],
                                 $_SERVER['REMOTE_ADDR'],
+                                $_SESSION['getSequence'], //體驗順序(正負評論 何者先出現)
+                                $_SESSION['getCondition'] //有無經驗&Popup
                             ));
                             
                         }
