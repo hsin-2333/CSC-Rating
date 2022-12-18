@@ -63,7 +63,7 @@ if(isset($_GET['id'])){
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 
                             <div class="p-2">
-                                <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
+                                <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="100" height="100" class="img-circle" alt="商品圖片">
                             </div>
                             -->
                             

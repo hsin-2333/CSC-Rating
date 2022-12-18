@@ -84,10 +84,10 @@ if(isset($_GET['id'])){
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
                             <div class="p-2">
-                            <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
+                            <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="100" height="100" class="img-circle" alt="商品圖片">
                             </div>
                             <div class="p-2">
-                                <h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
+                                <br><h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
                                 <!--h6 class="card-subtitle mb-2 text-muted">                                    <fieldset class="rating">
                                                             <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked="" aria-label="No rating.">
                 
@@ -291,10 +291,10 @@ if(isset($_GET['id'])){
                         <div class="d-flex justify-content-start  mb-3 ">
                             <!--顯示圖片、商品名稱、評分 -->
                             <div class="p-2">
-                                <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="70" height="70" class="img-circle" alt="商品圖片">
+                                <img src='uploads/product_<?php echo (int)$_GET['id']?>.jpg?' width="100" height="100" class="img-circle" alt="商品圖片">
                             </div>
                             <div class="p-2">
-                                <h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
+                                <br><h5 class="card-title" style=" font-size:30px;width:300px"><strong><?php echo $row_B['name']?></strong></h5>
                                         <!--h6 class="card-subtitle mb-2 text-muted">
                                                     <fieldset class="rating">
                                                             <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked="" aria-label="No rating.">
