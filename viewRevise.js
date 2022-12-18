@@ -83,12 +83,12 @@ var timer = setInterval(function () {
             case 1:
               var timestamp = getTimestamp();
               var unixTime = Date.now();
-              console.log('- Phase2 - Enter Revise Page (Second Revise)- ', unixTime, '-', timestamp,'-');
+              console.log('- Phase2 - Enter Revise Page (Second Revise)- ', unixTime, '-', timestamp, '-', sequence, '-', condition);
                 break;
             case 2:
               var timestamp = getTimestamp();
               var unixTime = Date.now();
-              console.log('- Phase2 - Enter Questionnaire Page -', unixTime, '-', timestamp,'-');
+              console.log('- Phase2 - Enter Questionnaire Page -', unixTime, '-', timestamp,'-', sequence, '-', condition);
                 document.getElementById("ReviewForm").submit(); //跳到自評表單
                 window.clearInterval(timer);
                 break;    
