@@ -53,6 +53,7 @@ var almost = 1; // 10
 var currTime = fullTime;
 var timer_positive =0;
 var timestamp = getTimestamp();
+var unixTime = Date.now();
 
 var timer = setInterval(function () {
     --currTime;
@@ -61,10 +62,10 @@ var timer = setInterval(function () {
         ++ timer_positive;
         switch(timer_positive){
             case 1:
-                console.log("- Phase1 - Enter 「Thanks for completion」 Page (First Review)-", timestamp,'- -', condition);
+                console.log("- Phase1 - Enter 「Thanks for completion」 Page (First Review)-", unixTime, '-', timestamp,'- -', condition);
                 break;
             case 2:
-              console.log("- Phase1 - Enter 「Thanks for completion」 Page (Second Review)-", timestamp,'- -', condition);
+              console.log("- Phase1 - Enter 「Thanks for completion」 Page (Second Review)-", unixTime, '-', timestamp,'- -', condition);
                 break;    
         }
         stepper.next();    
@@ -75,7 +76,7 @@ var timer = setInterval(function () {
 
         switch(timer_positive){
             case 1:
-                console.log("- Phase1 - Enter Review Page (Second Review) -", timestamp, "- -", condition);
+                console.log("- Phase1 - Enter Review Page (Second Review) -", unixTime, "-", timestamp, "- -", condition);
                 break;
             case 2:
                 window.clearInterval(timer);

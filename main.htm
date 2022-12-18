@@ -102,7 +102,8 @@
             function startExperiment(){
               location.href='1_showPic.php?id=9';
               var timestamp = get_timestamp();
-              console.log('- - Begin Experiment', '-', timestamp);
+              const unixTime = Date.now();
+              console.log('- - Begin Experiment', '-', unixTime, '-', timestamp);
             };
           </script>  
             

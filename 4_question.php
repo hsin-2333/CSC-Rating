@@ -243,8 +243,9 @@ if(isset($_GET['id'])){
                                     const millisec = date.getMilliseconds();
                                     const dates = [year, month, day].join("/");
                                     const seconds = [hour, min, sec, millisec].join(":");
-                                    const timestamp1 = [dates, seconds].join(" - ");    
-                                    console.log("- === End of Practice Trial === - -", timestamp1);
+                                    const timestamp1 = [dates, seconds].join(" - ");
+                                    const unixTime = Date.now();
+                                    console.log("- === End of Practice Trial === - -", unixTime, "-", timestamp1);
                                     alert("完成練習任務，接下來將開始進行正式任務");
                                 </script>';
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';
@@ -263,7 +264,8 @@ if(isset($_GET['id'])){
                                     const dates = [year, month, day].join("/");
                                     const seconds = [hour, min, sec, millisec].join(":");
                                     const timestamp2 = [dates, seconds].join(" - ");
-                                    console.log("- - Display Alert - -", timestamp2);
+                                    const unixTime = Date.now();
+                                    console.log("- - Display Alert - -", unixTime, "-", timestamp2);
                                     alert("完成");
                                     </script>';
                                 echo '<meta http-equiv=REFRESH CONTENT=0;url=1_showPic.php?id='.$_SESSION['cloth_order'][$_SESSION['orderN']].'>';

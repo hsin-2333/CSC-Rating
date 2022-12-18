@@ -41,7 +41,8 @@ if(isset($_GET['id'])){
         const dates = [year, month, day].join("/");
         const seconds = [hour, min, sec, millisec].join(":");
         const timestamp1 = [dates, seconds].join(" - ");
-        console.log("- - Enter Product Page", "- ", timestamp1, "- - - - ", productName);
+        const unixTime = Date.now();
+        console.log("- - Enter Product Page", "- ", unixTime, " - ", timestamp1, "- - - - ", productName);
     </script>
 
 
