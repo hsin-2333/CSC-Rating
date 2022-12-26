@@ -63,17 +63,14 @@ var timer = setInterval(function () {
         ++ timer_positive;
         switch(timer_positive){
             case 1:
-              var timestamp = getTimestamp();
-              var unixTime = Date.now();
-              console.log('- Phase2 - Enter 「Thanks for completion」 Page (First Revise)-', unixTime, '-', timestamp,'-', sequence, '-', condition);
                 break;
             case 2:
-              var timestamp = getTimestamp();
-              var unixTime = Date.now(); 
-              console.log('- Phase2 - Enter 「Thanks for completion」 Page (Second Revise)-', unixTime, '-',timestamp,'-', sequence, '-', condition);
                 break;    
         }
-        stepper.next();    
+        stepper.next();
+        var timestamp = getTimestamp();
+        var unixTime = Date.now();
+        console.log('- Phase2 - Enter 「Thanks for completion」 Page (XXX Revise)-', unixTime, '-', timestamp,'-', sequence, '-', condition);    
         currTime = fullTime + 3;
         //window.clearInterval(timer);
     }
@@ -83,17 +80,17 @@ var timer = setInterval(function () {
             case 1:
               var timestamp = getTimestamp();
               var unixTime = Date.now();
-              console.log('- Phase2 - Enter Revise Page (Second Revise)- ', unixTime, '-', timestamp, '-', sequence, '-', condition);
+              console.log('- Phase2 - Enter Revise Page (Second Revise)????-', unixTime, '-', timestamp, '-', sequence, '-', condition);
                 break;
             case 2:
-              var timestamp = getTimestamp();
-              var unixTime = Date.now();
-              console.log('- Phase2 - Enter Questionnaire Page -', unixTime, '-', timestamp,'-', sequence, '-', condition);
                 document.getElementById("ReviewForm").submit(); //跳到自評表單
                 window.clearInterval(timer);
                 break;    
         }
         stepper.next();
+        var timestamp = getTimestamp();
+        var unixTime = Date.now();
+        console.log('- Phase2 - Enter Questionnaire Page -', unixTime, '-', timestamp,'-', sequence, '-', condition);
     }
     if (currTime <= fullTime){  
         document.getElementById("contain").style.visibility = "visible";

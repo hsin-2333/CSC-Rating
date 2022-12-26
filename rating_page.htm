@@ -305,11 +305,13 @@
       //點擊Pop up MSG的繼續(button)後，出現loading page，(15-reaction)秒後自動跳到 Phase_2
       function stepFour_PopUp(){ 
         var timestamp = get_timestamp();
-        const unixTime = Date.now();
+        var unixTime = Date.now();
         console.log("- Phase 1 - Click Popup Continue Button - ", unixTime, '-', timestamp,'-', sequence,'-', condition);
-        console.log("- Phase1 - Enter Loading Page - " , unixTime, '-', timestamp, '-', sequence,'-',condition);
         myModal.hide(); //關閉Modal 
         loader.style.display = "block"; //顯示loader
+        var timestamp1 = get_timestamp();
+        var unixTime1 = Date.now();
+        console.log("- Phase1 - Enter Loading Page - " , unixTime1, '-', timestamp1, '-', sequence,'-',condition);
         //window.setTimeout("submit_timer_phase1()",5000); //5秒後submit，進入Phase_2
       };
       

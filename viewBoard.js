@@ -62,17 +62,14 @@ var timer = setInterval(function () {
         ++ timer_positive;
         switch(timer_positive){
             case 1:
-              var timestamp = getTimestamp();
-              var unixTime = Date.now();
-                console.log("- Phase1 - Enter 「Thanks for completion」 Page (First Review)-", unixTime, '-', timestamp,'-', sequence, '-', condition);
-                break;
+              break;
             case 2:
-              var timestamp = getTimestamp();
-              var unixTime = Date.now();
-              console.log("- Phase1 - Enter 「Thanks for completion」 Page (Second Review)-", unixTime, '-', timestamp,'-', sequence, '-', condition);
                 break;    
         }
-        stepper.next();    
+        stepper.next();
+        var timestamp = getTimestamp();
+        var unixTime = Date.now();
+        console.log("- Phase1 - Enter 「Thanks for completion」 Page (Review)-", unixTime, '-', timestamp,'-', sequence, '-', condition);    
         currTime = fullTime + 3;
         //window.clearInterval(timer);
     }
@@ -80,15 +77,15 @@ var timer = setInterval(function () {
 
         switch(timer_positive){
             case 1:
-              var timestamp = getTimestamp();
-              var unixTime = Date.now();
-                console.log("- Phase1 - Enter Review Page (Second Review) -", unixTime, "-", timestamp, "-", sequence, "-", condition);
                 break;
             case 2:
                 window.clearInterval(timer);
                 break;    
         }
         stepper.next();
+        var timestamp = getTimestamp();
+        var unixTime = Date.now();
+        console.log("- Phase1 - Enter Review Page/Loading/Nothing  -", unixTime, "-", timestamp, "-", sequence, "-", condition);
     }
     if (currTime <= fullTime){  
         document.getElementById("contain").style.visibility = "visible";
